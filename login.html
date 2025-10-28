@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login / Sign up</title>
+    <script defer src="../js/login.js"></script>
+    <link rel="stylesheet" href="../css/login1.css">
+
+</head>
+<body>
+<div class="form-structor">
+    <!-- SIGN UP FORM -->
+    <div class="signup">
+        <h2 class="form-title" id="signup"><span>or</span> Sign up</h2>
+        <form id="signupForm">
+            <div class="form-holder">
+                <input type="text" class="input" id="signupName" placeholder="Full Name" required />
+                <input type="email" class="input" id="signupEmail" placeholder="Email Address" required />
+                <input type="password" class="input" id="signupPassword" placeholder="Password" required minlength="6" />
+                <input type="password" class="input" id="signupConfirm" placeholder="Confirm Password" required minlength="6" />
+            </div>
+            <button type="submit" class="submit-btn">Sign up</button>
+        </form>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div class="login slide-up">
+        <div class="center">
+            <h2 class="form-title" id="login"><span>or</span> Log in</h2>
+            <form id="loginForm">
+                <div class="form-holder">
+                    <input type="email" class="input" id="loginEmail" placeholder="Email Address" required />
+                    <input type="password" class="input" id="loginPassword" placeholder="Password" required />
+                </div>
+                <button type="submit" class="submit-btn">Log in</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
