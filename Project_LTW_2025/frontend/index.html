@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Đăng nhập / Đăng ký</title>
+    <script defer src="../js/login.js"></script>
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
+<div id="toast" class="toast"></div>
+<div class="form-structor">
+    <!--    FORM ĐĂNG KÝ    -->
+    <div class="signup">
+        <h2 class="form-title" id="signup">Đăng ký</h2>
+        <div class="form-holder">
+            <input type="text" class="input" placeholder="Họ và tên"/>
+            <input type="email" class="input" placeholder="Email"/>
+            <input type="password" class="input" id="signupPassword" placeholder="Mật khẩu"/>
+            <input type="password" class="input" id="confirmPassword" placeholder="Xác nhận mật khẩu"/>
+        </div>
+        <button class="submit-btn">Đăng ký</button>
+    </div>
 
+    <!--    FORM ĐĂNG NHẬP    -->
+    <div class="login slide-up">
+        <div class="center">
+            <h2 class="form-title" id="login">Đăng nhập</h2>
+            <div class="form-holder">
+                <input type="email" class="input" placeholder="Email"/>
+                <input type="password" class="input" id="loginPassword" placeholder="Mật khẩu"/>
+            </div>
+            <a href="forgot.html" class="forgot-password">Quên mật khẩu?</a>
+            <button class="submit-btn">Đăng nhập</button>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
