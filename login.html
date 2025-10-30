@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup/Login</title>
+    <link rel="stylesheet" href="css/form.css">
+
+</head>
+
+<body>
+    <div id="toast" class="toast"></div>
+    <div class="form-structor">
+        <!-- ===== FORM ĐĂNG KÝ ===== -->
+        <div class="signup">
+            <h2 class="form-title">Đăng ký</h2>
+            <div class="form-holder">
+                <input type="text" class="input" placeholder="Họ và tên" />
+                <input type="email" class="input" placeholder="Email" />
+                <input type="password" class="input" id="signupPassword" placeholder="Mật khẩu" />
+                <input type="password" class="input" id="confirmPassword" placeholder="Xác nhận mật khẩu" />
+            </div>
+            <button class="submit-btn">Đăng ký</button>
+
+            <p class="switch-text">
+                Đã có tài khoản?
+                <span id="login" class="switch-btn">Đăng nhập</span>
+            </p>
+        </div>
+
+        <!-- ===== FORM ĐĂNG NHẬP ===== -->
+        <div class="login slide-up">
+            <div class="center">
+                <h2 class="form-title">Đăng nhập</h2>
+                <div class="form-holder">
+                    <input type="email" class="input" placeholder="Email" />
+                    <input type="password" class="input" id="loginPassword" placeholder="Mật khẩu" />
+                </div>
+                <a href="forgot.html" class="forgot-password">Quên mật khẩu?</a>
+                <button class="submit-btn">Đăng nhập</button>
+
+                <p class="switch-text">
+                    Chưa có tài khoản?
+                    <span id="signup" class="switch-btn">Đăng ký</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+
+</html>
