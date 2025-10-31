@@ -4,15 +4,232 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noble Loft Theory</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 <body>
+  <style>
+    /* ===== Tổng thể ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #FEFCF2;
+  color: #74512D;
+}
+
+/* ===== Header trên ===== */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #6F4E37;
+  padding: 10px 40px;
+  color: #F8F4E1;
+}
+
+.logo {
+  font-family: Aclonica;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+.logo span {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.search-box i {
+  position: absolute;
+  left: 12px;
+  color: #74512D; /* màu icon */
+  font-size: 16px;
+}
+
+.search-box input {
+  width: 450px;
+  padding: 8px 12px 8px 35px; /* chừa chỗ cho icon */
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #F8F4E1;
+  color: #74512D;
+  font-size: 14px;
+}
+
+.search-box input::placeholder {
+  color: #A79277;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 31px;
+}
+
+.header-right a {
+  text-decoration: none;
+  color: #F8F4E1;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.header-right .icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icons {
+  display: flex;
+  gap: 12px;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: #F8F4E1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.circle i {
+  color: #6F4E37;
+  font-size: 14px;
+}
+
+.circle:hover {
+  background-color: #ECB176; /* đổi sang cam đất khi hover */
+  transform: scale(1.05);
+}
+
+.circle:hover i {
+  color: #F8F4E1;
+}
+
+/* ===== Menu dưới ===== */
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+  background-color: #FEFCF2;
+  border-bottom: 2px solid #A79277;
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+.menu a {
+  position: relative;
+  text-decoration: none;
+  color: #74512D;
+  font-weight: 500;
+  padding: 8px 12px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0; /* nằm sát dưới chữ */
+  width: 0%;
+  height: 2px;
+  background-color: #ECB176;
+  transition: width 0.3s ease;
+}
+
+/* Khi hover thì hiện underline */
+.menu a:hover {
+  color: #ECB176;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+
+/* ========== DROPDOWN MENU ========== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown > a {
+  text-decoration: none;
+  color: #74512D;
+  font-weight: 500;
+  padding: 10px 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px; /* khoảng cách giữa chữ và icon */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: 0; /* quan trọng: luôn canh từ bên trái phần tử cha */
+  background-color: #FEFCF2;
+  width: 180px; /* giữ kích thước đồng đều */
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
+  padding: 8px 0;
+  font-weight: 200 !important;
+}
+
+.dropdown-content a {
+  color: #74512D;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #ECB176;
+  color: #FEFCF2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Icon mũi tên */
+.dropdown i {
+  font-size: 12px;
+  margin-left: 4px;
+  transition: transform 0.2s;
+}
+
+.dropdown:hover i {
+  transform: rotate(180deg);
+}
+
+
+  </style>
   <header class="header">
     <div class="header-top">
       <div class="logo">
-        <img src="logo.jpg" alt="Logo">
+        <img src="img/logo.jpg" alt="Logo">
         <span>Noble Loft Theory</span>
       </div>
       <div class="search-box">
