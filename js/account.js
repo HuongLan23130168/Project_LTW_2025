@@ -19,13 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
+    /*
     // ========== SỬA HỒ SƠ ==========
     const editBtn = document.getElementById("editProfile");
 
     if (editBtn) {
         editBtn.addEventListener("click", function () {
-
             let current = this.textContent.trim();
 
             if (current === "Sửa") {
@@ -53,18 +52,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ========== SỬA ĐỊA CHỈ ==========
     document.addEventListener("click", function (e) {
-
         if (e.target.classList.contains("edit-address-btn")) {
             const btn = e.target;
             const row = btn.closest(".address-row");
             const block = row.querySelector(".address");
 
-            // Nếu đang ở chế độ Sửa
             if (btn.textContent.trim() === "Sửa") {
                 const text = block.innerText.replace("()", "").trim();
                 block.innerHTML = `<input class="editing" value="${text}">`;
                 btn.textContent = "Lưu";
-
             } else {
                 const input = block.querySelector("input");
                 const newText = input.value.trim();
@@ -95,9 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
             addressBox.appendChild(newAddress);
         });
     }
+    */
 
 });
-
 
 // ========== LOAD TRANG ĐỔI MẬT KHẨU ==========
 function loadPasswordPage() {
@@ -113,5 +109,3 @@ function loadPasswordPage() {
             document.body.appendChild(script);
         });
 }
-
-//================== XÓA ĐỊA CHỈ ===========
