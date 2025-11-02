@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tài khoản của tôi</title>
+    <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+
+<div class="account-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="profile-header">
+            <div class="avatar">HL</div>
+            <div class="profile-info">
+                <p><strong id="userName">Hương Lan</strong></p>
+
+            </div>
+        </div>
+
+        <ul class="menu">
+            <li class="active">Tài khoản của tôi</li>
+            <li>Đổi mật khẩu</li>
+            <li>Đơn mua</li>
+            <li>Kho voucher</li>
+        </ul>
+
+        <button class="logout-btn">Đăng xuất</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="account-details" id="content">
+
+        <!-- -------- PAGE: THÔNG TIN ------- -->
+        <div id="page-profile" class="page active">
+            <div class="info-box">
+                <div class="info-left">
+                    <p><strong>Email:</strong> <span id="email">lankhung@gmail.com</span></p>
+                    <p><strong>Họ và tên:</strong> <span id="fullName">Hương Lan</span></p>
+                    <p><strong>Số điện thoại:</strong> <span id="phone">098112182441</span></p>
+                </div>
+                <div class="info-right">
+                    <div class="circle-avatar">HL</div>
+                </div>
+                <div class="edit-profile-actions">
+
+                </div>
+                <button class="edit-btn" id="editProfile">Sửa</button>
+            </div>
+
+            <h4>Địa chỉ</h4> <button class="add-btn">➕ Thêm địa chỉ</button>
+
+            <div class="address-box">
+
+                <div class="address-list">
+                    <div class="address-row">
+                        <div class="address" id="addressText">
+                            55/13, Phường Thanh Khê, Thành phố Đà Nẵng
+                            <span class="default">(Mặc định)</span>
+                        </div>
+                        <button class="edit-btn edit-address-btn">Sửa</button>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+            <!-- PAGE: PASSWORD -->
+       <div>
+        <div id="page-password" class="page"></div>
+       </div>
+
+
+
+        <!-- -------- PAGE: PRIVATE ------- -->
+        <div id="page-private" class="page">
+            <h3>Thiết lập riêng tư</h3>
+            <p>Chưa có thiết lập nào.</p>
+        </div>
+
+        <!-- -------- PAGE: ORDERS ------- -->
+        <div id="page-orders" class="page">
+            <h3>Đơn mua</h3>
+            <p>Chưa có đơn hàng nào.</p>
+        </div>
+
+        <!-- -------- PAGE: VOUCHER ------- -->
+        <div id="page-voucher" class="page">
+            <h3>Kho Voucher</h3>
+            <p>Bạn chưa có voucher nào.</p>
+        </div>
+    </main>
+</div>
+
+<script src="js/account.js"></script>
+</body>
+</html>
