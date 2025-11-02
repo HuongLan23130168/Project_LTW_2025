@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- === HEADER === -->
+    <div id="header"></div>
+
+    <!-- === BREADCRUMB (ĐƯỜNG DẪN TRANG) === -->
+    <!-- === BREADCRUMB (ĐƯỜNG DẪN TRANG) === -->
+    <nav class="breadcrumb">
+        <a href="index.html">Trang chủ / </a>
+        <a href="product.html" class="current">Phòng khách</a>
+    </nav>
+
+    <div class="container">
+
+        <aside class="sidebar" id="filter-sidebar">
+            <h3>Bộ lọc tìm kiếm</h3>
+
+            <div class="filter-group">
+                <label class="filter-label" style="cursor: pointer;">
+                    <span>Mức giá</span>
+                    <span class="filter-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                </label>
+                <div class="options" style="display: none;">
+                    <div><input type="radio" name="price" value="all" checked> Tất cả</div>
+                    <div><input type="radio" name="price" value="1"> Dưới 500.000₫</div>
+                    <div><input type="radio" name="price" value="2"> 500.000₫ - 1.000.000₫</div>
+                    <div><input type="radio" name="price" value="3"> 1.000.000₫ - 3.000.000₫</div>
+                    <div><input type="radio" name="price" value="4"> Trên 3.000.000₫</div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label" style="cursor: pointer;">
+                    <span>Danh mục</span>
+                    <span class="filter-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                </label>
+                <div class="options" style="display: none;">
+                    <div><input type="checkbox" name="category" value="cay"> Cây</div>
+                    <div><input type="checkbox" name="category" value="hoa"> Hoa</div>
+                    <div><input type="checkbox" name="category" value="den"> Đèn</div>
+                    <div><input type="checkbox" name="category" value="phukien"> Tượng & Phụ kiện</div>
+                    <div><input type="checkbox" name="category" value="dongho"> Đồng hồ</div>
+                    <div><input type="checkbox" name="category" value="tranh"> Tranh</div>
+                    <div><input type="checkbox" name="category" value="guong"> Gương</div>
+                    <div><input type="checkbox" name="category" value="nen"> Nến & Tinh dầu</div>
+                    <div><input type="checkbox" name="category" value="lo"> Bình & Lọ hoa</div>
+                    <div><input type="checkbox" name="category" value="changoi"> Chăn & Gối</div>
+                    <div><input type="checkbox" name="category" value="ke"> Kệ & Giá đỡ mini</div>
+                    <div><input type="checkbox" name="category" value="ban"> Bàn decor</div>
+                    <div><input type="checkbox" name="category" value="ghe"> Ghế decor</div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label" style="cursor: pointer;">
+                    <span>Phòng</span>
+                    <span class="filter-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                </label>
+                <div class="options" style="display: none;">
+                    <div><input type="checkbox" name="room" value="livingroom"> Phòng khách</div>
+                    <div><input type="checkbox" name="room" value="bedroom"> Phòng ngủ</div>
+                    <div><input type="checkbox" name="room" value="kitchen"> Phòng bếp</div>
+                    <div><input type="checkbox" name="room" value="balcony"> Ban công</div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label" style="cursor: pointer;">
+                    <span>Màu sắc</span>
+                    <span class="filter-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                </label>
+                <div class="options" style="display: none;">
+                    <div><input type="checkbox" name="color" value="white"> Trắng</div>
+                    <div><input type="checkbox" name="color" value="beige"> Be</div>
+                    <div><input type="checkbox" name="color" value="black"> Đen</div>
+                    <div><input type="checkbox" name="color" value="pink"> Hồng</div>
+                    <div><input type="checkbox" name="color" value="brown"> Nâu</div>
+                    <div><input type="checkbox" name="color" value="grey"> Xám</div>
+                    <div><input type="checkbox" name="color" value="green"> Xanh lá</div>
+                    <div><input type="checkbox" name="color" value="blue"> Xanh dương</div>
+                    <div><input type="checkbox" name="color" value="yellow"> Vàng</div>
+                    <div><input type="checkbox" name="color" value="red"> Đỏ</div>
+                    <div><input type="checkbox" name="color" value="orange"> Cam</div>
+                    <div><input type="checkbox" name="color" value="sliver"> Bạc</div>
+                    <div><input type="checkbox" name="color" value="purple"> Tím</div>
+                </div>
+            </div>
+
+        </aside>
+
+        <main>
+            <div class="sort">
+                <div class="category-header">
+                    <h2 id="categoryName">Danh mục: Tất cả sản phẩm</h2>
+                </div>
+
+                <div class="sortProducts">
+                    <label for="sortProducts">Sắp xếp: </label>
+                    <select id="sortProducts">
+                        <option value="default">Mặc định</option>
+                        <option value="price-asc">Giá tăng dần</option>
+                        <option value="price-desc">Giá giảm dần</option>
+                        <option value="stock-asc">Tồn kho ít → nhiều</option>
+                        <option value="stock-desc">Tồn kho nhiều → ít</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-list" id="productList">
+
+                <!-- ====== SẢN PHẨM 1 ====== -->
+                <div class="product">
+                    <span class="discount">25%</span>
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Tranh hoa cúc decor tường</h4>
+                    <div class="tags">
+                        <span>Tranh</span>
+                        <span>Vintage</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">950.000₫</span>
+                            <span class="old-price">1.200.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 2 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Đèn treo phong cách Bắc Âu</h4>
+                    <div class="tags">
+                        <span>Đèn</span>
+                        <span>Hiện đại</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">1.450.000₫</span>
+                            <span class="old-price">1.800.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 3 ====== -->
+                <div class="product">
+                    <span class="discount">25%</span>
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Lọ hoa thủy tinh trang trí</h4>
+                    <div class="tags">
+                        <span>Trang trí</span>
+                        <span>Tối giản</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">320.000₫</span>
+                            <span class="old-price">400.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 4 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Ghế đơn Milk Tea thư giãn</h4>
+                    <div class="tags">
+                        <span>Ghế</span>
+                        <span>Hiện đại</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">4.500.000₫</span>
+                            <span class="old-price">4.300.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 5 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Bàn tròn OSLO</h4>
+                    <div class="tags">
+                        <span>Trang trí</span>
+                        <span>Tối giản</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">1.200.000₫</span>
+                            <span class="old-price">1.000.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 6 ====== -->
+                <div class="product">
+                    <span class="discount">25%</span>
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Đồng Hồ Tráng Gương Hươu Tài Lộc</h4>
+                    <div class="tags">
+                        <span>Trang trí</span>
+                        <span>Hiện đại</span>
+                        <span>Sang trọng</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">250.000₫</span>
+                            <span class="old-price">190.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 7 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Cây cảnh mini Bonsai</h4>
+                    <div class="tags">
+                        <span>Cây</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">350.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 8 ====== -->
+                <div class="product">
+                    <span class="discount">25%</span>
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Hoa hồng giả decor</h4>
+                    <div class="tags">
+                        <span>Hoa</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">220.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 9 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Đèn treo Nordic</h4>
+                    <div class="tags">
+                        <span>Đèn</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">1.200.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 10 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Tượng Phật mini để bàn</h4>
+                    <div class="tags">
+                        <span>Tượng & Phụ kiện</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">450.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 11 ====== -->
+                <div class="product">
+                    <span class="discount">25%</span>
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Đồng hồ treo tường Minimal</h4>
+                    <div class="tags">
+                        <span>Đồng hồ</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">680.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 12 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Tranh canvas phong cảnh Bắc Âu</h4>
+                    <div class="tags">
+                        <span>Tranh</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">680.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 13 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Gương treo tường khung gỗ</h4>
+                    <div class="tags">
+                        <span>Gương</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">550.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 14 ====== -->
+                <div class="product">
+                    <span class="discount">30%</span>
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Nến thơm hương oải hương</h4>
+                    <div class="tags">
+                        <span>Nến & Tinh dầu</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">120.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 15 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Lọ hoa thủy tinh trong suốt</h4>
+                    <div class="tags">
+                        <span>Bình & Lọ hoa</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">220.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 16 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Gối tựa sofa vải Linen</h4>
+                    <div class="tags">
+                        <span>Chăn & Gối</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">320.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 17 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Kệ sách mini gỗ</h4>
+                    <div class="tags">
+                        <span>Kệ & Giá đỡ mini</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">400.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 18 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Bàn trà decor Scandinavia</h4>
+                    <div class="tags">
+                        <span>Bàn decor</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">1.200.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 19 ====== -->
+                <div class="product">
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Lọ hoa sứ trắng decor</h4>
+                    <div class="tags">
+                        <span>Trang trí</span>
+                        <span>Hiện đại</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">380.000₫</span>
+                            <span class="old-price">450.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- ====== SẢN PHẨM 20 ====== -->
+                <div class="product">
+                    <span class="discount">15%</span>
+                    <div class="img" style="background-image: url('https://via.placeholder.com/260x180');"></div>
+                    <h4>Bàn decor nhỏ gọn</h4>
+                    <div class="tags">
+                        <span>Bàn decor</span>
+                        <span>Tối giản</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">1.000.000₫</span>
+                            <span class="old-price">1.150.000₫</span>
+                        </div>
+                        <button class="add-cart"><i class="fa fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PHÂN TRANG -->
+            <div id="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- NÚT LÊN ĐẦU TRANG -->
+    <button id="backToTop" title="Lên đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- === FOOTER === -->
+    <div id="footer"></div>
+
+    <script>
+        // Tải header và footer tự động
+        async function loadHTML(id, file) {
+            const response = await fetch(file);
+            const content = await response.text();
+            document.getElementById(id).innerHTML = content;
+        }
+
+        loadHTML("header", "header.html");
+        loadHTML("footer", "footer.html");
+    </script>
+
+    <script src="js/products.js"></script>
+</body>
+
+</html>

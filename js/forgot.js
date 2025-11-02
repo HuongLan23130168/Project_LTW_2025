@@ -1,30 +1,17 @@
+// Xóa log trong console mỗi khi tải lại page
+console.clear();
+
+// Chờ nội dung HTML tải xong -> chạy script
 document.addEventListener("DOMContentLoaded", () => {
   const btnForgot = document.getElementById("btnForgot");
-  const msg = document.getElementById("forgotMsg");
 
   btnForgot.addEventListener("click", () => {
+    // Lấy giá trị email nhập (loại bỏ khoảng trắng đầu & cuối)
     const email = document.getElementById("emailForgot").value.trim();
-    const user = JSON.parse(localStorage.getItem("user") || "null");
 
-    if (!email) {
-      msg.textContent = "⚠️ Vui lòng nhập email!";
-      msg.style.color = "orange";
-      return;
-    }
-
-    if (!user || user.email !== email) {
-      msg.textContent = "❌ Không tìm thấy tài khoản!";
-      msg.style.color = "red";
-      return;
-    }
-
-    // ✅ Giả lập gửi email khôi phục
-    msg.textContent = "📩 Liên kết khôi phục mật khẩu đã được gửi tới email!";
-    msg.style.color = "green";
-
-    // ⏳ Chuyển sang trang đặt lại mật khẩu
+    // Giả lập gửi mail → chuyển sang page đặt mật khẩu mới
     setTimeout(() => {
       window.location.href = "newPass.html";
-    }, 1500);
+    }, 1000);
   });
 });
