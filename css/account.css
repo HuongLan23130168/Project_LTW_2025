@@ -61,34 +61,41 @@ input.editing {
     margin: 0;
 }
 
-.menu {
+.menu-account {
     list-style: none;
     padding: 0;
     flex-grow: 1;
     margin-left: 18px;
 }
 
-.menu li {
+.menu-account li {
     padding: 10px 0;
     cursor: pointer;
     color: #6F4E37;
 }
 
-.menu li.active {
+.menu-account li.active {
     color: #ECB176;
     font-weight: bold;
 }
 
 .logout-btn {
-
     background: transparent;
-    border: 1.3px #74512D solid;
+    border: 1.3px transparent  solid;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     color: #74512D;
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
+    text-align: center;
+}
+.logout-btn a {
+    color: #6F4E37;
+    text-decoration: none;
+    text-align: center;
+
 }
 
 .logout-btn:hover {
@@ -141,7 +148,7 @@ main h4 {
     background: #FEFCF2;
     border-radius: 10px;
     padding: 15px 20px;
-    margin-top: 10px;
+
     margin: 15px 0;
 }
 
@@ -323,4 +330,3 @@ input.editing:focus {
     border-color: #A79277 !important;
     box-shadow: 0 0 5px #A79277;
 }
-
