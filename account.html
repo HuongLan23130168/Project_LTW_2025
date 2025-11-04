@@ -3,35 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>Tài khoản của tôi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="account-orders.css">
+    <link rel="stylesheet" href="changePass.css">
+    <link rel="stylesheet" href="header.css">
+
+
 </head>
 <body>
 
+<header class="header">
+    <div class="header-top">
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Logo">
+            <span>Noble Loft Theory</span>
+        </div>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Tìm kiếm">
+        </div>
+
+        <div class="header-right">
+            <a href="#">Tra cứu đơn hàng</a>
+            <a href="#">Giới thiệu</a>
+            <a href="#">Liên hệ</a>
+            <div class="icons">
+                <div class="circle" ><i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="circle"><i class="fa-solid fa-user"></i></div>
+            </div>
+        </div>
+    </div>
+
+<div id="header"></div>
+
+
 <div class="account-container">
+
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="profile-header">
             <div class="avatar">HL</div>
             <div class="profile-info">
                 <p><strong id="userName">Hương Lan</strong></p>
-
             </div>
         </div>
 
-        <ul class="menu">
-            <li class="active">Tài khoản của tôi</li>
-            <li>Đổi mật khẩu</li>
-            <li>Đơn mua</li>
-            <li>Kho voucher</li>
+        <ul class="menu-account">
+            <li class="active" data-target="#page-profile">Tài khoản của tôi</li>
+            <li data-target="#page-password">Đổi mật khẩu</li>
+            <li data-target="#page-orders">Đơn mua</li>
         </ul>
 
-        <button class="logout-btn">Đăng xuất</button>
+        <div class="logout-btn"><a href="login.html">Đăng xuất</a></div>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="account-details" id="content">
+    <!-- Main Content -->
+    <main class="account-details">
 
-        <!-- -------- PAGE: THÔNG TIN ------- -->
+        <!--  PAGE PROFILE -->
         <div id="page-profile" class="page active">
             <div class="info-box">
                 <div class="info-left">
@@ -39,19 +69,18 @@
                     <p><strong>Họ và tên:</strong> <span id="fullName">Hương Lan</span></p>
                     <p><strong>Số điện thoại:</strong> <span id="phone">098112182441</span></p>
                 </div>
+
                 <div class="info-right">
                     <div class="circle-avatar">HL</div>
                 </div>
-                <div class="edit-profile-actions">
 
-                </div>
                 <button class="edit-btn" id="editProfile">Sửa</button>
             </div>
 
-            <h4>Địa chỉ</h4> <button class="add-btn">➕ Thêm địa chỉ</button>
+            <h4>Địa chỉ</h4>
+            <button class="add-btn">➕ Thêm địa chỉ</button>
 
             <div class="address-box">
-
                 <div class="address-list">
                     <div class="address-row">
                         <div class="address" id="addressText">
@@ -59,43 +88,178 @@
                             <span class="default">(Mặc định)</span>
                         </div>
                         <button class="edit-btn edit-address-btn">Sửa</button>
-
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <!--  PAGE CHANGE PASSWORD -->
+        <div id="page-password" class="page">
+            <div class="form change">
+                <h2 class="form-title">Đổi mật khẩu</h2>
 
+                <div class="form-holder">
+                    <input type="password" id="oldPassword" class="input-cp" placeholder="Mật khẩu hiện tại" required>
+                    <input type="password" id="newPassword" class="input-cp" placeholder="Mật khẩu mới"required>
+                    <input type="password" id="confirmPassword" class="input-cp" placeholder="Xác nhận mật khẩu mới"required>
+                </div>
+
+                <button id="btnChange" class="submit-btn">Đổi lại mật khẩu</button>
+            </div>
+        </div>
+
+        <!--  PAGE ORDERS -->
+        <div id="page-orders" class="page">
+            <div class="order-tabs">
+                <div class="order-tab active" data-tab="all">Tất cả</div>
+                <div class="order-tab" data-tab="pending">Chờ xử lý</div>
+                <div class="order-tab" data-tab="paid">Đã thanh toán</div>
+                <div class="order-tab" data-tab="shipping">Đang giao</div>
+                <div class="order-tab" data-tab="delivered">Đã giao</div>
+                <div class="order-tab" data-tab="canceled">Đã hủy</div>
             </div>
 
+
+            <div class="order-container">
+                <div id="order-list">
+
+                <!-- order 1 -->
+                    <div class="order-card" data-status="canceled">
+                        <div class="order-status">Đã hủy</div>
+
+                        <div class="order-item">
+                            <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m4jyoniaqdvz5e@resize_w900_nl.webp">
+                            <div class="order-info">
+                                <h4>Cây hoa hồng cổ rừng 1m1, hoa nhiều, dáng đẹp,hoa hồng giả</h4>
+                                <p class="order-price">500.000 đ</p>
+                                <div class="order-tags">
+                                    <span class="order-tag">1m1</span>
+                                    <span class="order-tag">Đỏ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="order-date">27/07/2025 10:07</span>
+                        <div class="order-footer">
+                            <button class="order-view-btn">Xem đơn hàng</button>
+                        </div>
+
+
+                    </div>
+
+                    <!-- order 2 -->
+                    <div class="order-card" data-status="canceled">
+                        <div class="order-status">Đã hủy</div>
+
+                        <div class="order-item">
+                            <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwejo9etilej2a@resize_w900_nl.webp">
+                            <div class="order-info">
+                                <h4>Bộ đèn thả 3 chao pha lê - tặng kèm bóng LED</h4>
+                                <p class="order-price">359.000 đ</p>
+                                <div class="order-tags">
+                                    <span class="order-tag">Đèn tắng chùm</span>
+                                    <span class="order-tag">Trắng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="order-date">14/03/2025 03:15</span>
+                        <div class="order-footer">
+                            <button class="order-view-btn">Xem đơn hàng</button>
+                        </div>
+                    </div>
+
+
+                    <!-- order 3 -->
+                    <div class="order-card" data-status="delivered">
+                        <div class="order-status">Đã giao</div>
+
+                        <div class="order-item">
+                            <img src="https://updecor.net/wp-content/uploads/2019/07/tuong-voi-bo-con-1.jpg">
+                            <div class="order-info">
+                                <h4>Tượng Voi Bố Con Trang Trí Bằng Đồng</h4>
+                                <p class="order-price">10.000.000 đ</p>
+                                <div class="order-tags">
+
+                                    <span class="order-tag">Xám</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="order-date">08/03/2025 15:02 </span>
+                        <div class="order-footer">
+                            <button class="order-view-btn">Xem đơn hàng</button>
+                        </div>
+                    </div>
+
+                    <!-- order 4 -->
+                    <div class="order-card" data-status="pending">
+                        <div class="order-status">Chờ xử lý </div>
+
+                        <div class="order-item">
+                            <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mek6225s99fkc3.webp">
+                            <div class="order-info">
+                                <h4>Nến thơm Soyam by Citta</h4>
+                                <p class="order-price">185.000 đ</p>
+                                <div class="order-tags">
+                                    <span class="order-tag">Fruit</span>
+                                    <span class="order-tag">Trắng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="order-date">01/02/2025 12:15</span>
+                        <div class="order-footer">
+                            <button class="order-view-btn-huy">Hủy </button>
+                            <button class="order-view-btn">Xem đơn hàng</button>
+                        </div>
+                    </div>
+
+                    <!-- order 5 -->
+                    <div class="order-card" data-status="paid">
+                        <div class="order-status">Đã thanh toán </div>
+
+                        <div class="order-item">
+                            <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m19obxi09ct825.webp">
+                            <div class="order-info">
+                                <h4>Gối Tựa Trang Trí Sofa Vải Len Dệt Sơi Nổi 2 Mặt Cao Cấp</h4>
+                                <p class="order-price">89.000 đ</p>
+                                <div class="order-tags">
+                                    <span class="order-tag">Rêu</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="order-date">01/02/2025 09:10</span>
+                        <div class="order-footer">
+                            <button class="order-view-btn">Xem đơn hàng</button>
+                        </div>
+                    </div>
+
+                    <!-- order 6 -->
+                    <div class="order-card" data-status="shipping">
+                        <div class="order-status">Đang giao </div>
+
+                        <div class="order-item">
+                            <img src="https://down-vn.img.susercontent.com/file/sg-11134201-22120-jw14cwevgukv2d.webp">
+                            <div class="order-info">
+                                <h4>Bộ Tranh Thêu Chữ Thập 11CT DIY Hình Cá Koi Nhỏ Khung Tròn Nhỏ Không Khung Thêu Chữ Thập Giàu Và Giàu Có</h4>
+                                <p class="order-price">344.900 đ</p>
+                                <div class="order-tags">
+
+                                    <span class="order-tag">Đen</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="order-date">14/01/2025 17:17</span>
+                        <div class="order-footer">
+                            <button class="order-view-btn">Xem đơn hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
-            <!-- PAGE: PASSWORD -->
-       <div>
-        <div id="page-password" class="page"></div>
-       </div>
 
-
-
-        <!-- -------- PAGE: PRIVATE ------- -->
-        <div id="page-private" class="page">
-            <h3>Thiết lập riêng tư</h3>
-            <p>Chưa có thiết lập nào.</p>
-        </div>
-
-        <!-- -------- PAGE: ORDERS ------- -->
-        <div id="page-orders" class="page">
-            <h3>Đơn mua</h3>
-            <p>Chưa có đơn hàng nào.</p>
-        </div>
-
-        <!-- -------- PAGE: VOUCHER ------- -->
-        <div id="page-voucher" class="page">
-            <h3>Kho Voucher</h3>
-            <p>Bạn chưa có voucher nào.</p>
-        </div>
     </main>
 </div>
-
 <script src="js/account.js"></script>
+
 </body>
 </html>
