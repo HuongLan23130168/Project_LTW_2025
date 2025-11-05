@@ -33,12 +33,4 @@ document.addEventListener("DOMContentLoaded", () => {
       signup.classList.add("slide-up");
       signin.classList.remove("slide-up");
     });
-
-  // === NÚT ĐĂNG NHẬP ===
-  // document
-  //   .querySelector(".signin .submit-btn")
-  //   .addEventListener("click", (e) => {
-  //     e.preventDefault();
-  //     window.location.href = "index.html";
-  //   });
 });
