@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phòng khách</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/living.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- === HEADER === -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Logo">
+                <span>Noble Loft Theory</span>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm">
+            </div>
+            <div class="header-right">
+                <a href="#">Tra cứu đơn hàng</a>
+                <a href="gioithieu.html">Giới thiệu</a>
+                <a href="#">Liên hệ</a>
+                <div class="icons">
+                    <a href="cart.html" class="circle">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <a href="user.html" class="circle">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html" class="active">Trang chủ</a>
+            <div class="dropdown">
+                <a href="living.html">Phòng khách <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Sofa</a>
+                    <a href="#">Bàn trà</a>
+                    <a href="#">Kệ tivi</a>
+                    <a href="#">Đèn trang trí</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="kitchen.html">Phòng Bếp <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Bàn ăn</a>
+                    <a href="#">Ghế ăn</a>
+                    <a href="#">Tủ bếp</a>
+                    <a href="#">Đèn bàn</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="bedroom.html">Phòng Ngủ <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Giường ngủ</a>
+                    <a href="#">Tủ quần áo</a>
+                    <a href="#">Bàn trang điểm</a>
+                    <a href="#">Đèn ngủ</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="office.html">Phòng Làm Việc <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#"> Ghế </a>
+                    <a href="#"> Bàn làm việc </a>
+                    <a href="#"> Tủ sách </a>
+                    <a href="#"> Kệ sách </a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="balcony.html">Ban Công <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Ghế ngoài trời</a>
+                    <a href="#">Bàn trà ngoài trời</a>
+                    <a href="#">Chậu cây</a>
+                    <a href="#">Đèn trang trí</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="decor.html">Decor <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Tranh treo tường</a>
+                    <a href="#">Gương trang trí</a>
+                    <a href="#">Đồ decor bàn</a>
+                    <a href="#">Thảm trải sàn</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- === BREADCRUMB (ĐƯỜNG DẪN TRANG) === -->
+    <nav class="breadcrumb">
+        <a href="index.html">Trang chủ</a> &#47;
+        <span class="current">Phòng khách</span>
+    </nav>
+
+
+    <div class="container">
+
+        <!-- === BỘ LỌC TÌM KIẾM === -->
+        <aside class="sidebar" id="filter-sidebar">
+            <h3>Bộ lọc tìm kiếm</h3>
+
+            <!-- === MỨC GIÁ === -->
+            <div class="filter-group">
+                <label class="filter-label" style="cursor: pointer;">
+                    <span>Mức giá</span>
+                    <span class="filter-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                </label>
+                <div class="options" style="display: none;">
+                    <div><input type="radio" name="price" value="all" checked> Tất cả</div>
+                    <div><input type="radio" name="price" value="1"> Dưới 500.000₫</div>
+                    <div><input type="radio" name="price" value="2"> 500.000₫ - 1.000.000₫</div>
+                    <div><input type="radio" name="price" value="3"> 1.000.000₫ - 3.000.000₫</div>
+                    <div><input type="radio" name="price" value="4"> Trên 3.000.000₫</div>
+                </div>
+            </div>
+
+            <!-- === DANH MỤC === -->
+            <div class="filter-group">
+                <label class="filter-label" style="cursor: pointer;">
+                    <span>Danh mục</span>
+                    <span class="filter-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                </label>
+                <div class="options" style="display: none;">
+                    <div><input type="checkbox" name="category" value="cay"> Cây</div>
+                    <div><input type="checkbox" name="category" value="hoa"> Hoa</div>
+                    <div><input type="checkbox" name="category" value="den"> Đèn</div>
+                    <div><input type="checkbox" name="category" value="phukien"> Tượng & Phụ kiện</div>
+                    <div><input type="checkbox" name="category" value="dongho"> Đồng hồ</div>
+                    <div><input type="checkbox" name="category" value="tranh"> Tranh</div>
+                    <div><input type="checkbox" name="category" value="guong"> Gương</div>
+                    <div><input type="checkbox" name="category" value="nen"> Nến & Tinh dầu</div>
+                    <div><input type="checkbox" name="category" value="lo"> Bình & Lọ hoa</div>
+                    <div><input type="checkbox" name="category" value="changoi"> Chăn & Gối</div>
+                    <div><input type="checkbox" name="category" value="ke"> Kệ & Giá đỡ mini</div>
+                    <div><input type="checkbox" name="category" value="ban"> Bàn decor</div>
+                    <div><input type="checkbox" name="category" value="ghe"> Ghế decor</div>
+                </div>
+            </div>
+
+            <!-- === PHÒNG === -->
+            <div class="filter-group">
+                <label class="filter-label" style="cursor: pointer;">
+                    <span>Phòng</span>
+                    <span class="filter-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                </label>
+                <div class="options" style="display: none;">
+                    <div><input type="checkbox" name="room" value="livingroom"> Phòng khách</div>
+                    <div><input type="checkbox" name="room" value="bedroom"> Phòng ngủ</div>
+                    <div><input type="checkbox" name="room" value="kitchen"> Phòng bếp</div>
+                    <div><input type="checkbox" name="room" value="balcony"> Ban công</div>
+                </div>
+            </div>
+
+            <!-- === MỨC SẮC === -->
+            <div class="filter-group">
+                <label class="filter-label" style="cursor: pointer;">
+                    <span>Màu sắc</span>
+                    <span class="filter-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                </label>
+                <div class="options" style="display: none;">
+                    <div><input type="checkbox" name="color" value="white"> Trắng</div>
+                    <div><input type="checkbox" name="color" value="beige"> Be</div>
+                    <div><input type="checkbox" name="color" value="black"> Đen</div>
+                    <div><input type="checkbox" name="color" value="pink"> Hồng</div>
+                    <div><input type="checkbox" name="color" value="brown"> Nâu</div>
+                    <div><input type="checkbox" name="color" value="grey"> Xám</div>
+                    <div><input type="checkbox" name="color" value="green"> Xanh lá</div>
+                    <div><input type="checkbox" name="color" value="blue"> Xanh dương</div>
+                    <div><input type="checkbox" name="color" value="yellow"> Vàng</div>
+                    <div><input type="checkbox" name="color" value="red"> Đỏ</div>
+                    <div><input type="checkbox" name="color" value="orange"> Cam</div>
+                    <div><input type="checkbox" name="color" value="sliver"> Bạc</div>
+                    <div><input type="checkbox" name="color" value="purple"> Tím</div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- === SẢN PHẨM === -->
+        <main>
+            <div class="sort">
+                <!-- === BỘ LỌC SP === -->
+                <div class="category-header">
+                    <h2 id="categoryName">Danh mục: Tất cả sản phẩm</h2>
+                </div>
+
+                <div class="sortProducts">
+                    <label for="sortProducts">Sắp xếp: </label>
+                    <select id="sortProducts">
+                        <option value="default">Mặc định</option>
+                        <option value="price-asc">Giá tăng dần</option>
+                        <option value="price-desc">Giá giảm dần</option>
+                        <option value="stock-asc">Tồn kho ít → nhiều</option>
+                        <option value="stock-desc">Tồn kho nhiều → ít</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- === DANH SÁCH SẢN PHẨM === -->
+            <div class="product-list" id="productList">
+
+                <!-- ====== SẢN PHẨM 1 ====== -->
+                <a href="detail.html" class="product">
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m14zw7atgqred4');">
+                    </div>
+                    <h4>Cây Thiên trúc giả - Cây trang trí nhà cửa</h4>
+                    <div class="tags">
+                        <span>Cây</span>
+                        <span>Tối giản</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">1.500.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 2 ====== -->
+                <a href="detail.html" class="product">
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/b3b9a2b44ee657ddc47ed8b134f990b0.webp');">
+                    </div>
+                    <h4>Hoa Lan Hồ Điệp - Tặng Kèm Sỏi Trắng- Hoa Lụa Decor Cao Cấp</h4>
+                    <div class="tags">
+                        <span>Hoa</span>
+                        <span>Cao cấp</span>
+                        <span>Sang trọng</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">570.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 3 ====== -->
+                <a href="detail.html" class="product">
+                    <span class="discount">-25%</span>
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lo1skjyjpey555.webp');">
+                    </div>
+                    <h4>Đèn chùm pha lê 15 tay LED XANH chao đá đúc màu vàng, Đèn chùm phòng khách đẹp tặng bóng led
+                    </h4>
+                    <div class="tags">
+                        <span>Đèn</span>
+                        <span>Cổ điển</span>
+                        <span>Sang trọng</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">1.500.000₫</span>
+                            <span class="old-price">2.000.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 4 ====== -->
+                <a href="detail.html" class="product">
+                    <span class="discount">-10%</span>
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lxuxn7hg9nfd1f.webp');">
+                    </div>
+                    <h4> Tượng Tỳ Hưu Mini Phong Thủy Chiêu Tài Hút Lộc</h4>
+                    <div class="tags">
+                        <span>Tượng</span>
+                        <span>Cổ điển</span>
+                        <span>Sang trọng</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">450.000₫</span>
+                            <span class="old-price">500.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 5 ====== -->
+                <a href="detail.html" class="product">
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m98v689d8j1qc4.webp');">
+                    </div>
+                    <h4>Tranh Tráng Gương 3D Hoa Hướng Dương</h4>
+                    <div class="tags">
+                        <span>Tranh</span>
+                        <span>Sang trọng</span>
+                        <span>Thanh lịch</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">672.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 6 ====== -->
+                <a href="detail.html" class="product">
+                    <span class="discount">-25%</span>
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/sg-11134201-7rdww-m0byn0wu6vda84.webp');">
+                    </div>
+                    <h4>Đồng Hồ Tráng Gương Hươu Tài Lộc</h4>
+                    <div class="tags">
+                        <span>Trang trí</span>
+                        <span>Hiện đại</span>
+                        <span>Sang trọng</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">190.000₫</span>
+                            <span class="old-price">250.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 7 ====== -->
+                <a href="detail.html" class="product">
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/13bc145ec98b5026230cd796d5d48b28.webp');">
+                    </div>
+                    <h4>Sách Giả mô hình cao cấp hiện đại cổ điển trang trí decor</h4>
+                    <div class="tags">
+                        <span>Phụ kiện</span>
+                        <span>Cổ điển</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">148.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 8 ====== -->
+                <a href="detail.html" class="product">
+                    <span class="discount">-25%</span>
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/sg-11134201-22120-ji1b27brhukvac.webp');">
+                    </div>
+                    <h4>Tinh dầu thơm phòng hương trà CLASSIC BROWN</h4>
+                    <div class="tags">
+                        <span>Decor</span>
+                        <span>Nến thơm</span>
+                        <span>Tinh dầu</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">140.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 9 ====== -->
+                <a href="detail.html" class="product">
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mek6225m4q9x4c.webp');">
+                    </div>
+                    <h4>Nến thơm Soyam by Citta</h4>
+                    <div class="tags">
+                        <span>Decor</span>
+                        <span>Nến thơm</span>
+                        <span>Tinh dầu</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">185.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 10 ====== -->
+                <a href="detail.html" class="product">
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lniqqjsz3bzu6b.webp');">
+                    </div>
+                    <h4>Rèm NOREN, màn cửa 2 mảnh chân biên viền tua rua phong cách Nhật Bản</h4>
+                    <div class="tags">
+                        <span>Decor</span>
+                        <span>Rèm</span>
+                        <span>Canvas</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">118.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 11 ====== -->
+                <a href="detail.html" class="product">
+                    <span class="discount">-25%</span>
+                    <div class="img"
+                        style="background-image: url('https://product.hstatic.net/200000486527/product/img_4118_3465223127a34592a0671827a04680e8_master.jpg');">
+                    </div>
+                    <h4>Thảm trải sàn cao cấp Arcus phong cách Bắc Âu</h4>
+                    <div class="tags">
+                        <span>Decor</span>
+                        <span>Thảm</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">1.125.000₫</span>
+                            <span class="old-price">1.500.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== SẢN PHẨM 12 ====== -->
+                <a href="detail.html" class="product">
+                    <div class="img"
+                        style="background-image: url('https://down-vn.img.susercontent.com/file/sg-11134201-7rep6-m8rtmuruep5zf4.webp');">
+                    </div>
+                    <h4>Đồ chơi sang trọng dài tay ngôi sao dễ thương</h4>
+                    <div class="tags">
+                        <span>Gối</span>
+                    </div>
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price">159.000₫</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- PHÂN TRANG -->
+            <div id="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- NÚT LÊN ĐẦU TRANG -->
+    <button id="backToTop" title="Lên đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <!-- Cột 1: Giới thiệu -->
+                <div class="footer-col">
+                    <h3>Giới thiệu</h3>
+                    <p>Chào mừng bạn đến với <strong>Noble Loft Theory</strong> — không gian dành cho những ai yêu thích
+                        cái đẹp và nghệ thuật trang trí nội thất.</p>
+                    <p>Chúng tôi mang đến các sản phẩm decor trang trí nhà với phong cách hiện đại, tối giản nhưng vẫn
+                        giữ được sự tinh tế trong từng chi tiết.</p>
+
+                </div>
+
+                <!-- Cột 2: Liên kết -->
+                <div class="footer-col">
+                    <h3>Liên kết</h3>
+                    <ul>
+                        <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                        <ul>
+
+                            <div> </div>
+                            <li><a href="#"> Chính sách đổi trả hoàn hàng</a></li>
+                            <li><a href="#"> Chính sách bảo mật mật khẩu</a></li>
+                            <li><a href="#"> Hướng dẫn mua hàng, sản phẩm</a></li>
+                            <li><a href="#"> Chính sách kiểm hàng hóa vận chuyển</a></li>
+                            <li><a href="#"> Chính sách giao hàng tận nơi</a></li>
+                            <li><a href="#"> Hướng dẫn thanh toán đơn hàng</a></li>
+
+                        </ul>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Thông tin liên hệ -->
+                <div class="footer-col">
+                    <h3>Thông tin liên hệ</h3>
+                    <p><i class="fa fa-map-marker"></i> Khu phố 6, p.Linh Trung, tp.Thủ Đức</p>
+                    <p><i class="fa fa-map-marker"></i> Đại học Nông Lâm tp Hồ Chí Minh</p>
+                    <p><i class="fa fa-phone"></i> Liên hệ: 03751841444 - 03381776315 </p>
+
+                    <p><i class="fa fa-envelope"></i> <a
+                            href="mailto:NLT@noblelofttheory.com">NLT@noblelofttheory.com</a></p>
+                </div>
+
+
+                <!-- Cột 4: Fanpage -->
+                <div class="footer-col">
+                    <h3>Fanpage</h3>
+                    <div class="fanpage-box">
+                        <p>Liên hệ ngay trang chủ của shop Noble Loft Theory.</p>
+                        <p>Nếu bạn đang có thắc mắc gì ở sản phẩm.</p>
+                        <p>Fanpage, Youtube và Instagram.</p>
+
+
+                        <div class="social-box">
+                            <div class="social-icons">
+                                <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2025 NLT Noble Loft Theory. Powered by NLT </p>
+        </div>
+        </div>
+    </footer>
+
+
+
+    <script src="js/living.js"></script>
+</body>
+
+</html>
