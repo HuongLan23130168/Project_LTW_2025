@@ -5,7 +5,9 @@ body {
     margin: 0;
     color: #6F4E37;
 }
-
+main {
+    flex: 1;
+}
 .page { display: none; }
 .page.active { display: block; }
 
