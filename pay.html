@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pay.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <style>
+        /* === BREADCRUMB === */
+        .breadcrumb {
+            margin: 20px 40px 10px;
+            color: #333;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #74512D;
+        }
+
+        .breadcrumb .current {
+            color: #74512D;
+            font-weight: 700;
+        }
+
+        /* === TIẾN TRÌNH === */
+        .progress {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            margin: 20px 0 40px;
+        }
+
+        .progress .step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border: 2px solid;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #999;
+            position: relative;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .progress .step i {
+            margin-right: 6px;
+        }
+
+        .progress .step.active {
+            color: #fff;
+            background-color: #ECB176;
+        }
+
+        .progress .step::after {
+            content: "";
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            width: 50px;
+            height: 2px;
+            background-color: #ddd;
+            transform: translateY(-50%);
+        }
+
+        .progress .step:last-child::after {
+            display: none;
+        }
+
+        /* === SẢN PHẨM === */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .cart-item .item-info {
+            flex: 1;
+        }
+
+        .cart-item h4 {
+            font-size: 15px;
+            margin: 3px 0;
+            color: #333;
+        }
+
+        /* === MÀU SẮC === */
+        .color {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .color-box {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+
+        .color-name {
+            font-weight: 500;
+        }
+
+        /* === GIÁ === */
+        .price {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .current-price {
+            color: #e67e22;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .old-price {
+            color: #aaa;
+            font-size: 13px;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            color: #d40004;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* Nút thanh toán */
+        .checkout-btn {
+            display: block;
+            text-align: center;
+            background: #A79277;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 550;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #74512D;
+        }
+    </style>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo">
+                <img src="https://i.postimg.cc/5t4yq9qJ/logo-ltw.jpg" alt="Logo">
+                <span>Noble Loft Theory</span>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm">
+            </div>
+            <div class="header-right">
+                <a href="tracking.html">Tra cứu đơn hàng</a>
+                <a href="gioithieu.html">Giới thiệu</a>
+                <a href="contact.html">Liên hệ</a>
+                <div class="icons">
+                    <a href="cart.html" class="circle">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <a href="login.html" class="circle">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="home.html" class="active">Trang chủ</a>
+            <div class="dropdown">
+                <a href="living.html">Phòng khách <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Sofa</a>
+                    <a href="#">Bàn trà</a>
+                    <a href="#">Kệ tivi</a>
+                    <a href="#">Đèn trang trí</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="kitchen.html">Phòng Bếp <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Bàn ăn</a>
+                    <a href="#">Ghế ăn</a>
+                    <a href="#">Tủ bếp</a>
+                    <a href="#">Đèn bàn</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="bedroom.html">Phòng Ngủ <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Giường ngủ</a>
+                    <a href="#">Tủ quần áo</a>
+                    <a href="#">Bàn trang điểm</a>
+                    <a href="#">Đèn ngủ</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="office.html">Phòng Làm Việc <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#"> Ghế </a>
+                    <a href="#"> Bàn làm việc </a>
+                    <a href="#"> Tủ sách </a>
+                    <a href="#"> Kệ sách </a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="balcony.html">Ban Công <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Ghế ngoài trời</a>
+                    <a href="#">Bàn trà ngoài trời</a>
+                    <a href="#">Chậu cây</a>
+                    <a href="#">Đèn trang trí</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="decor.html">Decor <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Tranh treo tường</a>
+                    <a href="#">Gương trang trí</a>
+                    <a href="#">Đồ decor bàn</a>
+                    <a href="#">Thảm trải sàn</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== BREADCRUMB / TIẾN TRÌNH ===== -->
+    <div class="breadcrumb">
+        <a href="home.html">Trang chủ</a> &#47;
+        <a href="cart.html">Giỏ hàng</a> &#47;
+        <span class="current">Thông tin đặt hàng</span>
+    </div>
+
+    <div class="progress">
+        <div class="step"><i class="fa fa-cart-shopping"></i> Giỏ hàng</div>
+        <div class="step active"><i class="fa fa-credit-card"></i> Thông tin đặt hàng</div>
+        <div class="step"><i class="fa fa-check-circle"></i> Hoàn tất</div>
+    </div>
+
+    <!-- ===== KHUNG CHÍNH ===== -->
+    <div class="checkout-container">
+        <!-- === CỘT TRÁI === -->
+        <div class="checkout-left">
+            <!-- THÔNG TIN NGƯỜI NHẬN -->
+            <h4>THÔNG TIN NGƯỜI NHẬN</h4>
+            <div class="form-group">
+                <input type="text" placeholder="Họ & tên*" required>
+                <input type="tel" placeholder="Số điện thoại*" required>
+                <input type="email" placeholder="Email*" required>
+            </div>
+
+            <!-- ĐỊA CHỈ NHẬN HÀNG -->
+            <h4>ĐỊA CHỈ NHẬN HÀNG</h4>
+            <div class="address-group">
+                <input type="text" placeholder="Tỉnh/ Thành phố*" required>
+                <input type="text" placeholder="Quận/ Huyện*" required>
+                <input type="text" placeholder="Phường/ Xã*" required>
+                <input type="text" placeholder="Số nhà, tên đường*" required>
+                <textarea placeholder="Ghi chú cho người giao hàng (nếu có)"></textarea>
+            </div>
+
+            <h4 class="section-title">HÌNH THỨC THANH TOÁN</h4>
+            <div class="option-grid">
+                <label class="option-box">
+                    <input type="radio" name="payment" checked>
+                    <div class="option-content">
+                        <p class="main-text">THANH TOÁN KHI NHẬN HÀNG (COD)</p>
+                    </div>
+                </label>
+
+                <label class="option-box">
+                    <input type="radio" name="payment">
+                    <div class="option-content">
+                        <p class="main-text">CHUYỂN KHOẢN NGÂN HÀNG</p>
+                    </div>
+                </label>
+            </div>
+
+            <!-- PHƯƠNG THỨC VẬN CHUYỂN -->
+            <h4 class="section-title">PHƯƠNG THỨC VẬN CHUYỂN</h4>
+            <div class="option-grid">
+                <label class="option-box">
+                    <input type="radio" name="shipping">
+                    <div class="option-content">
+                        <p class="main-text">HỎA TỐC</p>
+                    </div>
+                </label>
+
+                <label class="option-box">
+                    <input type="radio" name="shipping" checked>
+                    <div class="option-content">
+                        <p class="main-text">TIÊU CHUẨN</p>
+                    </div>
+                </label>
+            </div>
+
+        </div>
+
+        <!-- === CỘT PHẢI === -->
+        <div class="checkout-right">
+            <h3>THÔNG TIN THANH TOÁN</h3>
+            <hr class="divider">
+
+            <p class="section-title">Danh sách sản phẩm</p>
+
+            <!-- === DANH SÁCH SẢN PHẨM === -->
+            <div class="cart-list">
+                <!-- Sản phẩm 1 -->
+                <div class="cart-item">
+                    <img src="https://product.hstatic.net/200000486527/product/img_4118_3465223127a34592a0671827a04680e8_master.jpg"
+                        alt="sp">
+                    <div class="item-info">
+                        <h4>Thảm trải sàn cao cấp Arcus phong cách Bắc Âu</h4>
+                        <div class="price">
+                            <span class="current-price">1.125.000₫</span>
+                            <span class="old-price">1.500.000₫</span>
+                            <span class="discount">-25%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm 2 -->
+                <div class="cart-item">
+                    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m14zw7atgqred4" alt="sp">
+                    <div class="item-info">
+                        <h4>Đồ chơi sang trọng dài tay ngôi sao dễ thương</h4>
+                        <div class="color">Màu sắc:
+                            <span class="color-box" style="background-color: #000;"></span>
+                            <span class="color-name">Đen</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">159.000₫</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- === THÔNG TIN THANH TOÁN === -->
+            <div class="payment-line">
+                <p>Hình thức thanh toán: </p>
+                <span>COD</span>
+            </div>
+            <div class="shipping-line">
+                <p>Phương thức vận chuyển: </p>
+                <span>Hỏa tốc</span>
+            </div>
+            <hr class="divider">
+
+            <div class="total-line">
+                <p>Tiền sản phẩm: </p>
+                <span>1.125.000₫</span>
+            </div>
+            <div class="ship-total">
+                <p>Phí vận chuyển: </p>
+                <span>50.000₫</span>
+            </div>
+
+            <hr class="divider">
+            <div class="final-total">
+                <p>TỔNG THANH TOÁN</p>
+                <span>1.175.000₫</span>
+            </div>
+
+            <a href="completed.html" class="checkout-btn">ĐẶT HÀNG NGAY</a>
+        </div>
+
+    </div>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <!-- Cột 1: Giới thiệu -->
+                <div class="footer-col">
+                    <h3>Giới thiệu</h3>
+                    <p>Chào mừng bạn đến với <strong>Noble Loft Theory</strong> — không gian dành cho những ai yêu thích
+                        cái đẹp và nghệ thuật trang trí nội thất.</p>
+                    <p>Chúng tôi mang đến các sản phẩm decor trang trí nhà với phong cách hiện đại, tối giản nhưng vẫn
+                        giữ được sự tinh tế trong từng chi tiết.</p>
+
+                </div>
+
+                <!-- Cột 2: Liên kết -->
+                <div class="footer-col">
+                    <h3>Liên kết</h3>
+                    <ul>
+                        <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                        <ul>
+
+                            <div> </div>
+                            <li>
+                                <p href="#"> Chính sách đổi trả hoàn hàng</p>
+                            </li>
+                            <li>
+                                <p href="#"> Chính sách bảo mật mật khẩu</p>
+                            </li>
+                            <li>
+                                <p href="#"> Hướng dẫn mua hàng, sản phẩm</p>
+                            </li>
+                            <li>
+                                <p href="#"> Chính sách kiểm hàng hóa vận chuyển</p>
+                            </li>
+                            <li>
+                                <p href="#"> Chính sách giao hàng tận nơi</p>
+                            </li>
+                            <li>
+                                <p href="#"> Hướng dẫn thanh toán đơn hàng</p>
+                            </li>
+
+                        </ul>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Thông tin liên hệ -->
+                <div class="footer-col">
+                    <h3>Thông tin liên hệ</h3>
+                    <p><i class="fa fa-map-marker"></i> Khu phố 6, p.Linh Trung, tp.Thủ Đức</p>
+                    <p><i class="fa fa-map-marker"></i> Đại học Nông Lâm tp Hồ Chí Minh</p>
+                    <p><i class="fa fa-phone"></i> Liên hệ: 03751841444 - 03381776315 </p>
+
+                    <p><i class="fa fa-envelope"></i> <a
+                            href="mailto:NLT@noblelofttheory.com">NLT@noblelofttheory.com</a></p>
+                </div>
+
+
+                <!-- Cột 4: Fanpage -->
+                <div class="footer-col">
+                    <h3>Fanpage</h3>
+                    <div class="fanpage-box">
+                        <p>Liên hệ ngay trang chủ của shop Noble Loft Theory.</p>
+                        <p>Nếu bạn đang có thắc mắc gì ở sản phẩm.</p>
+                        <p>Fanpage, Youtube và Instagram.</p>
+
+
+                        <div class="social-box">
+                            <div class="social-icons">
+                                <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2025 NLT Noble Loft Theory. Powered by NLT </p>
+        </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
