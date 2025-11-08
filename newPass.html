@@ -2,28 +2,83 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mật khẩu mới</title>
-    <link rel="stylesheet" href="css/newPass.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mật khẩu mới</title>
+  <link rel="stylesheet" href="css/contentForm.css" />
 </head>
 
 <body>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
-    <div class="form-structor">
-        <!-- ===== FORM MẬT KHẨU MỚI ===== -->
-        <div class="newPass">
-            <h2 class="form-title">🔒 Mật khẩu mới</h2>
-            <div class="form-holder">
-                <input type="password" id="newPassword" class="input" placeholder="Nhập mật khẩu mới" />
-                <input type="password" id="confirmPassword" class="input" placeholder="Nhập lại mật khẩu mới" />
-            </div>
-            <button class="submit-btn" id="btnAgree">Xác nhận</button>
-            <p class="switch-text">← <a href="login.html" class="switch-btn">Quay lại đăng nhập</a></p>
-        </div>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background-color: #E1E8EE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .form-structor {
+      background-color: #222;
+      border-radius: 15px;
+      height: 600px;
+      width: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-structor::after {
+      content: "";
+      opacity: 0.8;
+      position: absolute;
+      inset: 0;
+      background: url("https://i.postimg.cc/ncBkxWWJ/bgr-login.jpg") no-repeat left bottom / 500px;
+    }
+
+    .switch-text {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .switch-text .switch-btn {
+      margin-top: 10px;
+      color: #74512D;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .switch-text .switch-btn:hover {
+      color: #A79277;
+      text-decoration: underline;
+    }
+  </style>
+
+  <div class="form-structor">
+    <div class="content">
+      <h2 class="form-title">Mật khẩu mới</h2>
+
+      <div class="form-holder">
+        <input type="password" class="input" placeholder="Nhập mật khẩu mới" required />
+        <input type="password" class="input" placeholder="Nhập lại mật khẩu mới" required />
+      </div>
+
+      <a href="login.html" class="submit-btn">Xác nhận</a>
+
+      <p class="switch-text">
+        <a href="forgot.html" class="switch-btn">&larr; Quay lại đăng nhập</a>
+      </p>
     </div>
+  </div>
 
-    <script src="js/newPass.js"></script>
 </body>
 
 </html>

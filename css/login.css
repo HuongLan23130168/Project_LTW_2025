@@ -1,0 +1,265 @@
+/* ---------- FORM ĐĂNG KÝ ---------- */
+.signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.signup.slide-up {
+    top: 5%;
+    transform: translate(-50%, 0);
+}
+
+.signup.slide-up .form-holder,
+.signup.slide-up .submit-btn {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.signup.slide-up .form-title {
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.signup.slide-up .form-title span {
+    margin-right: 5px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.signup .form-title {
+    color: #fff;
+    /* font-size: 1.7em; */
+    text-align: center;
+}
+
+.signup .form-title span {
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.signup .form-holder {
+    border-radius: 15px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.signup .input {
+    border: none;
+    outline: none;
+    display: block;
+    height: 25px;
+    line-height: 1.5;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    width: 230px;
+    font-size: 13px;
+}
+
+.signup .input:last-child {
+    border-bottom: none;
+}
+
+.signup .input::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.signup .submit-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    /* width: 100%; */
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.signup .submit-btn:hover {
+    background-color: #A79277;
+}
+
+.signup .switch-text {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.signup .switch-text .switch-btn {
+    color: #ECB176;
+}
+
+.signup .switch-text .switch-btn:hover {
+    color: #F8F4E1;
+}
+
+/* ---------- FORM ĐĂNG NHẬP ---------- */
+.signin {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.signin::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+    background-color: #fff;
+    width: 200%;
+    height: 250px;
+    border-radius: 50%;
+    z-index: 4;
+    transition: all 0.3s ease;
+}
+
+.signin .center {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.signin .form-title {
+    color: #000;
+    /* font-size: 1.7em; */
+    text-align: center;
+}
+
+.signin .form-title span {
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.signin .form-holder {
+    border-radius: 15px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.signin .input {
+    border: none;
+    outline: none;
+    display: block;
+    height: 25px;
+    line-height: 1.5;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    width: 230px;
+    font-size: 13px;
+}
+
+.signin .input:last-child {
+    border-bottom: none;
+}
+
+.signin .input::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    margin-top: 8px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #74512D;
+    text-decoration: underline;
+}
+
+.signin .submit-btn {
+    background-color: #A79277;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    /* width: 100%; */
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.signin .submit-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.signin.slide-up {
+    top: 90%;
+}
+
+.signin.slide-up .center {
+    top: 10%;
+    transform: translate(-50%, 0);
+}
+
+.signin.slide-up .form-holder,
+.signin.slide-up .submit-btn {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.signin.slide-up .form-title {
+    font-size: 1em;
+    margin: 0;
+    cursor: pointer;
+}
+
+.signin.slide-up .form-title span {
+    margin-right: 5px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.signin .switch-text {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.signin .switch-text .switch-btn {
+    color: #74512D;
+}
+
+.signin .switch-text .switch-btn:hover {
+    color: #ECB176;
+}
