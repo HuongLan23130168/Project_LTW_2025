@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const signup = document.querySelector(".signup");
   const signin = document.querySelector(".signin");
 
-  const signinBtn = document.getElementById("signin");
   const signupBtn = document.getElementById("signup");
+  const signinBtn = document.getElementById("signin");
 
   // === CHUYỂN GIỮA 2 FORM ===
   // Khi nhấn "Đăng nhập" → ẩn signup, hiện signin
