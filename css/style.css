@@ -1,15 +1,17 @@
 /* ===== RESET ===== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
   background: #FEFCF2;
   color: #111;
-}
+} */
 
 /* ===== HERO CÓ HÌNH MỜ & HÌNH PHÍA TRƯỚC ===== */
 .hero {
@@ -21,7 +23,7 @@ html, body {
   align-items: center;
   justify-content: flex-start;
   color: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   background: #333;
 }
 
@@ -48,7 +50,7 @@ html, body {
   max-height: 85%;
   border-radius: 20px;
   object-fit: cover;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   z-index: 2;
   opacity: 0;
   transform: translateY(30px);
@@ -88,7 +90,7 @@ html, body {
   border-radius: 10px;
   font-weight: 600;
   transition: all 0.3s ease;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .cta:hover {
@@ -99,7 +101,9 @@ html, body {
 
 /* === Animation === */
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeUp {
@@ -108,6 +112,7 @@ html, body {
     transform: translateY(0);
   }
 }
+
 /* Lớp mờ phía sau hình rõ */
 .hero-blur {
   position: absolute;
@@ -121,6 +126,7 @@ html, body {
   z-index: 1.5;
   opacity: 0.8;
 }
+
 /* === Responsive === */
 @media (max-width: 900px) {
   .hero {
@@ -129,15 +135,18 @@ html, body {
     text-align: center;
     padding-bottom: 40px;
   }
+
   .hero-img img {
     position: relative;
     width: 80%;
     margin-top: 20px;
   }
+
   .hero-content {
     padding: 40px 20px;
   }
 }
+
 /* ===== SECTIONS ===== */
 .container {
   max-width: 1200px;
@@ -172,8 +181,10 @@ html, body {
 
 .gallery-set .card img {
   width: 100%;
-  height: 260px;              /* Chiều cao cố định cho tất cả ảnh */
-  object-fit: cover;          /* Giữ tỉ lệ, cắt phần thừa */
+  height: 260px;
+  /* Chiều cao cố định cho tất cả ảnh */
+  object-fit: cover;
+  /* Giữ tỉ lệ, cắt phần thừa */
   border-radius: 10px;
   display: block;
 }
@@ -186,22 +197,27 @@ html, body {
 }
 
 .card {
-  flex: 1 1 calc(33.333% - 24px);  /* 3 cột đều nhau */
+  flex: 1 1 calc(33.333% - 24px);
+  /* 3 cột đều nhau */
   display: flex;
-  flex-direction: column;          /* Cho phép nội dung co giãn theo chiều dọc */
-  justify-content: space-between;  /* Đảm bảo khoảng đều */
+  flex-direction: column;
+  /* Cho phép nội dung co giãn theo chiều dọc */
+  justify-content: space-between;
+  /* Đảm bảo khoảng đều */
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   padding: 14px;
   text-align: center;
   transition: transform 0.3s ease;
-  min-height: 360px;               /* Đặt chiều cao tối thiểu đồng đều */
+  min-height: 360px;
+  /* Đặt chiều cao tối thiểu đồng đều */
 }
 
 .card img {
   width: 100%;
-  height: 220px;                   /* Cố định chiều cao ảnh */
+  height: 220px;
+  /* Cố định chiều cao ảnh */
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -211,7 +227,8 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;                    /* Để phần text giãn ra đều nhau */
+  flex-grow: 1;
+  /* Để phần text giãn ra đều nhau */
 }
 
 .card-body h3 {
@@ -224,7 +241,8 @@ html, body {
   color: #666;
   line-height: 1.5;
   margin: 0;
-  flex-grow: 1;                    /* Chiếm không gian để các card bằng nhau */
+  flex-grow: 1;
+  /* Chiếm không gian để các card bằng nhau */
 }
 
 .card:hover {
@@ -252,7 +270,7 @@ html, body {
 .why-images img {
   width: 100%;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .why-features {
@@ -277,7 +295,7 @@ html, body {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .feature h3 {
@@ -300,6 +318,7 @@ html, body {
     grid-template-columns: 1fr;
   }
 }
+
 /* ===== MuiTen ===== */
 .arrow {
   position: absolute;
@@ -319,6 +338,7 @@ html, body {
   transition: all 0.3s ease;
   z-index: 10;
 }
+
 /* ===== GALLERY SLIDER ===== */
 .gallery-wrapper {
   position: relative;
@@ -352,6 +372,7 @@ html, body {
 .arrow.right {
   right: 20px;
 }
+
 /* ===== SLIDER CHUNG CHO BANNER ===== */
 .promo-slider {
   position: relative;
@@ -359,7 +380,7 @@ html, body {
   max-width: 1300px;
   margin: 60px auto;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   background: #000;
 }
 
@@ -374,7 +395,8 @@ html, body {
   display: grid;
   grid-template-columns: 2fr 1fr;
   width: 100%;
-  min-width: 100%; /* ✅ Giữ cho mỗi slide chiếm đúng 100% */
+  min-width: 100%;
+  /* ✅ Giữ cho mỗi slide chiếm đúng 100% */
   height: 500px;
   gap: 20px;
   border-radius: 20px;
@@ -388,6 +410,7 @@ html, body {
   border-radius: 20px;
   overflow: hidden;
 }
+
 .promo-main img {
   width: 100%;
   height: 100%;
@@ -395,9 +418,11 @@ html, body {
   filter: brightness(0.65);
   transition: transform 0.6s ease;
 }
+
 .promo-main:hover img {
   transform: scale(1.05);
 }
+
 .promo-content {
   position: absolute;
   top: 50%;
@@ -406,16 +431,19 @@ html, body {
   color: #fff;
   max-width: 450px;
 }
+
 .promo-content h2 {
   font-size: 40px;
   font-weight: 800;
   margin-bottom: 16px;
 }
+
 .promo-content p {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
 .promo-btn {
   background: #fff;
   color: #111;
@@ -425,6 +453,7 @@ html, body {
   text-decoration: none;
   transition: 0.3s;
 }
+
 .promo-btn:hover {
   background: #f0f0f0;
   transform: translateY(-2px);
@@ -436,34 +465,40 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .promo-small {
   position: relative;
   flex: 1;
   border-radius: 20px;
   overflow: hidden;
 }
+
 .promo-small img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
+
 .promo-small:hover img {
   transform: scale(1.05);
 }
+
 .banner-text {
   position: absolute;
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
   color: #fff;
-  text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
 }
+
 .banner-text h3 {
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 10px;
 }
+
 .banner-btn {
   display: inline-block;
   background: #fff;
@@ -474,6 +509,7 @@ html, body {
   text-decoration: none;
   transition: 0.3s;
 }
+
 .banner-btn:hover {
   background: #f0f0f0;
   transform: translateY(-2px);
@@ -485,14 +521,17 @@ html, body {
     grid-template-columns: 1fr;
     height: auto;
   }
+
   .promo-side {
     flex-direction: row;
     height: 220px;
   }
+
   .promo-main img {
     height: 350px;
   }
 }
+
 /* ===== SẢN PHẨM MỚI ===== */
 .new-products {
   margin: 80px 0;
@@ -548,7 +587,8 @@ html, body {
 .product-img {
   position: relative;
   width: 100%;
-  height: 240px; /* tất cả ảnh bằng nhau */
+  height: 240px;
+  /* tất cả ảnh bằng nhau */
   overflow: hidden;
   border-bottom: 1px solid #eee;
 }
@@ -601,7 +641,8 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 160px; /* giữ cho tất cả card đều chiều cao */
+  height: 160px;
+  /* giữ cho tất cả card đều chiều cao */
 }
 
 .product-info h3 {
@@ -627,10 +668,12 @@ html, body {
   .product-grid {
     grid-template-columns: 1fr;
   }
+
   .product-img {
     height: 200px;
   }
 }
+
 /* ===== WHY US ===== */
 .why-us {
   max-width: 1200px;
@@ -659,20 +702,23 @@ html, body {
   flex: 1 1 40%;
   min-width: 320px;
 }
+
 .why-images .img-1 {
   width: 100%;
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
 .why-images .img-2 {
   position: absolute;
   bottom: -40px;
   right: -30px;
   width: 70%;
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.4s ease;
 }
+
 .why-images:hover .img-2 {
   transform: translateY(-10px);
 }
@@ -688,16 +734,17 @@ html, body {
 .feature {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   padding: 26px 20px;
   display: flex;
   align-items: flex-start;
   gap: 16px;
   transition: all 0.3s ease;
 }
+
 .feature:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* ICON */
@@ -708,6 +755,7 @@ html, body {
   margin-top: 4px;
   transition: color 0.3s;
 }
+
 .feature:hover .icon {
   color: #b68950;
 }
@@ -719,6 +767,7 @@ html, body {
   color: #222;
   margin-bottom: 6px;
 }
+
 .feature p {
   font-size: 14px;
   color: #555;
@@ -730,14 +779,17 @@ html, body {
   .why-content {
     flex-direction: column;
   }
+
   .why-features {
     grid-template-columns: 1fr;
     width: 100%;
   }
+
   .why-images .img-2 {
     display: none;
   }
 }
+
 /* ===== NÚT LÊN ĐẦU TRANG ===== */
 #backToTop {
   position: fixed;
@@ -754,7 +806,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s ease;

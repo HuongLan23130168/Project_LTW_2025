@@ -5,11 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giới thiệu - Noble Loft Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/gioithieu.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
-    <div id="header"></div>
-    <div class="container">
+    <style>
+        /* === BREADCRUMB === */
+        .breadcrumb {
+            margin: 20px 40px 10px;
+            color: #333;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #74512D;
+        }
+
+        .breadcrumb .current {
+            color: #74512D;
+            font-weight: 700;
+        }
+    </style>
+
+    <header class="header">
+    <div class="header-top">
+      <div class="logo">
+        <img src="https://i.postimg.cc/5t4yq9qJ/logo-ltw.jpg" alt="Logo">
+        <span><a href="index.html">Noble Loft Theory</a></span>
+      </div>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Tìm kiếm">
+      </div>
+      <div class="header-right">
+        <a href="tracking.html">Tra cứu đơn hàng</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+        <div class="icons">
+            <a href="cart.html" class="circle"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="login.html" class="circle"><i class="fa-solid fa-user"></i></a>
+        </div>
+      </div>
+    </div>
+    </header>
+
+    <!-- ===== BREADCRUMB / TIẾN TRÌNH ===== -->
+    <div class="breadcrumb">
+        <a href="index.html">Trang chủ</a> &#47;
+        <span class="current">Giới thiệu </t></span>
+    </div>
+
+    <div class="content">
+
         <section class="intro-section">
             <div class="intro-bg">
                 <div class="overlay"></div>
@@ -55,7 +111,8 @@
                         giá trị bền vững, gắn kết giữa con người và không gian sống.
                         Chúng tôi không chỉ tạo ra sản phẩm nội thất, mà còn kiến tạo phong cách sống tinh tế, đề cao
                         tính thẩm mỹ và sự tiện nghi trong từng chi tiết.
-                        Với tinh thần tận tâm và sáng tạo. </p>
+                        Với tinh thần tận tâm và sáng tạo.
+                    </p>
                     <p>
                         <b>Noble Loft Theory</b> hướng đến việc mang lại giá trị bền
                         vững cho khách hàng, nhân viên và cộng đồng – nơi mỗi sản phẩm đều chứa đựng đam mê, trách nhiệm
@@ -80,7 +137,7 @@
                         tạo nên không gian sống tiện nghi, gần gũi.
                     </p>
                 </div>
-                <img src="img/AnhNoiThat.jpg" alt="Nội Thất" class="value-img">
+                <img src="https://i.pinimg.com/1200x/e1/13/24/e11324ba9a92c3c0651731594837e4a4.jpg" alt="Nội Thất" class="value-img">
             </div>
 
             <div class="value-card">
@@ -97,7 +154,7 @@
                         là vật dụng nội thất, mà còn là biểu tượng của phong cách sống đẳng cấp và gu thẩm mỹ tinh tế.
                     </p>
                 </div>
-                <img src="img/AnhLongTrong_GT.jpg" alt="Long Trọng" class="value-img">
+                <img src="https://i.pinimg.com/736x/fa/32/55/fa32552aedaa5f9a55d34a41462ecd73.jpg" alt="Long Trọng" class="value-img">
             </div>
 
             <div class="value-card">
@@ -111,13 +168,13 @@
                         thể hiện tinh thần sáng tạo và phong cách sống riêng của từng khách hàng.
                     </p>
                 </div>
-                <img src="img/AnhThietKe.jpg" alt="Thiết Kế" class="value-img">
+                <img src="https://i.pinimg.com/736x/c7/e0/aa/c7e0aacaad9db60818f4983776ec8177.jpg" alt="Thiết Kế" class="value-img">
             </div>
         </div>
 
 
         <div class="slogan-box">
-            <img src="img/AnhSlogan&InTro_GT.jpg" alt="Không gian sáng tạo">
+            <img src="https://i.pinimg.com/736x/66/70/39/6670391806499c5c1b29ba6bdca60184.jpg" alt="Không gian sáng tạo">
             <div class="slogan-overlay">
                 <p>“Nâng tầm không gian – Kiến tạo giá trị sống tinh tế.”</p>
             </div>
@@ -136,19 +193,89 @@
             sống đẳng cấp và tinh tế.
         </div>
     </div>
-    <div id="footer"></div>
-    <script>
-    // Tải header và footer tự động
-    async function loadHTML(id, file) {
-      const response = await fetch(file);
-      const content = await response.text();
-      document.getElementById(id).innerHTML = content;
-    }
 
-    loadHTML("header", "header.html");
-    loadHTML("footer", "footer.html");
-  </script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <!-- Cột 1: Giới thiệu -->
+                <div class="footer-col">
+                    <h3>Giới thiệu</h3>
+                    <p>Chào mừng bạn đến với <strong>Noble Loft Theory</strong> — không gian dành cho những ai yêu thích
+                        cái đẹp và nghệ thuật trang trí nội thất.</p>
+                    <p>Chúng tôi mang đến các sản phẩm decor trang trí nhà với phong cách hiện đại, tối giản nhưng vẫn
+                        giữ được sự tinh tế trong từng chi tiết.</p>
 
+                </div>
+
+                <!-- Cột 2: Liên kết -->
+                <div class="footer-col">
+                    <h3>Liên kết</h3>
+                    <ul>
+                        <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                        <ul>
+
+                            <div> </div>
+                            <li>
+                                <p href="#"> Chính sách đổi trả hoàn hàng</p>
+                            </li>
+                            <li>
+                                <p href="#"> Chính sách bảo mật mật khẩu</p>
+                            </li>
+                            <li>
+                                <p href="#"> Hướng dẫn mua hàng, sản phẩm</p>
+                            </li>
+                            <li>
+                                <p href="#"> Chính sách kiểm hàng hóa vận chuyển</p>
+                            </li>
+                            <li>
+                                <p href="#"> Chính sách giao hàng tận nơi</p>
+                            </li>
+                            <li>
+                                <p href="#"> Hướng dẫn thanh toán đơn hàng</p>
+                            </li>
+
+                        </ul>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Thông tin liên hệ -->
+                <div class="footer-col">
+                    <h3>Thông tin liên hệ</h3>
+                    <p><i class="fa fa-map-marker"></i> Khu phố 6, p.Linh Trung, tp.Thủ Đức</p>
+                    <p><i class="fa fa-map-marker"></i> Đại học Nông Lâm tp Hồ Chí Minh</p>
+                    <p><i class="fa fa-phone"></i> Liên hệ: 03751841444 - 03381776315 </p>
+
+                    <p><i class="fa fa-envelope"></i> <a
+                            href="mailto:NLT@noblelofttheory.com">NLT@noblelofttheory.com</a></p>
+                </div>
+
+
+                <!-- Cột 4: Fanpage -->
+                <div class="footer-col">
+                    <h3>Fanpage</h3>
+                    <div class="fanpage-box">
+                        <p>Liên hệ ngay trang chủ của shop Noble Loft Theory.</p>
+                        <p>Nếu bạn đang có thắc mắc gì ở sản phẩm.</p>
+                        <p>Fanpage, Youtube và Instagram.</p>
+
+
+                        <div class="social-box">
+                            <div class="social-icons">
+                                <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </footer>
+
+<script src="js/header.js"></script>
 </body>
 
 </html>
