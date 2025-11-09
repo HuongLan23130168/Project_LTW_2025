@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== Header top (Tra cứu, Giới thiệu, Liên hệ, ...) =====
   // ===== Header top (Tra cứu, Giới thiệu, Liên hệ) =====
 const topLinks = document.querySelectorAll(".header-right > a"); // chỉ lấy link text
 const currentPageTop = window.location.pathname.split("/").pop() || "index.html";
