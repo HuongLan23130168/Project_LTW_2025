@@ -188,12 +188,6 @@ body {
 }
 
 
-/* Hover */
-.menu a:hover {
-  color: #ECB176;
-}
-
-
 /* Khi click (active) */
 .menu a.active {
   color: #A66A35;
@@ -205,6 +199,7 @@ body {
 
 /* Dropdown */
 .dropdown {
+  max-width: fit-content;
   position: relative;
   display: inline-block;
   z-index: 9999;
@@ -219,10 +214,11 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 45px;
-  left: 0;
+  top: 55px;
+  left: -1020px;
+  text-align: center;
   background-color: #FEFCF2;
-  min-width: 180px;
+  min-width: 100%;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   border-radius: 8px;
   overflow: hidden;
@@ -235,22 +231,26 @@ body {
 }
 .dropdown-content a {
   color: #74512D;
-  padding: 10px 18px;
-  display: block;
+  padding: 10px 30px;
+  display: inline-block;
   text-decoration: none;
   font-weight: 400;
-  transition: all 0.25s ease;
+  border-radius: 10px;
+  margin: 5px;
 }
-
+.dropdown-content a:hover::after {
+  transform: scaleX(0);
+}
 .dropdown-content a:hover {
-  background-color: #ECB176;
-  color: #fff;
+  /* background-color: #ECB176;
+  color: #fff; */
+  text-decoration: underline;
+
+ 
 }
 
-/* Dropdown hover hiển thị */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+
+
 
 /* Icon mũi tên */
 .dropdown i {
