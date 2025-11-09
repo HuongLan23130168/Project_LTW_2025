@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tra cứu đơn hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tracking.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+</head>
+
+<body>
+    <style>
+        /* === BREADCRUMB === */
+        .breadcrumb {
+            margin: 20px 40px 10px;
+            color: #333;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #74512D;
+        }
+
+        .breadcrumb .current {
+            color: #74512D;
+            font-weight: 700;
+        }
+
+        /* === SẢN PHẨM === */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .cart-item .item-info {
+            flex: 1;
+        }
+
+        .cart-item h4 {
+            font-size: 15px;
+            margin: 3px 0;
+            color: #333;
+        }
+
+        /* === MÀU SẮC === */
+        .color {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .color-box {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+
+        .color-name {
+            font-weight: 500;
+        }
+
+        /* === GIÁ === */
+        .price {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .current-price {
+            color: #e67e22;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .old-price {
+            color: #aaa;
+            font-size: 13px;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            color: #d40004;
+            font-weight: 600;
+            font-size: 13px;
+        }
+    </style>
+    <!--====HEADER===-->
+
+    <header class="header">
+    <div class="header-top">
+      <div class="logo">
+        <img src="https://i.postimg.cc/5t4yq9qJ/logo-ltw.jpg" alt="Logo">
+        <span><a href="index.html">Noble Loft Theory</a></span>
+      </div>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Tìm kiếm">
+      </div>
+      <div class="header-right">
+        <a href="tracking.html">Tra cứu đơn hàng</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+        <div class="icons">
+            <a href="cart.html" class="circle"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="login.html" class="circle"><i class="fa-solid fa-user"></i></a>
+        </div>
+      </div>
+    </div>
+    </header>
+
+    <main>
+
+        <!-- ===== BREADCRUMB / TIẾN TRÌNH ===== -->
+        <div class="breadcrumb">
+            <a href="index.html">Trang chủ</a> &#47;
+            <span class="current">Tra cứu đơn hàng </t></span>
+        </div>
+
+
+        <h2 class="page-title">TRA CỨU ĐƠN HÀNG</h2>
+
+        <div class="order-tracking-search-box">
+            <input type="text" placeholder="Nhập mã đơn hàng">
+            <button>TRA CỨU</button>
+        </div>
+
+        <div class="order-detail-container">
+            <div class="order-left">
+                <!-- Left: Info -->
+
+                <h3 class="block-title">THÔNG TIN ĐƠN HÀNG</h3>
+
+
+                <!-- === DANH SÁCH SẢN PHẨM === -->
+
+                <p class="section-title">Danh sách sản phẩm</p>
+                <div class="card-list">
+                    <div class="cart-item">
+                        <img src="https://updecor.net/wp-content/uploads/2019/07/tuong-voi-bo-con-1.jpg" alt="sp">
+                        <div class="item-info">
+                            <h4>Tượng Voi Bố Con Trang Trí Bằng Đồng </h4>
+                            <div class="color">Màu sắc:
+                                <span class="color-name"> Xám</span>
+                            </div>
+
+                            <div class="price">
+                                <div class="current-price">10.000.000đ</div>
+                                <div class="old-price"></div>
+                                <div class="discount"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--THONG TIN DON HANG-->
+                <div class="order-summary">
+                    <table>
+                        <tr class="divider">
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>Mã đơn hàng</td>
+                            <td>NLTPK007</td>
+                        </tr>
+                        <tr>
+                            <td>Tên người nhận</td>
+                            <td>Nguyễn Thị B</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td>0987654321</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>xxxx@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày đặt hàng</td>
+                            <td>01-11-2025 00:01:00</td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td>Khu phố 6, Phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh</td>
+                        </tr>
+                        <tr class="divider">
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>Phương thức thanh toán</td>
+                            <td>COD</td>
+                        </tr>
+                        <tr>
+                            <td>Hình thức vận chuyển</td>
+                            <td>Hỏa tốc</td>
+                        </tr>
+                        <tr class="divider">
+                            <td colspan="2"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Tổng tiền hàng</td>
+                            <td>10.000.000₫</td>
+                        </tr>
+                        <tr>
+                            <td>Phí vận chuyển</td>
+                            <td>30.000₫</td>
+                        </tr>
+                        <tr class="divider">
+                            <td colspan="2"></td>
+                        </tr>
+                    </table>
+
+                    <div class="total">
+                        <span>TỔNG THANH TOÁN</span>
+                        <span class="price">10.030.000₫</span>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!-- Right: Status -->
+            <div class="order-right">
+
+                <h3 class="block-title">TÌNH TRẠNG ĐƠN HÀNG</h3>
+                <div class="order-summary">
+                    <table>
+
+                        <tr>
+                            <td>Mã đơn hàng</td>
+                            <td>NLTPK007</td>
+                        </tr>
+                        <tr>
+                            <td>Trạng thái</td>
+                            <td> Đã giao</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>Mã vận chuyển</td>
+                            <td>VCPK00283</td>
+                        </tr>
+                        <tr>
+                            <td>Nhân viên hỗ trợ</td>
+                            <td>Nguyễn Văn Hỗ Trợ</td>
+                        </tr>
+                        <tr>
+                            <td>Ghi chú</td>
+                            <td>Giao nhanh giúp em với ạ</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+        <p class="footer-text">
+            Quý khách vui lòng kiểm tra lại mã đơn hoặc gọi CSKH: <strong> 0375 1841 444 </strong>
+        </p>
+
+
+    </main>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <!-- Cột 1: Giới thiệu -->
+                <div class="footer-col">
+                    <h3>Giới thiệu</h3>
+                    <p>Chào mừng bạn đến với <strong>Noble Loft Theory</strong> — không gian dành cho những ai yêu thích
+                        cái đẹp và nghệ thuật trang trí nội thất.</p>
+                    <p>Chúng tôi mang đến các sản phẩm decor trang trí nhà với phong cách hiện đại, tối giản nhưng vẫn
+                        giữ được sự tinh tế trong từng chi tiết.</p>
+
+                </div>
+
+                <!-- Cột 2: Liên kết -->
+                <div class="footer-col">
+                    <h3>Liên kết</h3>
+                    <ul>
+                        <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                        <ul>
+
+                            <div> </div>
+                            <li><a href="#"> Chính sách đổi trả hoàn hàng</a></li>
+                            <li><a href="#"> Chính sách bảo mật mật khẩu</a></li>
+                            <li><a href="#"> Hướng dẫn mua hàng, sản phẩm</a></li>
+                            <li><a href="#"> Chính sách kiểm hàng hóa vận chuyển</a></li>
+                            <li><a href="#"> Chính sách giao hàng tận nơi</a></li>
+                            <li><a href="#"> Hướng dẫn thanh toán đơn hàng</a></li>
+
+                        </ul>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Thông tin liên hệ -->
+                <div class="footer-col">
+                    <h3>Thông tin liên hệ</h3>
+                    <p><i class="fa fa-map-marker"></i> Khu phố 6, P.Linh Trung, TP.Thủ Đức</p>
+                    <p><i class="fa fa-map-marker"></i> Đại học Nông Lâm TP.Hồ Chí Minh</p>
+                    <p><i class="fa fa-phone"></i> Liên hệ: 03751841444 - 03381776315 </p>
+
+                    <p><i class="fa fa-envelope"></i> <a
+                            href="mailto:NLT@noblelofttheory.com">NLT@noblelofttheory.com</a></p>
+                </div>
+
+
+                <!-- Cột 4: Fanpage -->
+                <div class="footer-col">
+                    <h3>Fanpage</h3>
+                    <div class="fanpage-box">
+                        <p>Liên hệ ngay trang chủ của shop Noble Loft Theory.</p>
+                        <p>Nếu bạn đang có thắc mắc gì ở sản phẩm.</p>
+                        <p>Fanpage, Youtube và Instagram.</p>
+
+
+                        <div class="social-box">
+                            <div class="social-icons">
+                                <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2025 NLT Noble Loft Theory. Powered by NLT </p>
+        </div>
+        </div>
+    </footer>
+    <script src="js/header.js"></script>
+</body>
+
+</html>

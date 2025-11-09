@@ -5,7 +5,9 @@ body {
     margin: 0;
     color: #6F4E37;
 }
-
+main {
+    flex: 1;
+}
 .page { display: none; }
 .page.active { display: block; }
 
@@ -61,34 +63,41 @@ input.editing {
     margin: 0;
 }
 
-.menu {
+.menu-account {
     list-style: none;
     padding: 0;
     flex-grow: 1;
     margin-left: 18px;
 }
 
-.menu li {
+.menu-account li {
     padding: 10px 0;
     cursor: pointer;
     color: #6F4E37;
 }
 
-.menu li.active {
+.menu-account li.active {
     color: #ECB176;
     font-weight: bold;
 }
 
 .logout-btn {
-
     background: transparent;
-    border: 1.3px #74512D solid;
+    border: 1.3px transparent  solid;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     color: #74512D;
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
+    text-align: center;
+}
+.logout-btn a {
+    color: #6F4E37;
+    text-decoration: none;
+    text-align: center;
+
 }
 
 .logout-btn:hover {
@@ -141,7 +150,7 @@ main h4 {
     background: #FEFCF2;
     border-radius: 10px;
     padding: 15px 20px;
-    margin-top: 10px;
+
     margin: 15px 0;
 }
 
@@ -324,3 +333,167 @@ input.editing:focus {
     box-shadow: 0 0 5px #A79277;
 }
 
+
+/* ===== PAGE POLICY ===== */
+.policy-container {
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.policy-sidebar {
+    width: 260px;
+    background: #FEFAEF;
+    border-right: 1px solid #EEE2D0;
+    padding: 20px;
+}
+
+.policy-sidebar h3 {
+    color: #6F4E37;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.policy-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.policy-sidebar ul li {
+    margin-bottom: 8px;
+}
+
+.policy-sidebar ul li a {
+    text-decoration: none;
+    color: #6F4E37;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.policy-sidebar ul li a.active,
+.policy-sidebar ul li a:hover {
+    background: #ECB176;
+    color: white;
+}
+
+.policy-content {
+    flex: 1;
+    padding: 25px;
+    background: #FEFCF2;
+}
+
+.policy-section {
+    display: none;
+}
+
+.policy-section.active {
+    display: block;
+}
+
+.policy-content h2 {
+    color: #A79277;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+
+/* ==== SUBMENU DROPDOWN ==== */
+.menu-account .has-submenu {
+    position: relative;
+}
+
+.menu-account .submenu {
+    display: none;
+    list-style: none;
+    padding-left: 15px;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+
+
+.menu-account .has-submenu.open .submenu {
+    display: block;
+}
+
+.menu-account .menu-title {
+    display: flex;
+
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.menu-account .menu-title i {
+    transition: transform 0.3s;
+}
+
+.menu-account .has-submenu.open .menu-title i {
+    transform: rotate(180deg);
+}
+
+
+/* =============================
+   STYLE MENU CHÍNH SÁCH
+============================= */
+
+
+/* Submenu mặc định */
+.menu-account .submenu li {
+    color: #333;
+    cursor: pointer;
+    padding: 5px 8px;
+    font-weight: 300;
+    font-size: 15px;
+    border-radius: 6px;
+    transition: 0.25s ease;
+}
+
+
+
+/* Khi hover hoặc được chọn (active) */
+.menu-account .submenu li:hover,
+.menu-account .submenu li.active {
+    background-color: #FEFAEF !important;
+    color: #ECB176 !important;
+    font-weight: 300;
+}
+
+/* Nếu submenu có thẻ <a> bên trong */
+.menu-account .submenu li a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* Đảm bảo màu chữ không bị CSS khác ghi đè */
+.menu-account .submenu li.active a,
+.menu-account .submenu li:hover a {
+    color: #fff !important;
+}
+
+/* Khi cha (Chính sách) có con active -> giữ màu tiêu đề vàng */
+.menu-account .has-submenu.active > .menu-title,
+.menu-account .has-submenu.open > .menu-title {
+    color: #ECB176 !important;
+    font-weight: 700;
+}
+
+/* Hover lên chính sách */
+.menu-account .has-submenu > .menu-title:hover {
+    color: #ECB176;
+}
+
+/* Chevron xoay khi mở */
+.menu-account .has-submenu .menu-title i {
+    transition: transform 0.2s ease;
+}
+.menu-account .has-submenu.open .menu-title i {
+    transform: rotate(180deg);
+}
