@@ -1,0 +1,203 @@
+/* === LAYOUT SONG SONG === */
+.transaction-wrapper {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*Thẻ oredrs id trên cùng */
+.orders-id {
+    width: 100%;
+    height: 70px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+
+
+.orders-id:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.orders-id a {
+    padding: 25px 25px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.status {
+    font-size: 16px;
+    text-decoration: none;
+    padding: 5px 7px;
+    border-radius: 15px;
+    margin-top: -5px;
+}
+
+.status.completed {
+    background-color: #d1f0d1;
+    color: #256029;
+}
+
+.status.pending {
+    background-color: #ffecc7;
+    color: #9a6b00;
+}
+
+.status.failed {
+    background: #ffa9a9;
+    color: #9c0303;
+
+}
+
+
+.back-to-orders {
+    padding: 7px 10px;
+    text-align: center;
+
+}
+
+.back-to-orders a {
+    font-size: 16px;
+    text-decoration: none;
+    background: #ffbe5f;
+    color: #4b2e1e;
+    padding: 10px 13px;
+    border-radius: 15px;
+    font-weight: bold;
+
+}
+
+.back-to-orders a:hover {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    background: #e6c7a6;
+}
+
+
+/* === THẺ TRÁI VÀ PHẢI === */
+.left-card .right-card {
+    flex: 1;
+
+}
+
+.detail-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* === BREADCRUMB === */
+.breadcrumb {
+    margin: 2px 40px 20px;
+    color: #333;
+
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #000;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: #74512D;
+}
+
+.breadcrumb .current {
+    color: #74512D;
+    font-weight: 700;
+}
+
+.detail-card {
+    margin-bottom: 30px;
+    width: fit-content;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+th {
+    background: #fafafa;
+    color: #74512d;
+}
+
+tr:hover {
+    background-color: #f9f3ec;
+    transition: background 0.3s ease;
+}
+
+.total {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.total h4 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+/* 
+.main-content {
+    margin-left: 220px;
+    padding: 100px 40px 40px;
+    transition: margin-left 0.3s ease;
+}
+
+.header {
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 220px;
+    right: 0;
+    z-index: 100;
+}
+
+.header h2 {
+    color: #74512d;
+    margin: 0;
+    font-size: 22px;
+    text-align: center;
+}
+
+.header .back {
+    color: #74512d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.header .back:hover {
+    color: #a67443;
+}*/

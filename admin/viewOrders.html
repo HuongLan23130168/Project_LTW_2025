@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noble Loft Theory - View Orders</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/viewOrders.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- === SIDEBAR === -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <a href="dashboard.html">Noble Loft Theory</a>
+        </div>
+        <ul>
+            <li>
+                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="products.html"><i class="fas fa-box"></i> Sản phẩm</a>
+            </li>
+            <li class="active">
+                <a href="orders.html"><i class="fas fa-cart-shopping"></i> Đơn hàng</a>
+            </li>
+            <li>
+                <a href="customers.html"><i class="fas fa-users"></i> Khách hàng</a>
+            </li>
+            <li>
+                <a href="notifi.html"><i class="fas fa-bell"></i> Thông báo</a>
+            </li>
+            <li>
+                <a href="account.html"><i class="fas fa-gear"></i> Tài khoản</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <div class="header-left">
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass" style="color: #74512d;"></i>
+                <input type="text" placeholder="Tìm kiếm" class="search-input" />
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Nút thông báo -->
+            <div class="notify-wrapper">
+                <a href="notifi.html" class="icon-button">
+                    <i class="fa-solid fa-bell"></i>
+                    <span id="notifyCount" class="notify-badge">3</span>
+                </a>
+            </div>
+
+            <!-- Hồ sơ người dùng -->
+            <div class="profile-dropdown">
+                <button class="icon-button user-btn">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
+                    <a href="index.html"><i class="fas fa-right-from-bracket"></i> Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- === VIEW ORDERS === -->
+    <main class="main-content">
+        <!-- ===== BREADCRUMB / TIẾN TRÌNH ===== -->
+        <div class="breadcrumb">
+            <a href="orders.html">Đơn hàng</a> &#47;
+            <span class="current">Chi tiết đơn hàng</span>
+        </div>
+
+
+        <div class="transaction-wrapper">
+            <div class="left-card">
+
+                <div class="orders-id">
+                    <a>Mã đơn: #34834
+                        <span class="status completed">Hoàn thành</span>
+                        <span> | 25/08/2025 </span>
+                    </a>
+                </div>
+
+                <div class="detail-card">
+                    <h3>Thông tin khách hàng</h3>
+                    <table>
+                        <tr>
+                            <td>Tên</td>
+                            <td>Nguyễn Qua Môn</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>quamon@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>SDT</td>
+                            <td>09356286432 </td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td>khu phố 5, Phường Tân Tiến,Thành Phố Biên Hòa, Đồng Nai</td>
+                        </tr>
+                        <tr>
+                            <td>PT thanh toán</td>
+                            <td> COD thanh toán khi nhận hàng </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="right-card">
+                <div class="detail-card">
+
+                    <h3>Danh sách sản phẩm</h3>
+                    <table>
+                        <tr>
+                            <th>STT</th>
+                            <th>Sản phẩm</th>
+                            <th>SL</th>
+                            <th>Giá</th>
+                            <th>Giảm</th>
+                            <th>Tổng</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Đèn thả chùm hoa bồ công anh pha lê hiện đại , trang trí sang trọng , tặng kèm bóng led
+                            </td>
+                            <td>1</td>
+                            <td>787,000₫</td>
+                            <td>0%</td>
+                            <td>787,000₫</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Sách Giả mô hình cao cấp hiện đại cổ điển trang trí decor</td>
+                            <td>2</td>
+                            <td>296,000₫</td>
+                            <td>0%</td>
+                            <td>296,000₫</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Tranh gỗ vẽ tay trang trí nhà cửa , sân vườn, quà tặng mộc mạc</td>
+                            <td>1</td>
+                            <td>230,000₫</td>
+                            <td>0%</td>
+                            <td>230,000₫</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Hoa Decor - Hoa Cẩm Tú Cầu Camelia Decor, Cành 67cm Gồm 15 Bông Lớn, Chất Liệu Lụa Cao
+                                Cấp Màu Sắc Tự Nhiên</td>
+                            <td>1</td>
+                            <td>430,000₫</td>
+                            <td>0%</td>
+                            <td>430,000₫</td>
+                        </tr>
+                    </table>
+
+                    <div class="total">
+                        <p>Phí ship: 35,000₫</p>
+                        <h4>Tổng cộng: 1,743,000₫</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="back-to-orders">
+            <a href="orders.html">Quay lại</a>
+        </div>
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

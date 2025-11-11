@@ -1,0 +1,89 @@
+/* ================== MAIN CONTENT ================== */
+/* .main-content {
+    margin-left: 220px;
+    padding: 30px 40px 40px;
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+} */
+
+/* Header */
+.customers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-top: 60px; */
+    margin-bottom: 20px;
+}
+
+.customers-header h1 {
+    font-size: 22px;
+    text-align: center;
+    color: #5a3e2b;
+    font-size: 32px;
+}
+
+/* Dropdown */
+#filterTime {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 0.3px solid #ccc;
+    background-color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#filterTime:focus {
+    border-color: #bca77d;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+#filterTime option:hover {
+    background-color: #f5f0e6;
+    border: 0.3px solid #ccc;
+}
+
+/* Table */
+.table-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.customers-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.customers-table th,
+.customers-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.customers-table th {
+    background-color: #f1e6d1;
+    color: #74512d;
+    font-weight: 600;
+}
+
+.customers-table tr:hover {
+    background-color: #faf6f1;
+}
+
+.view-btn {
+    background: #bca77d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.view-btn:hover {
+    background: #a68a63;
+}
