@@ -1,25 +1,16 @@
-.form {
-    background-color: #fff;
-    padding: 40px 45px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 700px;
-    text-align: center;
-}
-
 /* ===== TITLE ===== */
 
-body {
+/* body {
     font-family: "Segoe UI", sans-serif;
     background-color: white;
     margin: 0;
     color: #6F4E37;
-}
+} */
 
 .page {
     display: none;
 }
+
 
 .page.active {
     display: block;
@@ -33,11 +24,20 @@ input-cp.editing {
 }
 
 
-
 .account-container {
     display: flex;
     min-height: 100vh;
-    background: white;
+    background: #FEFAEF;
+}
+
+.form {
+    background-color: #fff;
+    padding: 40px 45px;
+    border-radius: 10px;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+    /* width: 100%; */
+    /* max-width: 700px; */
+    text-align: center;
 }
 
 
@@ -58,6 +58,7 @@ input-cp.editing {
     font-size: 12px;
     outline: none;
     transition: 0.3s;
+    background-color: #FEFAEF;
 }
 
 .input-cp:focus {
