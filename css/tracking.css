@@ -1,0 +1,172 @@
+/* .body {
+    font-family: Arial, sans-serif;
+    background-color: white ;
+    color: #6F4E37;
+
+}
+
+.main{
+    background: white;
+    padding: 0;
+} */
+
+/*TIM KIeM SAN PHAM ORDER CHECKING SEARCH BOX*/
+.order-tracking-search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.order-tracking-search-box input {
+    outline: none;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.order-tracking-search-box button {
+    padding: 10px 18px;
+    border: none;
+    background: #c79c77;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.order-tracking-search-box button:hover {
+    background: #ECB176;
+    color: #fff;
+    font-weight: bold;
+}
+
+/*TIEU DE TRA CUU DON HANG*/
+.page-title {
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #6F4E37;
+}
+
+/* Container KHUNG BAO GOM CA ORDER-l VA R*/
+.order-detail-container {
+    display: flex;
+    margin: 40px;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+/* Left */
+.order-left {
+    width: 70%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/*RIGHT*/
+.order-right {
+    width: 30%;
+    background: #fff;
+    padding: 20px;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.order-left {
+    flex: 2;
+}
+
+.order-right {
+    flex: 1;
+}
+
+.order-right p {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*TIEU DE CUA 2 CAI L VA R*/
+.block-title {
+    margin-top: 10px;
+    text-align: center;
+    color: #AF8F6F;
+    margin-bottom: 30px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+
+}
+
+
+/*--THONG TIN DON HANG--*/
+
+
+
+.order-summary {
+    margin-top: 20px;
+}
+
+.order-summary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.order-summary td {
+    padding: 10px 0;
+    vertical-align: top;
+    border: none;
+}
+
+.order-summary td:first-child {
+    width: 45%;
+    color: #555;
+    font-size: 15px;
+}
+
+.order-summary td:last-child {
+    text-align: right;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.order-summary tr.divider td {
+    border-bottom: 2px solid #dfdfdf;
+    padding: 5px;
+}
+
+/*THANH TOAN */
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #74512D;
+    /* border-top: 2px solid #dfdfdf; */
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.total .price {
+    color: #e67e22;
+}
+
+/* Footer text */
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
+}
