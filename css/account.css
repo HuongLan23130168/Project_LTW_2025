@@ -1,15 +1,22 @@
 /* ===== RESET ===== */
-body {
+/* body {
     font-family: "Segoe UI", sans-serif;
     background-color: white;
     margin: 0;
     color: #6F4E37;
 }
+
 main {
     flex: 1;
+} */
+
+.page {
+    display: none;
 }
-.page { display: none; }
-.page.active { display: block; }
+
+.page.active {
+    display: block;
+}
 
 input.editing {
     border: 1px solid #A79277;
@@ -22,11 +29,16 @@ input.editing {
 .account-container {
     display: flex;
     min-height: 100vh;
-    background: white;
+    background: #F8F4E1;
 }
 
-.tab-content { display: none; }
-.tab-content.active { display: block; }
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
 
 /* ===== SIDEBAR ===== */
 .sidebar {
@@ -82,9 +94,9 @@ input.editing {
 }
 
 .logout-btn {
-    background: transparent;
-    border: 1.3px transparent  solid;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #FEFAEF;
+    border: 1.3px transparent solid;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: #74512D;
     padding: 10px;
     border-radius: 8px;
@@ -93,6 +105,7 @@ input.editing {
     transition: all 0.3s ease;
     text-align: center;
 }
+
 .logout-btn a {
     color: #6F4E37;
     text-decoration: none;
@@ -110,11 +123,12 @@ input.editing {
 .account-details {
     flex: 1;
     padding: 50px;
-    background: #F8F4E1;
+    background: #fff;
     border-radius: 10px;
     margin: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     width: fit-content;
+    height: fit-content;
 }
 
 /* Info card */
@@ -147,10 +161,9 @@ main h4 {
 
 
 .address-box {
-    background: #FEFCF2;
+    background: #fff;
     border-radius: 10px;
     padding: 15px 20px;
-
     margin: 15px 0;
 }
 
@@ -166,7 +179,7 @@ main h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: #FEFAEF;
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #d8b99c;
@@ -188,7 +201,7 @@ main h4 {
 }
 
 .edit-profile-actions .edit-btn {
-    padding:6px 15px;
+    padding: 6px 15px;
 }
 
 
@@ -209,7 +222,7 @@ main h4 {
 }
 
 .add-btn {
-    background: transparent;
+    background: #FEFAEF;
     border: 1.3px #74512D solid;
     color: #74512D;
     padding: 10px 20px;
@@ -217,7 +230,7 @@ main h4 {
     font-weight: bold;
     cursor: pointer;
     margin-left: 20px;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 .add-btn:hover {
@@ -233,7 +246,7 @@ main h4 {
     left: 0;
     width: fit-content;
     height: fit-content;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
 }
@@ -243,7 +256,7 @@ main h4 {
     padding: 25px;
     border-radius: 10px;
     width: 350px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content h3 {
@@ -293,23 +306,24 @@ main h4 {
 
 
 .account-details {
-    background: #FEFAEF !important;
+    background: #fff !important;
     padding: 40px 45px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    max-width: 850px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* max-width: 850px; */
 }
 
 .sidebar {
-    background: #FEFAEF;
+    background: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    height: 580px;
 }
 
 .info-box {
-    background: #fff;
+    background: #FEFAEF;
     border: 1px solid #EEE2D0;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
 
@@ -339,8 +353,9 @@ input.editing:focus {
     display: flex;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    line-height: 1.5;
 }
 
 .policy-sidebar {
@@ -479,14 +494,14 @@ input.editing:focus {
 }
 
 /* Khi cha (Chính sách) có con active -> giữ màu tiêu đề vàng */
-.menu-account .has-submenu.active > .menu-title,
-.menu-account .has-submenu.open > .menu-title {
+.menu-account .has-submenu.active>.menu-title,
+.menu-account .has-submenu.open>.menu-title {
     color: #ECB176 !important;
     font-weight: 700;
 }
 
 /* Hover lên chính sách */
-.menu-account .has-submenu > .menu-title:hover {
+.menu-account .has-submenu>.menu-title:hover {
     color: #ECB176;
 }
 
@@ -494,6 +509,7 @@ input.editing:focus {
 .menu-account .has-submenu .menu-title i {
     transition: transform 0.2s ease;
 }
+
 .menu-account .has-submenu.open .menu-title i {
     transform: rotate(180deg);
 }
