@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noble Loft Theory - Add Products</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/addproducts.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+  <!-- === SIDEBAR === -->
+  <div class="sidebar" id="sidebar">
+    <div class="logo">
+      <a href="dashboard.html">Noble Loft Theory</a>
+    </div>
+    <ul>
+      <li>
+        <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+      </li>
+      <li class="active">
+        <a href="products.html"><i class="fas fa-box"></i> Sản phẩm</a>
+      </li>
+      <li>
+        <a href="orders.html"><i class="fas fa-cart-shopping"></i> Đơn hàng</a>
+      </li>
+      <li>
+        <a href="customers.html"><i class="fas fa-users"></i> Khách hàng</a>
+      </li>
+      <li>
+        <a href="notifi.html"><i class="fas fa-bell"></i> Thông báo</a>
+      </li>
+      <li>
+        <a href="account.html"><i class="fas fa-gear"></i> Tài khoản</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- === HEADER === -->
+  <header class="header">
+    <div class="header-left">
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass" style="color: #74512d;"></i>
+        <input type="text" placeholder="Tìm kiếm" class="search-input" />
+      </div>
+    </div>
+
+    <div class="header-right">
+      <!-- Nút thông báo -->
+      <div class="notify-wrapper">
+        <a href="notifi.html" class="icon-button">
+          <i class="fa-solid fa-bell"></i>
+          <span id="notifyCount" class="notify-badge">3</span>
+        </a>
+      </div>
+
+      <!-- Hồ sơ người dùng -->
+      <div class="profile-dropdown">
+        <button class="icon-button user-btn">
+          <i class="fa-solid fa-user"></i>
+        </button>
+
+        <div class="dropdown-menu">
+          <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
+          <a href="index.html"><i class="fas fa-right-from-bracket"></i> Đăng xuất</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- === ADD PRODUCTS === -->
+  <div class="main-content">
+    <!-- ===== BREADCRUMB / TIẾN TRÌNH ===== -->
+        <div class="breadcrumb">
+            <a href="products.html">Sản phẩm</a> &#47;
+            <span class="current">Thêm sản phẩm mới</span>
+
+        </div>
+    <div class="addProducts">
+    <h2 style="color:#5A3E2B;margin-bottom:20px;">Thêm sản phẩm mới</h2>
+    <form action="products.html" method="get" enctype="multipart/form-data">
+      <div class="form-row">
+        <label for="name"><i class="fa-solid fa-tag"></i> Tên sản phẩm</label>
+        <input type="text" id="name" name="name" required placeholder="Nhập tên sản phẩm..." />
+      </div>
+
+      <div class="form-row two-cols">
+        <div>
+          <label for="category"><i class="fa-solid fa-layer-group"></i> Loại sản phẩm</label>
+          <input type="text" id="category" name="category" placeholder="VD: Bàn, Ghế..." />
+        </div>
+        <div>
+          <label for="size"><i class="fa-solid fa-ruler-combined"></i> Kích thước</label>
+          <input type="text" id="size" name="size" />
+        </div>
+      </div>
+
+      <div class="form-row two-cols">
+        <div>
+          <label for="price">Giá (₫)</label>
+          <input type="number" id="price" name="price" required />
+        </div>
+        <div>
+          <label for="discount">Giá khuyến mãi (₫)</label>
+          <input type="number" id="discount" name="discount" />
+        </div>
+      </div>
+
+      <div class="form-row two-cols">
+        <div>
+          <label for="stock">Số lượng</label>
+          <input type="number" id="stock" name="stock" required />
+        </div>
+        <div>
+          <label for="tag">Tag</label>
+          <select id="tag" name="tag">
+            <option value="">Không có</option>
+            <option value="New">New</option>
+            <option value="Hot">Hot</option>
+            <option value="Sale">Sale</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="description">Mô tả</label>
+        <textarea id="description" name="description" rows="3" placeholder="Mô tả ngắn gọn..."></textarea>
+      </div>
+
+      <div class="form-row">
+        <label for="image">Ảnh sản phẩm</label>
+        <input type="file" id="image" name="image" accept="image/*" />
+      </div>
+
+      <div class="actions">
+        <a href="products.html" class="btn secondary">Hủy</a>
+        <button type="submit" class="btn deleteRow">Lưu</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
