@@ -1,101 +1,998 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <title>Tài khoản của tôi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/accountOrders.css">
+    <link rel="stylesheet" href="css/changePass.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+
 </head>
+
 <body>
+    <style>
+        /* === BREADCRUMB === */
+        .breadcrumb {
+            margin: 20px 40px 10px;
+            color: #333;
+        }
 
-<div class="account-container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="profile-header">
-            <div class="avatar">HL</div>
-            <div class="profile-info">
-                <p><strong id="userName">Hương Lan</strong></p>
+        .breadcrumb a {
+            text-decoration: none;
+            color: #000;
+        }
 
+        .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #74512D;
+        }
+
+        .breadcrumb .current {
+            color: #74512D;
+            font-weight: 700;
+        }
+    </style>
+
+    <header class="header">
+        <div class="header-top">
+            <div class="logo">
+                <img src="https://i.postimg.cc/5t4yq9qJ/logo-ltw.jpg" alt="Logo">
+                <span><a href="home.html">Noble Loft Theory</a></span>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm">
+            </div>
+            <div class="header-right">
+                <a href="tracking.html">Tra cứu đơn hàng</a>
+                <a href="gioithieu.html">Giới thiệu</a>
+                <a href="contact.html">Liên hệ</a>
+                <div class="icons">
+                    <a href="cart.html" class="circle"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="account.html" class="circle"><i class="fa-solid fa-user"></i></a>
+                </div>
             </div>
         </div>
 
-        <ul class="menu">
-            <li class="active">Tài khoản của tôi</li>
-            <li>Đổi mật khẩu</li>
-            <li>Đơn mua</li>
-            <li>Kho voucher</li>
-        </ul>
+        <!-- <nav class="menu">
+            <a href="home.html" class="menu-item active">Trang chủ</a>
+            <a href="living.html" class="menu-item">Phòng khách</a>
+            <a href="kitchen.html" class="menu-item">Phòng bếp</a>
+            <a href="bedroom.html" class="menu-item">Phòng ngủ</a>
+            <a href="office.html" class="menu-item">Phòng làm việc</a>
+            <a href="balcony.html" class="menu-item">Ban Công</a>
 
-        <button class="logout-btn">Đăng xuất</button>
-    </aside>
-
-    <!-- MAIN CONTENT -->
-    <main class="account-details" id="content">
-
-        <!-- -------- PAGE: THÔNG TIN ------- -->
-        <div id="page-profile" class="page active">
-            <div class="info-box">
-                <div class="info-left">
-                    <p><strong>Email:</strong> <span id="email">lankhung@gmail.com</span></p>
-                    <p><strong>Họ và tên:</strong> <span id="fullName">Hương Lan</span></p>
-                    <p><strong>Số điện thoại:</strong> <span id="phone">098112182441</span></p>
+            <div class="dropdown">
+                <a href="decor.html">Decor <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="decor.html">Cây</a>
+                    <a href="decor.html">Hoa</a>
+                    <a href="decor.html">Đèn</a>
+                    <a href="decor.html">Tượng & Phụ kiện</a>
+                    <a href="decor.html">Đồng hồ</a>
+                    <a href="decor.html">Tranh</a>
+                    <a href="decor.html">Gương</a>
+                    <a href="decor.html">Nến & Tinh dầu</a>
+                    <a href="decor.html">Bình & Lọ hoa</a>
+                    <a href="decor.html">Chăn & Gối</a>
+                    <a href="decor.html">Kệ & Giá đỡ mini</a>
+                    <a href="decor.html">Bàn decor</a>
+                    <a href="decor.html">Ghế decor</a>
                 </div>
-                <div class="info-right">
-                    <div class="circle-avatar">HL</div>
-                </div>
-                <div class="edit-profile-actions">
+            </div>
+        </nav> -->
+    </header>
 
+    <!-- === BREADCRUMB (ĐƯỜNG DẪN TRANG) === -->
+    <nav class="breadcrumb">
+        <a href="home.html">Trang chủ</a> &#47;
+        <span class="current">Tài khoản</span>
+    </nav>
+
+    <div class="account-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-header">
+                <div class="avatar">HL</div>
+                <div class="profile-info">
+                    <p><strong id="userName">Hương Lan</strong></p>
                 </div>
-                <button class="edit-btn" id="editProfile">Sửa</button>
             </div>
 
-            <h4>Địa chỉ</h4> <button class="add-btn">➕ Thêm địa chỉ</button>
+            <ul class="menu-account">
+                <li class="active" data-target="#page-profile">Tài khoản của tôi</li>
+                <li data-target="#page-password">Đổi mật khẩu</li>
+                <!--page policy(chinh sach)-->
+                <li class="has-submenu">
+                    <span class="menu-title">Chính sách <i class="fa-solid fa-chevron-down"></i></span>
+                    <ul class="submenu">
 
-            <div class="address-box">
 
-                <div class="address-list">
-                    <div class="address-row">
-                        <div class="address" id="addressText">
-                            55/13, Phường Thanh Khê, Thành phố Đà Nẵng
-                            <span class="default">(Mặc định)</span>
+                        <li data-target="#policy-doitra">Chính sách đổi trả hoàn hàng</li>
+                        <li data-target="#policy-baomat">Chính sách bảo mật mật khẩu</li>
+                        <li data-target="#policy-muahang">Hướng dẫn mua hàng, sản phẩm</li>
+                        <li data-target="#policy-kiemhang">Chính sách kiểm hàng hóa vận chuyển</li>
+                        <li data-target="#policy-giaohang">Chính sách giao hàng tận nơi</li>
+                        <li data-target="#policy-thanhtoan">Hướng dẫn thanh toán đơn hàng</li>
+                    </ul>
+                </li>
+                <li data-target="#page-orders">Đơn mua</li>
+            </ul>
+
+            <div class="logout-btn"><a href="index.html">Đăng xuất</a></div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="account-details">
+
+            <!--  PAGE PROFILE -->
+            <div id="page-profile" class="page active">
+                <div class="info-box">
+                    <div class="info-left">
+                        <p><strong>Email:</strong> <span id="email">lankhung@gmail.com</span></p>
+                        <p><strong>Họ và tên:</strong> <span id="fullName">Hương Lan</span></p>
+                        <p><strong>Số điện thoại:</strong> <span id="phone">098112182441</span></p>
+                    </div>
+
+                    <div class="info-right">
+                        <div class="circle-avatar">HL</div>
+                    </div>
+
+                    <button class="edit-btn" id="editProfile">Sửa</button>
+                </div>
+
+                <h4>Địa chỉ</h4>
+                <button class="add-btn">➕ Thêm địa chỉ</button>
+
+                <div class="address-box">
+                    <div class="address-list">
+                        <div class="address-row">
+                            <div class="address" id="addressText">
+                                55/13, Phường Thanh Khê, Thành phố Đà Nẵng
+                                <span class="default">(Mặc định)</span>
+                            </div>
+                            <button class="edit-btn edit-address-btn">Sửa</button>
                         </div>
-                        <button class="edit-btn edit-address-btn">Sửa</button>
+                    </div>
+                </div>
+            </div>
 
+            <!--  PAGE CHANGE PASSWORD -->
+            <div id="page-password" class="page">
+                <div class="form change">
+                    <h2 class="form-title">Đổi mật khẩu</h2>
+
+                    <div class="form-holder">
+                        <input type="password" id="oldPassword" class="input-cp" placeholder="Mật khẩu hiện tại"
+                            required>
+                        <input type="password" id="newPassword" class="input-cp" placeholder="Mật khẩu mới" required>
+                        <input type="password" id="confirmPassword" class="input-cp" placeholder="Xác nhận mật khẩu mới"
+                            required>
+                    </div>
+
+                    <button id="btnChange" class="submit-btn">Đổi lại mật khẩu</button>
+                </div>
+            </div>
+
+
+            <!--======PAGE POLICY=======-->
+            <!-- ======= PAGE: CHÍNH SÁCH ======= -->
+            <!--======PAGE POLICY=======-->
+
+            <div class="page" id="policy-doitra">
+                <h2>Chính sách đổi trả</h2>
+                <div class="content-page ">
+                    <p><strong>A. Chính sách Bảo Hành</strong></p>
+                    <ul>
+                        <li>SOFA/ GIƯỜNG BỌC NỆM:&nbsp;Phần khung BH 3 năm, phần nệm mút 1 năm, vải bọc không
+                            bảo hành.
+                        </li>
+                        <li>Tủ kệ/ Bàn/Ghế (Đồ gỗ):&nbsp;Bảo hành phần khung 1 năm phụ kiện 6 tháng, không bảo
+                            hành phần
+                            nước sơn.</li>
+                        <li>Gương/ Đèn/Thảm:&nbsp;Không bảo hành</li>
+                    </ul>
+                    <p><strong>B. Chính sách đổi trả</strong></p>
+                    <p><strong>1. Điều kiện đổi trả</strong></p>
+                    <p><strong>* Điều kiện bắt buộc khi đổi, trả hàng:</strong></p>
+                    <p>&nbsp; &nbsp;- Phải có biên nhận mua hàng</p>
+                    <p>&nbsp; &nbsp;- Quý khách chưa sử dụng qua</p>
+                    <p>&nbsp; &nbsp;- Hàng còn đầy đủ các phụ kiện, bao bì, quà tặng (nếu có)&nbsp;</p>
+                    <p><strong>* Hàng được đổi trả khi:</strong></p>
+                    <p>&nbsp; &nbsp;- Hàng bị lỗi kỹ thuật do nhà sản xuất</p>
+                    <p>&nbsp; &nbsp;- Giao sai số lượng, không đủ bộ như trong đơn hàng</p>
+                    <p>&nbsp; &nbsp;- Không đúng mẫu mã, kiểu dáng như khách đặt hàng</p>
+                    <p>&nbsp; &nbsp;- Sản phẩm bị trầy xước, bể vỡ, gỉ sét…</p>
+                    <p>&nbsp; &nbsp;- Với sản phẩm đặt sản xuất / đặt hàng theo yêu cầu: NLT Noble Loft Theory
+                        &nbsp;không hỗ trợ đổi trả sản phẩm</p>
+                    <p>&nbsp; &nbsp;- Với sản phẩm có sẵn: Noble Loft Theory hỗ trợ đổi / trả sản phẩm</p>
+                    <p>Ghi chú:&nbsp;Mỗi đơn hàng chỉ được hỗ trợ đổi 1 lần, khách hàng cần thanh toán phí vận
+                        chuyển
+                        thực tế 2 chiều</p>
+                    <p>Khách hàng có trách nhiệm trình giấy tờ liên quan chứng minh sự thiếu sót trên để hoàn
+                        thành
+                        việc&nbsp;hoàn trả/đổi trả hàng hóa.&nbsp;</p>
+                    <p><strong>* Khác hàng được đổi trả/hoàn tiền khi:</strong></p>
+                    <p>&nbsp; &nbsp; Sản phẩm trong kho không còn đủ số lượng để giao hàng cho khách.</p>
+                    <p><strong>*&nbsp;</strong><strong>Trường hợp không được đổi trả hàng:&nbsp;</strong></p>
+                    <p>&nbsp; &nbsp;- Khách hàng tự làm hư hỏng sản phẩm khi lắp đặt và sử dụng không đúng kỹ
+                        thuật</p>
+                    <p>&nbsp; &nbsp;- Thay đổi mẫu mã sản phẩm, số lượng không thông báo trước khi giao hàng.
+                    </p>
+                    <p>&nbsp; &nbsp;- Tự làm hư hỏng bao bì, trầy xước, sản phẩm đã được lắp đặt ...</p>
+                    <p>&nbsp; &nbsp;- Khách hàng đã kiểm tra tình trạng hàng hóa, nhận hàng và không có phản hồi
+                        gì về
+                        sản phẩm trong vòng 24h.</p>
+                    <p><strong>* Lưu ý:</strong></p>
+                    <p>&nbsp; &nbsp;- Quy định đổi/trả sản phẩm sẽ được áp dụng trong thời gian 02 ngày tính từ
+                        ngày
+                        khách hàng chốt đơn hàng (hoặc nhận hàng hoặc đặt cọc hàng)</p>
+                    <p>&nbsp; &nbsp;- Việc đổi hàng, sửa chữa được thực hiện theo quy định của nhà cung cấp sản
+                        phẩm.
+                    </p>
+                    <p>
+                        <strong>2. Quy định về thời gian thông báo và gửi sản phẩm đổi trả</strong>
+                    </p>
+                    <ul>
+                        <li><strong>Thời gian thông báo đổi trả</strong>:&nbsp;trong vòng 48h kể từ khi nhận sản
+                            phẩm
+                            đối với trường hợp sản phẩm thiếu phụ kiện, quà tặng hoặc bể vỡ.</li>
+                        <li><strong>Thời gian gửi chuyển trả sản phẩm</strong>: trong vòng 14 ngày kể từ khi
+                            nhận sản
+                            phẩm.</li>
+                        <li><strong>Địa điểm đổi trả sản phẩm</strong>: Khách hàng có thể mang hàng trực tiếp
+                            đến văn
+                            phòng/ cửa hàng của chúng tôi hoặc chuyển qua đường bưu điện.</li>
+                    </ul>
+                    <p>Trong trường hợp Quý Khách hàng có ý kiến đóng góp/khiếu nại liên quan đến chất lượng sản
+                        phẩm,
+                        Quý Khách hàng vui lòng liên hệ đường dây chăm sóc khách hàng&nbsp;của chúng tôi.</p>
+                </div>
+            </div>
+
+            <div class="page" id="policy-baomat">
+                <h2>Chính sách bảo mật</h2>
+                <p>1. Mục đích thu thập thông tin cá nhân:
+                    <strong>NobleLoftTheory.com</strong></a>&nbsp;bao gồm: họ tên, email, điện thoại, địa chỉ
+                    khách
+                    hàng. Đây là các thông tin mà chúng tôi cần thành viên cung cấp bắt buộc khi gửi thông tin
+                    nhờ tư
+                    vấn hay muốn mua sản phẩm và để chúng tôi liên hệ xác nhận lại với khách hàng trên website
+                    nhằm đảm
+                    bảo quyền lợi cho cho người tiêu dùng. Ngoài ra, thành viên có trách nhiệm thông báo kịp
+                    thời cho
+                    webiste chúng tôi về những hành vi sử dụng trái phép, lạm dụng, vi phạm bảo mật, lưu giữ tên
+                    đăng ký
+                    và mật khẩu của bên thứ ba để có biện pháp giải quyết phù hợp.&nbsp;
+                </p>
+                <p>2. Phạm vi sử dụng thông tin: chúng tôi sử dụng thông tin thành viên cung cấp để:&nbsp;</p>
+                <ul>
+                    <li>Liên hệ xác nhận đơn hàng và giao hàng cho thành viên khi nhận được yêu cầu từ thành
+                        viên;&nbsp;
+                    </li>
+                    <li>Cung cấp thông tin về sản phẩm đến khách hàng nếu có yêu cầu từ khách hàng;&nbsp;</li>
+                    <li>Gửi email tiếp thị, khuyến mại về sản phẩm, kiến thức liên quan&nbsp;</li>
+                    <li>Gửi các thông báo về các hoạt động trên website&nbsp;</li>
+                    <li>Liên lạc và giải quyết với người dùng trong những trường hợp đặc biệt;&nbsp;</li>
+                    <li>Khi có yêu cầu của cơ quan tư pháp bao gồm: Viện kiểm sát, tòa án, cơ quan công an điều
+                        tra liên
+                        quan đến hành vi vi phạm pháp luật nào đó của khách hàng.&nbsp;</li>
+                </ul>
+                <p>3. Thời gian lưu trữ thông tin Dữ liệu cá nhân của thành viên sẽ được lưu trữ cho đến khi có
+                    yêu cầu
+                    ban quản trị hủy bỏ. Còn lại trong mọi trường hợp thông tin cá nhân thành viên sẽ được bảo
+                    mật trên
+                    máy chủ của chúng tôi&nbsp;</p>
+                <p>4. Những người hoặc tổ chức có thể được tiếp cận với thông tin đó&nbsp;</p>
+                <ul>
+                    <li>Những thông tin thu thập của thành viên sẽ được ban quản trị tiếp cận&nbsp;</li>
+                    <li>Các cơ quan chức năng khi có yêu cầu&nbsp;</li>
+                </ul>
+                <p>5. Địa chỉ của đơn vị thu thập và quản lý thông tin, bao gồm cách thức liên lạc để người tiêu
+                    dùng có
+                    thể hỏi về hoạt động thu thập, xử lý thông tin liên quan đến cá nhân mình.</p>
+                <ul>
+                    <li><strong>Hộ kinh doanh cửa hàng Noble Loft Theory</strong></li>
+                    <li>Địa chỉ: 22 Lê Lai, phường 4, Gò Vấp, HCM</li>
+                    <li>Hotline: 0939188980065</li>
+                    <li>Email: NLT@noblelofttheory.com</li>
+                </ul>
+                <p>6. Phương thức và công cụ để người tiêu dùng tiếp cận và chỉnh sửa dữ liệu cá nhân của mình
+                    trên hệ
+                    thống thương mại điện tử của đơn vị thu thập thông tin Thành viên có quyền tự kiểm tra, cập
+                    nhật,
+                    điều chỉnh hoặc hủy bỏ thông tin cá nhân của mình bằng cách liên hệ với ban quản trị website
+                    thực
+                    hiện việc này. Thành viên có quyền gửi khiếu nại về nội dung bảo mật thông tin đề nghị liên
+                    hệ Ban
+                    quản trị của website.
+                    Khi tiếp nhận những phản hồi này, chúng tôi sẽ xác nhận lại thông tin, trường hợp đúng như
+                    phản ánh
+                    của thành viên tùy theo mức độ, chúng tôi sẽ có những biện pháp xử lý kịp thời.&nbsp;</p>
+                <p>7. Cơ chế tiếp nhận và giải quyết khiếu nại của người tiêu dùng liên quan đến việc thông tin
+                    cá nhân
+                    bị sử dụng sai mục đích hoặc phạm vi đã thông báo</p>
+                <ul>
+                    <li>&nbsp;Thông tin cá nhân của thành viên được cam kết bảo mật tuyệt đối theo chính sách
+                        bảo vệ
+                        thông tin cá nhân. Việc thu thập và sử dụng thông tin của mỗi thành viên chỉ được thực
+                        hiện khi
+                        có sự đồng ý của khách hàng đó trừ những trường hợp pháp luật có quy định khác.&nbsp;
+                    </li>
+                    <li>Không sử dụng, không chuyển giao, cung cấp hay tiết lộ cho bên thứ 3 nào về thông tin cá
+                        nhân
+                        của thành viên khi không có sự cho phép đồng ý từ thành viên. Trong trường hợp máy chủ
+                        lưu trữ
+                        thông tin bị hacker tấn công dẫn đến mất mát dữ liệu cá nhân thành viên, chúng tôi sẽ có
+                        trách
+                        nhiệm thông báo vụ việc cho cơ quan chức năng điều tra xử lý kịp thời và thông báo cho
+                        thành
+                        viên được biết.&nbsp;</li>
+                </ul>
+                <p>Bảo mật tuyệt đối mọi thông tin giao dịch trực tuyến của thành viên bao gồm thông tin hóa đơn
+                    kế toán
+                    chứng từ số hóa Ban quản lý yêu cầu các cá nhân khi đăng ký/mua hàng phải cung cấp đầy đủ
+                    thông tin
+                    cá nhân có liên quan như: Họ và tên, địa chỉ liên lạc, email, điện thoại,…., và chịu trách
+                    nhiệm về
+                    tính pháp lý của những thông tin trên. Ban quản lý không chịu trách nhiệm cũng như không
+                    giải quyết
+                    mọi khiếu nại có liên quan đến quyền lợi của thành viên đó nếu xét thấy tất cả thông tin cá
+                    nhân của
+                    thành viên đó cung cấp khi đăng ký ban đầu là không chính xác.</p>
+                <p>Chúng tôi cam kết bảo mật thông tin cá nhân của khách hàng, không chia sẻ với bên thứ ba nếu
+                    không có
+                    sự đồng ý.</p>
+            </div>
+
+            <div class="page" id="policy-muahang">
+                <h2>Hướng dẫn mua hàng</h2>
+                <p>HOTLINE bộ phận bán hàng Online:&nbsp;0939 180 065
+                    <br>Bước 1:&nbsp;Lựa chọn sản phẩm<br>
+                    – Click chọn vào “Danh sách&nbsp;sản phẩm” để lựa chọn sản phẩm.
+                    <br>– Sử dụng chức năng tìm kiếm sản phẩm để tìm nhanh sản phẩm theo ý thích, vui lòng nhập
+                    thông
+                    tin vào ô “Tìm kiếm sản phẩm” bên trái.
+                </p>
+                <p>Bước 2:&nbsp;Quyết định đặt hàng trực tuyến Chọn biểu tượng “Giỏ hàng” tại danh sách liệt kê
+                    tất cả
+                    sản phẩm hoặc biểu tượng “Đặt hàng” trong chi tiết sản phẩm.</p>
+                <p>Bước 3:&nbsp;Cập nhật thông tin giỏ hàng<br>– Lựa chọn sản phẩm cần mua<br>– Chọn biểu tượng
+                    “Xóa”
+                    bên phải nếu muốn bỏ sản phẩm đó khỏi giỏ hàng.
+                    <br>– Chọn “Tiếp tục mua” khi muốn chọn thêm sản phẩm khác đưa vào giỏ hàng.<br>– Chọn “Cập
+                    nhật giỏ
+                    hàng” để chốt và biết tổng giá trị giỏ hàng.
+                    <br>– “Xác nhận” khi bạn đã hoàn tất việc chọn và đặt&nbsp;hàng để đến bước tiếp theo.
+                    <br>Bước 4:&nbsp;Xác nhận đơn hàng.
+                    <br>– Đơn hàng hoàn chỉnh hiển thị toàn bộ thông tin sản phẩm, mã sản phẩm đã được chọn và
+                    tổng
+                    giá trị đơn hàng.
+                </p>
+                <p>Quý khách vui lòng cung cấp đầy đủ thông tin liên hệ để&nbsp;<strong>Hộ kinh doanh cửa hàng
+                        Noble
+                        Loft Theory </strong>&nbsp;tiện liên lạc và gửi thông báo xác nhận đơn hàng.</p>
+                <p>Bước 5:&nbsp;Hoàn tất việc đặt hàng<br>Khi quý khách chọn “Xác nhận”, thông tin đặt hàng đã
+                    được gửi
+                    đến ban quản trị web.&nbsp;Trong 24h chúng tôi&nbsp;sẽ gửi email và liên lạc qua điện thoại
+                    để xác
+                    nhận lại đơn hàng (ngoại trừ ngày lễ – tết).</p>
+
+                <p>Khách hàng có thể đặt hàng trực tiếp qua website hoặc liên hệ hotline để được hỗ trợ.</p>
+            </div>
+
+            <div class="page" id="policy-kiemhang">
+                <h2>Chính sách kiểm hàng</h2>
+                <h2><strong>Định nghĩa</strong></h2>
+                <p>Kiểm hàng là quá trình kiểm tra và kiểm soát số lượng, chất lượng và tình trạng của hàng hoá
+                    trong
+                    quá trình vận chuyển, lưu kho hoặc giao nhận. Điều này đảm bảo rằng hàng hoá được đúng số
+                    lượng,
+                    không bị hư hỏng và đáp ứng các tiêu chuẩn chất lượng được đề ra.&nbsp;</p>
+                <p>Quá trình kiểm hàng thường bao gồm việc kiểm tra, đếm số lượng, kiểm tra chất lượng, kiểm tra
+                    đóng
+                    gói và
+                    kiểm tra thông tin liên quan khác để đảm bảo rằng hàng hoá đáp ứng các yêu cầu cần thiết
+                    trước khi
+                    được giao
+                    cho khách hàng hoặc tiếp tục quá trình vận chuyển.</p>
+                <h2><strong>Quy định</strong></h2>
+                <ul>
+                    <li><strong>Thời điểm kiểm hàng</strong></li>
+                </ul>
+                <p><strong> Noble Loft Theory &nbsp;</strong>chấp nhận cho khách hàng đồng kiểm với nhân viên
+                    giao hàng
+                    tại thời điểm nhận hàng.&nbsp;
+                    <strong>Không hỗ trợ thử hàng</strong>.
+                </p>
+                <p>Sau khi nhận hàng, khách hàng kiểm lại phát hiện sai, có thể liên lạc với bộ phận chăm sóc
+                    khách hàng
+                    để được hỗ trợ đổi trả (thông tin bên dưới).&nbsp;
+                    <strong>Lưu ý, quý khách quay video lúc mở thùng hàng để đối chiếu khi cần thiết.</strong>
+                </p>
+                <ul>
+                    <li><strong>Phạm vi kiểm tra hàng hóa</strong></li>
+                </ul>
+                <p>Khách hàng được kiểm tra các sản phẩm thực nhận, đối chiếu, so sánh các sản phẩm nhận được
+                    với sản
+                    phẩm đã đặt trên đơn sau khi nhân viên
+                    <strong>&nbsp;Noble Loft Theory </strong>&nbsp;xác nhận đơn hàng theo các tiêu chí: ảnh mẫu,
+                    mã sản
+                    phẩm, kích thước, màu sắc. chất liệu…
+                </p>
+                <p>Tuyệt đối không bóc, mở bên trong&nbsp;sản phẩm có tem niêm phong, tem đảm bảo.</p>
+                <p>Không được cào lấy mã các sản phẩm có tích điểm, đổi quà.</p>
+                <p>Không được tự sửa chữa khi có vấn đề sản phẩm, sẽ không được bảo hành</p>
+                <ul>
+                    <li><strong>Các bước xử lý khi hàng hóa nhận được không như đơn đặt hàng</strong></li>
+                </ul>
+                <p>Khi quý khách đồng kiểm, sản phẩm nhận được không như sản phẩm khách đặt trên đơn hàng. Xin
+                    hãy liên
+                    hệ với&nbsp;
+                    <em><strong>Hotline&nbsp;0939 180
+                            065&nbsp;hoặc&nbsp;email&nbsp;&nbsp;NLT@noblelofttheory.com</strong></em>
+                    &nbsp;hoặc Zalo, Messenger trên website để được gặp bộ phận chăm sóc khách hàng xác nhận lại
+                    đơn
+                    hàng.
+                </p>
+                <p>Trường hợp&nbsp;<strong> Noble Loft Theory</strong>&nbsp;đóng sai đơn hàng theo yêu cầu của
+                    khách,
+                    khách có thể không nhận hàng, không thanh toán. Trong trường hợp đơn hàng đã thanh toán,
+                    khách hàng
+                    có thể yêu cầu gửi lại đơn mới hoặc không,&nbsp;
+                    <strong>Noble Loft Theory &nbsp;</strong>sẽ hoàn lại tiền cho quý khách trong thời gian sớm
+                    nhất.
+                </p>
+                <p>Trường hợp&nbsp;
+                    <strong>Noble Loft Theory </strong>&nbsp;đóng hàng đúng theo đơn hàng, nhưng khách hàng thay
+                    đổi nhu
+                    cầu, khách hàng có thể yêu cầu đổi trả và áp dụng chính sách đổi trả.&nbsp;Trường hợp này
+                    khách hàng
+                    sẽ thanh toán chi phí giao hàng (nếu có).
+                </p>
+                <ul>
+                    <li><strong>Các kênh thông tin tiếp nhận khiếu nại của khách hàng</strong></li>
+                </ul>
+                <p>Quý khách hàng có thể liên hệ khiếu nại qua:</p>
+                <p><strong>Email:&nbsp;</strong>NLT@noblelofttheory.com</p>
+                <p><strong>Hotline:&nbsp;</strong>0939 1860 065</p>
+                <p><strong>Địa chỉ:</strong>&nbsp; khu phỐ 33, Phường Linh Xuân, Thành Phố Hồ Chí Minh </p>
+                <p>Quý khách vui lòng kiểm tra sản phẩm trước khi ký nhận để đảm bảo quyền lợi của mình.</p>
+            </div>
+
+            <div class="page" id="policy-giaohang">
+                <h2>Chính sách giao hàng</h2>
+                <p>Chúng tôi hỗ trợ giao hàng toàn quốc, thời gian từ 2–5 ngày làm việc tùy khu vực.</p>
+                <p><strong>1. Phương thức giao hàng&nbsp;</strong>
+                </p>
+                <ul>
+                    <li>Khách hàng có thể thực hiện Đơn Đặt Hàng bằng cách điền và gửi thông tin được yêu cầu
+                        trên tại
+                        website bán hàng của công ty.
+                        Khách hàng phải chịu trách nhiệm đảm bảo tính chính xác của thông tin trong Đơn Đặt
+                        Hàng.&nbsp;
+                    </li>
+                    <li>Trường hợp khách hàng đã thực hiện xong Đơn Đặt Hàng nhưng muốn thay đổi Địa chỉ giao
+                        hàng hoặc
+                        Địa chỉ gửi hóa đơn thanh toán, để thay đổi thông tin đó, khách hàng cần liên hệ số
+                        Hotline của
+                        Bên cung cấp dịch vụ và làm theo hướng dẫn.&nbsp;</li>
+                    <li>Nhằm tạo điều kiện thuận lợi cho việc giao hàng được gửi đến khách hàng sớm nhất, khách
+                        hàng vui
+                        lòng cung cấp chi tiết số nhà, tên đường, phường, thôn, ấp, tổ, khu, bản, xã, thị trấn,
+                        quận,
+                        huyện, tỉnh … một cách chi tiết và chính xác.
+                        Bên cung cấp dịch vụ có quyền hủy bỏ các đơn đặt hàng không rõ ràng hoặc không chịu
+                        trách nhiệm
+                        đối với những trường hợp giao hàng chậm trễ hay thất lạc v.v.. do khách hàng cung cấp
+                        thông tin
+                        không chính xác. Bên cung cấp dịch vụ hiện đang áp dụng các hình thức vận chuyển sau:
+                        Giao hàng thông qua đơn vị giao nhận. Phí giao hàng: MIỄN PHÍ HOẶC CÓ THU PHÍ GIAO HÀNG
+                        Phí vận
+                        chuyển được tính theo giá hiển thị mặc định trong quá trình đặt hàng. Phí vận chuyển có
+                        thể khác
+                        nhau tùy vào giá trị đơn hàng &amp; chính sách giao hàng tại thời điểm đặt hàng.
+                        Trong một số trường hợp được khuyến mãi, phí giao hàng là hoàn toàn miễn phí. Khi có
+                        khuyến mãi
+                        phí giao hàng, bên cung cấp dịch vụ sẽ hỗ trợ chi phí vận chuyển cho khách hàng.&nbsp;
+                    </li>
+                </ul>
+                <p><strong>2. Thời hạn giao hàng</strong></p>
+                <ul>
+                    <li>Thời gian nhận hàng: tùy thuộc vào loại hình dịch vụ/ hình thức gửi hàng, Bên cung cấp
+                        dịch vụ
+                        sẽ thông báo cụ thể về thời gian nhận hàng của khách hàng sau khi khách hàng xác nhận
+                        đơn
+                        hàng.&nbsp;</li>
+                    <li>Hình thức chuyển hàng: Nhân viên giao hàng đến địa chỉ khách hàng cung cấp. (bỏ chuyển
+                        phát)&nbsp;</li>
+                    <li>Trước khi chuyển hàng, Bên cung cấp dịch vụ sẽ thông báo cho khách hàng về thời gian và
+                        cước phí
+                        giao hàng (nếu có).&nbsp;</li>
+                    <li>Trường hợp phát sinh chậm trễ trong việc giao hàng không phải do lỗi của Bên cung cấp
+                        dịch vụ
+                        thì Bên cung cấp dịch vụ sẽ có thông tin kịp thời cho khách hàng và khách hàng có thể
+                        hủy giao
+                        dịch (nếu muốn).&nbsp;</li>
+                </ul>
+                <p><strong>3. Phân định trách nhiệm của tổ chức cung ứng dịch vụ logistics</strong>&nbsp;</p>
+                <p><em><strong>a. Nghĩa vụ của bên vận chuyển&nbsp;</strong></em></p>
+                <ul>
+                    <li>Bảo đảm vận chuyển tài sản đầy đủ, an toàn đến địa điểm đã định, theo đúng thời
+                        hạn.&nbsp;</li>
+                    <li>Giao tài sản cho người có quyền nhận.&nbsp;</li>
+                    <li>Chịu chi phí liên quan đến việc chuyên chở tài sản, trừ trường hợp có thỏa thuận
+                        khác.&nbsp;
+                    </li>
+                    <li>Mua bảo hiểm trách nhiệm dân sự theo quy định của pháp luật.&nbsp;</li>
+                    <li>Bồi thường thiệt hại cho bên thuê vận chuyển trong trường hợp bên vận chuyển để mất, hư
+                        hỏng tài
+                        sản, trừ trường hợp có thỏa thuận khác hoặc pháp luật có quy định khác.&nbsp;</li>
+                </ul>
+                <p><em><strong>b. Quyền của bên vận chuyển&nbsp;</strong></em></p>
+                <ul>
+                    <li>Kiểm tra sự xác thực của tài sản, của vận đơn hoặc chứng từ vận chuyển tương đương
+                        khác.&nbsp;
+                    </li>
+                    <li>Từ chối vận chuyển tài sản không đúng với loại tài sản đã thỏa thuận trong hợp đồng. -
+                        Yêu cầu
+                        bên thuê vận chuyển thanh toán đủ cước phí vận chuyển đúng thời hạn.&nbsp;</li>
+                    <li>Từ chối vận chuyển tài sản cấm giao dịch, tài sản có tính chất nguy hiểm, độc hại, nếu
+                        bên vận
+                        chuyển</li>
+                </ul>
+                <p><em><strong>c. Nghĩa vụ của bên thuê vận chuyển&nbsp;</strong></em></p>
+                <ul>
+                    <li>Trả đủ tiền cước phí vận chuyển cho bên vận chuyển theo đúng thời hạn, phương thức đã
+                        thỏa
+                        thuận.&nbsp;</li>
+                    <li>Cung cấp thông tin cần thiết liên quan đến tài sản vận chuyển để bảo đảm an toàn cho tài
+                        sản vận
+                        chuyển.&nbsp;</li>
+                    <li>Trông coi tài sản trên đường vận chuyển, nếu có thỏa thuận. Trường hợp bên thuê vận
+                        chuyển trông
+                        coi tài sản mà tài sản bị mất, hư hỏng thì không được bồi thường.&nbsp;</li>
+                </ul>
+                <p><em><strong>d. Quyền của bên thuê vận chuyển&nbsp;</strong></em></p>
+                <ul>
+                    <li>Yêu cầu bên vận chuyển chuyên chở tài sản đến đúng địa điểm, thời điểm đã thỏa
+                        thuận.&nbsp;</li>
+                    <li>Trực tiếp hoặc chỉ định người thứ ba nhận lại tài sản đã thuê vận chuyển.&nbsp;</li>
+                </ul>
+                <p><em><strong>e. Trách nhiệm bồi thường thiệt hại&nbsp;</strong></em></p>
+                <ul>
+                    <li>Bên vận chuyển phải bồi thường thiệt hại cho bên thuê vận chuyển nếu để tài sản bị mất
+                        hoặc hư
+                        hỏng.&nbsp;</li>
+                    <li>Bên thuê vận chuyển phải bồi thường thiệt hại cho bên vận chuyển và người thứ ba về
+                        thiệt hại do
+                        tài sản vận chuyển có tính chất nguy hiểm, độc hại mà không có biện pháp đóng gói, bảo
+                        đảm an
+                        toàn trong quá trình vận chuyển.
+                        - Trường hợp bất khả kháng dẫn đến tài sản vận chuyển bị mất, hư hỏng hoặc bị hủy hoại
+                        trong quá
+                        trình vận chuyển thì bên vận chuyển không phải chịu trách nhiệm bồi thường thiệt hại,
+                        trừ trường
+                        hợp có thỏa thuận khác hoặc pháp luật có quy định khác.</li>
+                </ul>
+
+            </div>
+
+            <div class="page" id="policy-thanhtoan">
+                <h2>Hướng dẫn thanh toán</h2>
+                <p>Chúng tôi chấp nhận thanh toán qua chuyển khoản, ví điện tử và tiền mặt khi nhận hàng.</p>
+                <p>Quý khách có thể thanh toán khi mua hàng tại hệ thống cửa hàng&nbsp;bằng những cách sau:</p>
+                <p><strong>1. Thanh toán tiền mặt tại nhà khi nhận hàng thông qua hình thức giao hàng trực
+                        tiếp</strong>
+                </p>
+                <p>Khi nhân viên giao hàng, khách hàng kiểm tra sản phẩm, hàng nhận hàng và thanh toán trực tiếp
+                    cho
+                    nhân viên giao hàng theo giá trị tiền trên hóa đơn.
+                    Ngoài ra khách hàng không phải thanh toán bất kỳ 1 chi phí nào khác.</p>
+                <p><strong>2. Thanh toán tiền mặt tại cửa hàng</strong></p>
+                <p>Khách hàng đến cửa hàng tham quan, mua sản phẩm sẽ thanh toán trực tiếp bằng tiền mặt hoặc
+                    chuyển
+                    khoản trực tiếp tại cửa hàng.</p>
+                <p><strong>3. Thanh toán qua chuyển khoản</strong>
+                </p>
+                <p>Tên chủ thể: NGUYEN THI QUA MON</p>
+                <p>STK:&nbsp;107878923506 -&nbsp;Ngân hàng TMCP Công Thương Việt Nam (Viettin bank)</p>
+                <p>Nội dung: Tên khách hàng&nbsp;+Số điện thoại</p>
+                <p>&nbsp;</p>
+                <p><strong><em>Quý khách hàng có thể liên hệ&nbsp;0939 180 065&nbsp;để được hỗ trợ nhanh nhất
+                            nhé.</em></strong></p>
+
+            </div>
+
+            <!--  PAGE ORDERS -->
+            <div id="page-orders" class="page">
+                <div class="order-tabs">
+                    <div class="order-tab active" data-tab="all">Tất cả</div>
+                    <div class="order-tab" data-tab="pending">Chờ xử lý</div>
+                    <div class="order-tab" data-tab="paid">Đã thanh toán</div>
+                    <div class="order-tab" data-tab="shipping">Đang giao</div>
+                    <div class="order-tab" data-tab="delivered">Đã giao</div>
+                    <div class="order-tab" data-tab="canceled">Đã hủy</div>
+                </div>
+
+
+                <div class="order-container">
+                    <div id="order-list">
+
+                        <!-- order 1 -->
+                        <div class="order-card" data-status="canceled">
+                            <div class="order-status">Đã hủy</div>
+
+                            <div class="order-item">
+                                <img
+                                    src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m4jyoniaqdvz5e@resize_w900_nl.webp">
+                                <div class="order-info">
+                                    <h4>Cây hoa hồng cổ rừng 1m1, hoa nhiều, dáng đẹp,hoa hồng giả</h4>
+                                    <p class="order-price">500.000 đ</p>
+                                    <div class="order-tags">
+                                        <span class="order-tag">1m1</span>
+                                        <span class="order-tag">Đỏ</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="order-date">27/07/2025 10:07</span>
+                            <div class="order-footer">
+                                <button class="order-view-btn">Xem đơn hàng</button>
+                            </div>
+
+
+                        </div>
+
+                        <!-- order 2 -->
+                        <div class="order-card" data-status="canceled">
+                            <div class="order-status">Đã hủy</div>
+
+                            <div class="order-item">
+                                <img
+                                    src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwejo9etilej2a@resize_w900_nl.webp">
+                                <div class="order-info">
+                                    <h4>Bộ đèn thả 3 chao pha lê - tặng kèm bóng LED</h4>
+                                    <p class="order-price">359.000 đ</p>
+                                    <div class="order-tags">
+                                        <span class="order-tag">Đèn tắng chùm</span>
+                                        <span class="order-tag">Trắng</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="order-date">14/03/2025 03:15</span>
+                            <div class="order-footer">
+                                <button class="order-view-btn">Xem đơn hàng</button>
+                            </div>
+                        </div>
+
+
+                        <!-- order 3 -->
+                        <div class="order-card" data-status="delivered">
+                            <div class="order-status">Đã giao</div>
+
+                            <div class="order-item">
+                                <img src="https://updecor.net/wp-content/uploads/2019/07/tuong-voi-bo-con-1.jpg">
+                                <div class="order-info">
+                                    <h4>Tượng Voi Bố Con Trang Trí Bằng Đồng</h4>
+                                    <p class="order-price">10.000.000 đ</p>
+                                    <div class="order-tags">
+
+                                        <span class="order-tag">Xám</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="order-date">08/03/2025 15:02 </span>
+                            <div class="order-footer">
+                                <button class="order-view-btn">Xem đơn hàng</button>
+                            </div>
+                        </div>
+
+                        <!-- order 4 -->
+                        <div class="order-card" data-status="pending">
+                            <div class="order-status">Chờ xử lý </div>
+
+                            <div class="order-item">
+                                <img
+                                    src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mek6225s99fkc3.webp">
+                                <div class="order-info">
+                                    <h4>Nến thơm Soyam by Citta</h4>
+                                    <p class="order-price">185.000 đ</p>
+                                    <div class="order-tags">
+                                        <span class="order-tag">Fruit</span>
+                                        <span class="order-tag">Trắng</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="order-date">01/02/2025 12:15</span>
+                            <div class="order-footer">
+                                <button class="order-view-btn-huy">Hủy </button>
+                                <button class="order-view-btn">Xem đơn hàng</button>
+                            </div>
+                        </div>
+
+                        <!-- order 5 -->
+                        <div class="order-card" data-status="paid">
+                            <div class="order-status">Đã thanh toán </div>
+
+                            <div class="order-item">
+                                <img
+                                    src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m19obxi09ct825.webp">
+                                <div class="order-info">
+                                    <h4>Gối Tựa Trang Trí Sofa Vải Len Dệt Sơi Nổi 2 Mặt Cao Cấp</h4>
+                                    <p class="order-price">89.000 đ</p>
+                                    <div class="order-tags">
+                                        <span class="order-tag">Rêu</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="order-date">01/02/2025 09:10</span>
+                            <div class="order-footer">
+                                <button class="order-view-btn">Xem đơn hàng</button>
+                            </div>
+                        </div>
+
+                        <!-- order 6 -->
+                        <div class="order-card" data-status="shipping">
+                            <div class="order-status">Đang giao </div>
+
+                            <div class="order-item">
+                                <img
+                                    src="https://down-vn.img.susercontent.com/file/sg-11134201-22120-jw14cwevgukv2d.webp">
+                                <div class="order-info">
+                                    <h4>Bộ Tranh Thêu Chữ Thập 11CT DIY Hình Cá Koi Nhỏ Khung Tròn Nhỏ Không
+                                        Khung Thêu
+                                        Chữ Thập Giàu Và Giàu Có</h4>
+                                    <p class="order-price">344.900 đ</p>
+                                    <div class="order-tags">
+
+                                        <span class="order-tag">Đen</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="order-date">14/01/2025 17:17</span>
+                            <div class="order-footer">
+                                <button class="order-view-btn">Xem đơn hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+    <!--  PAGE ORDERS -->
+    <div id="page-orders" class="page">
+        <div class="order-tabs">
+            <div class="order-tab active" data-tab="all">Tất cả</div>
+            <div class="order-tab" data-tab="pending">Chờ xử lý</div>
+            <div class="order-tab" data-tab="paid">Đã thanh toán</div>
+            <div class="order-tab" data-tab="shipping">Đang giao</div>
+            <div class="order-tab" data-tab="delivered">Đã giao</div>
+            <div class="order-tab" data-tab="canceled">Đã hủy</div>
+        </div>
+
+
+        <div class="order-container">
+            <div id="order-list">
+
+                <!-- order 1 -->
+                <div class="order-card" data-status="canceled">
+                    <div class="order-status">Đã hủy</div>
+
+                    <div class="order-item">
+                        <img
+                            src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m4jyoniaqdvz5e@resize_w900_nl.webp">
+                        <div class="order-info">
+                            <h4>Cây hoa hồng cổ rừng 1m1, hoa nhiều, dáng đẹp,hoa hồng giả</h4>
+                            <p class="order-price">500.000 đ</p>
+                            <div class="order-tags">
+                                <span class="order-tag">1m1</span>
+                                <span class="order-tag">Đỏ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="order-date">27/07/2025 10:07</span>
+                    <div class="order-footer">
+                        <button class="order-view-btn">Xem đơn hàng</button>
+                    </div>
+
+
+                </div>
+
+                <!-- order 2 -->
+                <div class="order-card" data-status="canceled">
+                    <div class="order-status">Đã hủy</div>
+
+                    <div class="order-item">
+                        <img
+                            src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwejo9etilej2a@resize_w900_nl.webp">
+                        <div class="order-info">
+                            <h4>Bộ đèn thả 3 chao pha lê - tặng kèm bóng LED</h4>
+                            <p class="order-price">359.000 đ</p>
+                            <div class="order-tags">
+                                <span class="order-tag">Đèn tắng chùm</span>
+                                <span class="order-tag">Trắng</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="order-date">14/03/2025 03:15</span>
+                    <div class="order-footer">
+                        <button class="order-view-btn">Xem đơn hàng</button>
                     </div>
                 </div>
 
 
+                <!-- order 3 -->
+                <div class="order-card" data-status="delivered">
+                    <div class="order-status">Đã giao</div>
+
+                    <div class="order-item">
+                        <img src="https://updecor.net/wp-content/uploads/2019/07/tuong-voi-bo-con-1.jpg">
+                        <div class="order-info">
+                            <h4>Tượng Voi Bố Con Trang Trí Bằng Đồng</h4>
+                            <p class="order-price">10.000.000 đ</p>
+                            <div class="order-tags">
+
+                                <span class="order-tag">Xám</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="order-date">08/03/2025 15:02 </span>
+                    <div class="order-footer">
+                        <button class="order-view-btn">Xem đơn hàng</button>
+                    </div>
+                </div>
+
+                <!-- order 4 -->
+                <div class="order-card" data-status="pending">
+                    <div class="order-status">Chờ xử lý </div>
+
+                    <div class="order-item">
+                        <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mek6225s99fkc3.webp">
+                        <div class="order-info">
+                            <h4>Nến thơm Soyam by Citta</h4>
+                            <p class="order-price">185.000 đ</p>
+                            <div class="order-tags">
+                                <span class="order-tag">Fruit</span>
+                                <span class="order-tag">Trắng</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="order-date">01/02/2025 12:15</span>
+                    <div class="order-footer">
+                        <button class="order-view-btn-huy">Hủy </button>
+                        <button class="order-view-btn">Xem đơn hàng</button>
+                    </div>
+                </div>
+
+                <!-- order 5 -->
+                <div class="order-card" data-status="paid">
+                    <div class="order-status">Đã thanh toán </div>
+
+                    <div class="order-item">
+                        <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m19obxi09ct825.webp">
+                        <div class="order-info">
+                            <h4>Gối Tựa Trang Trí Sofa Vải Len Dệt Sơi Nổi 2 Mặt Cao Cấp</h4>
+                            <p class="order-price">89.000 đ</p>
+                            <div class="order-tags">
+                                <span class="order-tag">Rêu</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="order-date">01/02/2025 09:10</span>
+                    <div class="order-footer">
+                        <button class="order-view-btn">Xem đơn hàng</button>
+                    </div>
+                </div>
+
+                <!-- order 6 -->
+                <div class="order-card" data-status="shipping">
+                    <div class="order-status">Đang giao </div>
+
+                    <div class="order-item">
+                        <img src="https://down-vn.img.susercontent.com/file/sg-11134201-22120-jw14cwevgukv2d.webp">
+                        <div class="order-info">
+                            <h4>Bộ Tranh Thêu Chữ Thập 11CT DIY Hình Cá Koi Nhỏ Khung Tròn Nhỏ Không Khung Thêu
+                                Chữ Thập Giàu Và Giàu Có</h4>
+                            <p class="order-price">344.900 đ</p>
+                            <div class="order-tags">
+
+                                <span class="order-tag">Đen</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="order-date">14/01/2025 17:17</span>
+                    <div class="order-footer">
+                        <button class="order-view-btn">Xem đơn hàng</button>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <!-- Cột 1: Giới thiệu -->
+                <div class="footer-col">
+                    <h3>Giới thiệu</h3>
+                    <p>Chào mừng bạn đến với <strong>Noble Loft Theory</strong> — không gian dành cho những ai yêu thích
+                        cái đẹp và nghệ thuật trang trí nội thất.</p>
+                    <p>Chúng tôi mang đến các sản phẩm decor trang trí nhà với phong cách hiện đại, tối giản nhưng vẫn
+                        giữ được sự tinh tế trong từng chi tiết.</p>
+
+                </div>
+
+                <!-- Cột 2: Liên kết -->
+                <div class="footer-col">
+                    <h3>Liên kết</h3>
+                    <ul>
+                        <li><a>Chính sách đổi trả hoàn hàng</a></li>
+                        <li><a>Chính sách bảo mật mật khẩu</a></li>
+                        <li><a>Hướng dẫn mua hàng, sản phẩm</a></li>
+                        <li><a>Chính sách kiểm hàng hóa vận chuyển</a></li>
+                        <li><a>Chính sách giao hàng tận nơi</a></li>
+                        <li><a>Hướng dẫn thanh toán đơn hàng</a></li>
+                    </ul>
+
+                </div>
+
+                <!-- Cột 3: Thông tin liên hệ -->
+                <div class="footer-col">
+                    <h3>Thông tin liên hệ</h3>
+                    <p><i class="fa fa-map-marker"></i>Khu phố 33, P.Linh Xuân, TP.HCM</p>
+                    <p><i class="fa fa-map-marker"></i> Đại học Nông Lâm TP.Hồ Chí Minh</p>
+                    <p><i class="fa fa-phone"></i> Liên hệ: 03751841444 - 03381776315 </p>
+
+                    <p><i class="fa fa-envelope"></i> <a
+                            href="mailto:NLT@noblelofttheory.com">NLT@noblelofttheory.com</a></p>
+                </div>
+
+
+                <!-- Cột 4: Fanpage -->
+                <div class="footer-col">
+                    <h3>Fanpage</h3>
+                    <div class="fanpage-box">
+                        <p>Liên hệ ngay trang chủ của shop Noble Loft Theory.</p>
+                        <p>Nếu bạn đang có thắc mắc gì ở sản phẩm.</p>
+                        <p>Fanpage, Youtube và Instagram.</p>
+
+
+                        <div class="social-box">
+                            <div class="social-icons">
+                                <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                                <a href="https://www.facebook.com/share/1HP5fZGNqb/?mibextid=wwXIfr">
+                                    <i class="fa-brands fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/nltnoblelofttheory/">
+                                    <i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/channel/UC931-4vCWPGos5fSNQ8Rh-g">
+                                    <i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-
-            <!-- PAGE: PASSWORD -->
-       <div>
-        <div id="page-password" class="page"></div>
-       </div>
-
-
-
-        <!-- -------- PAGE: PRIVATE ------- -->
-        <div id="page-private" class="page">
-            <h3>Thiết lập riêng tư</h3>
-            <p>Chưa có thiết lập nào.</p>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 NLT Noble Loft Theory. Powered by NLT </p>
         </div>
-
-        <!-- -------- PAGE: ORDERS ------- -->
-        <div id="page-orders" class="page">
-            <h3>Đơn mua</h3>
-            <p>Chưa có đơn hàng nào.</p>
         </div>
+    </footer>
 
-        <!-- -------- PAGE: VOUCHER ------- -->
-        <div id="page-voucher" class="page">
-            <h3>Kho Voucher</h3>
-            <p>Bạn chưa có voucher nào.</p>
-        </div>
-    </main>
-</div>
+    <script src="js/headerjs"></script>
+    <script src="js/account.js"></script>
 
-<script src="js/account.js"></script>
+
 </body>
+
 </html>

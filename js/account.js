@@ -1,111 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    const menuItems = document.querySelectorAll(".menu li");
+    const allMenuItems = document.querySelectorAll(".menu-account > li, .menu-account .submenu li");
     const pages = document.querySelectorAll(".page");
+    const submenuParents = document.querySelectorAll(".menu-account .has-submenu");
 
-    // ========== CHUYỂN TAB ==========
-    menuItems.forEach((item, index) => {
-        item.addEventListener("click", () => {
-            menuItems.forEach(i => i.classList.remove("active"));
+    function clearAllActive() {
+        allMenuItems.forEach(i => i.classList.remove("active"));
+        submenuParents.forEach(p => p.classList.remove("open", "active"));
+    }
+
+    function showPage(selector) {
+        pages.forEach(p => p.classList.remove("active"));
+        const page = document.querySelector(selector);
+        if (page) page.classList.add("active");
+    }
+
+    // Click menu
+    allMenuItems.forEach(item => {
+        item.addEventListener("click", e => {
+            e.stopPropagation();
+            clearAllActive();
+
+            if (item.classList.contains("has-submenu")) {
+                item.classList.add("open", "active");
+                return;
+            }
+
             item.classList.add("active");
+            const parent = item.closest(".has-submenu");
+            if (parent) parent.classList.add("open", "active");
 
-            pages.forEach(p => p.classList.remove("active"));
-
-            if (item.innerText.trim() === "Đổi mật khẩu") {
-                loadPasswordPage();
-            } else {
-                pages[index].classList.add("active");
-            }
+            const target = item.getAttribute("data-target");
+            if (target) showPage(target);
         });
     });
 
-    /*
-    // ========== SỬA HỒ SƠ ==========
-    const editBtn = document.getElementById("editProfile");
-
-    if (editBtn) {
-        editBtn.addEventListener("click", function () {
-            let current = this.textContent.trim();
-
-            if (current === "Sửa") {
-                this.textContent = "Lưu";
-
-                ["email", "fullName", "phone"].forEach(id => {
-                    const span = document.getElementById(id);
-                    const text = span.textContent.trim();
-                    span.innerHTML = `<input class="editing" value="${text}">`;
-                });
-
-            } else {
-                this.textContent = "Sửa";
-
-                ["email", "fullName", "phone"].forEach(id => {
-                    const span = document.getElementById(id);
-                    const input = span.querySelector("input");
-                    span.textContent = input.value.trim();
-                });
-            }
+    // Toggle submenu khi click menu-title
+    document.querySelectorAll(".has-submenu .menu-title").forEach(toggle => {
+        toggle.addEventListener("click", e => {
+            e.stopPropagation();
+            const parent = toggle.parentElement;
+            const wasOpen = parent.classList.contains("open");
+            submenuParents.forEach(p => p.classList.remove("open"));
+            if (!wasOpen) parent.classList.add("open");
         });
-    }
-
-
-
-    // ========== SỬA ĐỊA CHỈ ==========
-    document.addEventListener("click", function (e) {
-        if (e.target.classList.contains("edit-address-btn")) {
-            const btn = e.target;
-            const row = btn.closest(".address-row");
-            const block = row.querySelector(".address");
-
-            if (btn.textContent.trim() === "Sửa") {
-                const text = block.innerText.replace("()", "").trim();
-                block.innerHTML = `<input class="editing" value="${text}">`;
-                btn.textContent = "Lưu";
-            } else {
-                const input = block.querySelector("input");
-                const newText = input.value.trim();
-                block.innerHTML = `${newText} <span class="default">(Mặc định)</span>`;
-                btn.textContent = "Sửa";
-            }
-        }
     });
 
+    // Click ngoài sidebar đóng submenu
+    document.addEventListener("click", () => {
+        submenuParents.forEach(p => p.classList.remove("open"));
+    });
 
-
-    // ========== THÊM ĐỊA CHỈ ==========
-    const addBtn = document.querySelector(".add-btn");
-
-    if (addBtn) {
-        addBtn.addEventListener("click", () => {
-            const addressBox = document.querySelector(".address-list");
-
-            const newAddress = document.createElement("div");
-            newAddress.className = "address-row";
-            newAddress.innerHTML = `
-                <div class="address">
-                    <input class="editing" placeholder="Nhập địa chỉ mới...">
-                </div>
-                <button class="edit-btn edit-address-btn">Lưu</button>
-            `;
-
-            addressBox.appendChild(newAddress);
+    // Order-tab
+    document.querySelectorAll(".order-tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+            document.querySelectorAll(".order-tab").forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+            const status = tab.getAttribute("data-tab");
+            document.querySelectorAll(".order-card").forEach(order => {
+                order.style.display = (status === "all" || order.dataset.status === status) ? "block" : "none";
+            });
         });
-    }
-    */
-
+    });
 });
-
-// ========== LOAD TRANG ĐỔI MẬT KHẨU ==========
-function loadPasswordPage() {
-    fetch("changePass.html")
-        .then(res => res.text())
-        .then(html => {
-            const passPage = document.getElementById("page-password");
-            passPage.innerHTML = html;
-            passPage.classList.add("active");
-
-            const script = document.createElement("script");
-            script.src = "../js/changePass.js";
-            document.body.appendChild(script);
-        });
-}

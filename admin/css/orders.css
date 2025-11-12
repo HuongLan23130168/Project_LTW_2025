@@ -1,0 +1,250 @@
+.orders-container {
+    margin-left: 260px;
+    padding: 10px;
+    background: none;
+    min-height: 100vh;
+    margin-top: 40px;
+}
+
+.orders-container h1 {
+    margin-bottom: 20px;
+    margin-top: 40px;
+    color: #5a3e2b;
+    text-align: center;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table th,
+.orders-table td {
+    text-align: left;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.orders-table th {
+    background: #f1e6d1;
+    color: #5a3e2b;
+    font-weight: 600;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.status.completed {
+    background-color: #d1f0d1;
+    color: #256029;
+}
+
+.status.pending {
+    background-color: #ffecc7;
+    color: #9a6b00;
+}
+
+.status.failed {
+    background: #ffa9a9;
+    color: #9c0303;
+
+}
+
+.btn-view {
+    color: #fff;
+    background: #e8dcd1;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    background: #d8b99c;
+}
+
+
+/* === MENU HÀNH ĐỘNG === */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: visible;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-cell {
+    position: relative;
+    overflow: visible;
+}
+
+.action-menu {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background: #f1e6d1;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    min-width: 120px;
+    z-index: 9999;
+}
+
+
+.action-toggle {
+    display: inline-block;
+    background: #e8dcd1;
+    color: #5a3e2b;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.action-toggle:hover {
+    background: #d8b99c;
+    color: #fff;
+}
+
+
+
+.action-menu a {
+    padding: 10px 4px;
+    color: #5a3e2b;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+
+}
+
+.action-menu a:hover {
+    background: #d8b99c;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.action-menu.show {
+    display: flex;
+}
+
+/* === THANH CÔNG CỤ (BỔ SUNG) === */
+.orders-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5a3e2b;
+    font-weight: 500;
+}
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.orders-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.orders-header .title-orders {
+    color: #5a3e2b;
+
+}
+
+.orders-header p {
+    color: #7a5b3a;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.title-orders {
+    display: flex;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f8f5f2;
+    border-radius: 16px;
+    padding: 10px 14px;
+    border: 0.3px #f8f5f2;
+    width: 370px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.search-box:hover {
+    border: 0.3px #d8b99c solid;
+}
+
+.search-box i {
+    color: rgba(116, 81, 45, 0.89);
+    margin-right: 8px;
+
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: none;
+    width: 370px;
+    font-size: 14px;
+    color: #5a3e2b;
+}
+
+
+#filterTime {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 0.3px solid #dddddd;
+    background-color: #f8f5f2;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+
+#filterTime:focus {
+    border-color: #bca77d;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+#filterTime option {
+    background-color: #fff;
+    color: #333;
+}
+
+#filterTime option:hover {
+    background-color: #f5f0e6;
+    border: 0.3px #d8b99c;
+}
