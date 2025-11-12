@@ -5,7 +5,7 @@ function changeImage(element) {
 
   mainImage.src = element.src;
 
-  thumbs.forEach(img => img.classList.remove("active"));
+  thumbs.forEach((img) => img.classList.remove("active"));
   element.classList.add("active");
 }
 
@@ -15,13 +15,32 @@ function scrollSlider(direction) {
   const scrollAmount = 260; // px
   slider.scrollBy({
     left: direction * scrollAmount,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 }
 // chọn màu & kích thước
-document.querySelectorAll(".option-list .option").forEach(opt => {
+document.querySelectorAll(".option-list .option").forEach((opt) => {
   opt.addEventListener("click", function () {
-    this.parentNode.querySelectorAll(".option").forEach(o => o.classList.remove("active"));
+    this.parentNode
+      .querySelectorAll(".option")
+      .forEach((o) => o.classList.remove("active"));
     this.classList.add("active");
+  });
+});
+// Nút quay lại đầu trang
+const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
   });
 });
