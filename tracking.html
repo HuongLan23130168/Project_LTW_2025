@@ -15,6 +15,41 @@
 
 <body>
     <style>
+
+        /*nut di len*/
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #c19a6b;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+
+        #backToTop:hover {
+            background: #b68950;
+            transform: translateY(-4px);
+        }
+
+        /* Khi hiển thị */
+        #backToTop.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         /* === BREADCRUMB === */
         .breadcrumb {
             margin: 20px 40px 10px;
@@ -289,8 +324,13 @@
             Quý khách vui lòng kiểm tra lại mã đơn hoặc gọi CSKH: <strong> 0375 1841 444 </strong>
         </p>
 
-
     </main>
+
+    <!-- NÚT LÊN ĐẦU TRANG -->
+    <button id="backToTop" title="Lên đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -362,6 +402,7 @@
         </div>
     </footer>
     <script src="js/header.js"></script>
+    <script src="js/detail.js"></script>
 </body>
 
 </html>
