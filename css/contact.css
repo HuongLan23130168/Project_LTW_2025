@@ -73,6 +73,14 @@ body {
     color: #6F4E37;
     margin-right: 10px;
 }
+.contact-info a{
+    color: #6f4e37;
+    text-decoration: none;
+}
+.contact-info a:hover{
+    color: #c2783b;
+}
+
 
 /* ==== FORM ==== */
 .contact-form {
