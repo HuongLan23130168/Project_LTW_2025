@@ -44,3 +44,17 @@ backToTopBtn.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+// === Quantity Increase/Decrease ===
+const qtyInput = document.getElementById("quantity");
+const btnMinus = document.querySelector(".qty-btn.minus");
+const btnPlus = document.querySelector(".qty-btn.plus");
+
+btnPlus.addEventListener("click", () => {
+  qtyInput.value = parseInt(qtyInput.value) + 1;
+});
+
+btnMinus.addEventListener("click", () => {
+  let current = parseInt(qtyInput.value);
+  if (current > 1) qtyInput.value = current - 1;
+});
+
