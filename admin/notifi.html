@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noble Loft Theory - Nofitications</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/notifi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- === SIDEBAR === -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <a href="dashboard.html">Noble Loft Theory</a>
+        </div>
+        <ul>
+            <li>
+                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="products.html"><i class="fas fa-box"></i> Sản phẩm</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-cart-shopping"></i> Đơn hàng</a>
+            </li>
+            <li>
+                <a href="customers.html"><i class="fas fa-users"></i> Khách hàng</a>
+            </li>
+            <li class="active">
+                <a href="notifi.html"><i class="fas fa-bell"></i> Thông báo</a>
+            </li>
+            <li>
+                <a href="account.html"><i class="fas fa-gear"></i> Tài khoản</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <div class="header-left">
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass" style="color: #74512d;"></i>
+                <input type="text" placeholder="Tìm kiếm" class="search-input" />
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Nút thông báo -->
+            <div class="notify-wrapper">
+                <a href="notifi.html" class="icon-button">
+                    <i class="fa-solid fa-bell"></i>
+                    <span id="notifyCount" class="notify-badge">3</span>
+                </a>
+            </div>
+
+            <!-- Hồ sơ người dùng -->
+            <div class="profile-dropdown">
+                <button class="icon-button user-btn">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
+                    <a href="index.html"><i class="fas fa-right-from-bracket"></i> Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- === NOTIFICATIONS === -->
+    <main class="main-content">
+        <h1 class="page-title"></i> Thông báo</h1>
+
+        <div class="notifi-controls">
+            <select id="filterSelect" class="filter-select">
+                <option value="all">Tất cả</option>
+                <option value="unread">Chưa đọc</option>
+                <option value="read">Đã đọc</option>
+                <option value="system">Hệ thống</option>
+                <option value="user">Khách hàng</option>
+            </select>
+            <button id="markAllBtn" class="btn"><i class="fa-solid fa-check-double"></i> Đánh dấu tất cả đã đọc</button>
+            <button id="clearBtn" class="btn danger"><i class="fa-solid fa-trash"></i> Xóa tất cả</button>
+        </div>
+
+        <ul id="notifiList" class="notifi-list">
+            <!-- TB1 -->
+            <li class="notifi-item unread user">
+                <div class="notifi-text">
+                    <h4>Đơn hàng #1234 đã được xác nhận</h4>
+                    <p>Khách hàng Nguyễn Thị Khách Hàng đã đặt mua 2 sản phẩm bàn gỗ.</p>
+                    <div class="notifi-time">10 phút trước</div>
+                </div>
+                <div class="notifi-actions">
+                    <button class="action-btn mark-read"><i class="fa-solid fa-check"></i></button>
+                    <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </li>
+            <!-- TB2 -->
+            <li class="notifi-item unread system">
+                <div class="notifi-text">
+                    <h4>Kho hàng sắp hết</h4>
+                    <p>Sản phẩm Ghế Sofa Luxury chỉ còn 3 chiếc trong kho.</p>
+                    <div class="notifi-time">1 giờ trước</div>
+                </div>
+                <div class="notifi-actions">
+                    <button class="action-btn mark-read"><i class="fa-solid fa-check"></i></button>
+                    <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </li>
+
+            <!-- TB3 -->
+            <li class="notifi-item read user">
+                <div class="notifi-text">
+                    <h4>Người dùng mới đăng ký</h4>
+                    <p>Công An Giao Thông vừa đăng ký tài khoản mới.</p>
+                    <div class="notifi-time">2 giờ trước</div>
+                </div>
+                <div class="notifi-actions">
+                    <button class="action-btn mark-read"><i class="fa-solid fa-check"></i></button>
+                    <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </li>
+            <!-- TB4 -->
+            <li class="notifi-item read system">
+                <div class="notifi-text">
+                    <h4>Cập nhật hệ thống</h4>
+                    <p>Hệ thống đã được nâng cấp lên phiên bản mới nhất.</p>
+                    <div class="notifi-time">1 ngày trước</div>
+                </div>
+                <div class="notifi-actions">
+                    <button class="action-btn mark-read"><i class="fa-solid fa-check"></i></button>
+                    <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </li>
+            <!-- TB5 -->
+            <li class="notifi-item unread user">
+                <div class="notifi-text">
+                    <h4>Phản hồi từ khách hàng</h4>
+                    <p>Khách hàng Lê Văn A đã gửi phản hồi về sản phẩm bàn ăn.</p>
+                    <div class="notifi-time">3 ngày trước</div>
+                </div>
+                <div class="notifi-actions">
+                    <button class="action-btn mark-read"><i class="fa-solid fa-check"></i></button>
+                    <button class="action-btn delete"><i class="fa-solid fa-trash"></i></button>
+                </div>
+
+        </ul>
+    </main>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/notifi.js"></script>
+</body>
+
+</html>

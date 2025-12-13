@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noble Loft Theory - Customers</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/customers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- === SIDEBAR === -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <a href="dashboard.html">Noble Loft Theory</a>
+        </div>
+        <ul>
+            <li>
+                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="products.html"><i class="fas fa-box"></i> Sản phẩm</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-cart-shopping"></i> Đơn hàng</a>
+            </li>
+            <li class="active">
+                <a href="customers.html"><i class="fas fa-users"></i> Khách hàng</a>
+            </li>
+            <li>
+                <a href="notifi.html"><i class="fas fa-bell"></i> Thông báo</a>
+            </li>
+            <li>
+                <a href="account.html"><i class="fas fa-gear"></i> Tài khoản</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <div class="header-left">
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass" style="color: #74512d;"></i>
+                <input type="text" placeholder="Tìm kiếm" class="search-input" />
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Nút thông báo -->
+            <div class="notify-wrapper">
+                <a href="notifi.html" class="icon-button">
+                    <i class="fa-solid fa-bell"></i>
+                    <span id="notifyCount" class="notify-badge">3</span>
+                </a>
+            </div>
+
+            <!-- Hồ sơ người dùng -->
+            <div class="profile-dropdown">
+                <button class="icon-button user-btn">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
+                    <a href="index.html"><i class="fas fa-right-from-bracket"></i> Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- === CUSTOMERS === -->
+    <main class="main-content">
+        <div class="customers-header">
+            <h1>Danh sách khách hàng</h1>
+            <div class="filter-container">
+                <select id="filterTime">
+                    <option>7 ngày gần nhất</option>
+                    <option selected>10 ngày gần nhất</option>
+                    <option>15 ngày gần nhất</option>
+                    <option>30 ngày gần nhất</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="customers-table">
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Lịch sử</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nguyễn Qua Môn</td>
+                        <td>quamon@gmail.com</td>
+                        <td>09013234567</td>
+                        <td>5 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+                    <tr>
+                        <td>Trần Công An</td>
+                        <td>congan@gmail.com</td>
+                        <td>09124345678</td>
+                        <td>8 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+                    <tr>
+                        <td>Nguyễn Thị Khách Hàng</td>
+                        <td>kh@gmail.com</td>
+                        <td>098765444321</td>
+                        <td>2 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+                    <tr>
+                        <td>Nguyễn Thành Thân</td>
+                        <td>kethon@gmail.com</td>
+                        <td>00022994472</td>
+                        <td>1 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Nguyễn Thị Khách Hàng</td>
+                        <td>kh@gmail.com</td>
+                        <td>098765444321</td>
+                        <td>7 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Cam Tắc Quýt </td>
+                        <td>CTQ@gmail.com</td>
+                        <td>1288435912</td>
+                        <td>10 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Huỳnh Hoành Hùng</td>
+                        <td>hunghung@gmail.com</td>
+                        <td>0987611321</td>
+                        <td>1 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Trần Thị Quýt Hàng</td>
+                        <td>quyt@gmail.com</td>
+                        <td>0000001292</td>
+                        <td>2 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Nguyễn Văn A</td>
+                        <td>kh@gmail.com</td>
+                        <td>098765444321</td>
+                        <td>4 đơn</td>
+                        <td><a href="customerDetail.html" class="view-btn">Xem</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
