@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -6,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng ký / Đăng nhập</title>
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -79,6 +83,17 @@
             <p class="switch-text">Đã có tài khoản?
                 <span id="signin" class="switch-btn">Đăng nhập</span>
             </p>
+
+            <div class="social">
+                <a href="<%= request.getContextPath() %>/facebook-login" class="btn-social fb">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="<%= request.getContextPath() %>/google-login" class="btn-social gg">
+                    <i class="fab fa-google"></i>
+                </a>
+            </div>
+
         </div>
 
         <!-- FORM ĐĂNG NHẬP -->
@@ -97,6 +112,17 @@
                 <p class="switch-text">Chưa có tài khoản?
                     <span id="signup" class="switch-btn">Đăng ký</span>
                 </p>
+
+                <div class="social">
+                    <a href="<%= request.getContextPath() %>/facebook-login" class="btn-social fb">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="<%= request.getContextPath() %>/google-login" class="btn-social gg">
+                        <i class="fab fa-google"></i>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>
