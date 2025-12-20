@@ -1,0 +1,194 @@
+
+/* === BREADCRUMB === */
+.breadcrumb {
+    margin: 2px 40px 20px;
+    color: #333;
+    /* margin-top: 80px; */
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #000;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: #74512D;
+}
+
+.breadcrumb .current {
+    color: #74512D;
+    font-weight: 700;
+}
+
+/* ====== FORM THÊM SẢN PHẨM ====== */
+.main-content {
+    margin-left: 220px;
+    padding: 30px 40px 40px;
+    padding-top: calc(70px + 30px);
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+}
+
+/* ================== PROFILE CONTAINER ================== */
+.addProducts {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 40px auto;
+    display: block;
+    margin: 50px auto 50px;
+}
+
+.main-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: linear-gradient(120deg, #f6ede3, #fdfaf7); */
+  z-index: -1;
+}
+
+.main-content h2 {
+  color: #5A3E2B;
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #ecdcc6;
+  padding-bottom: 10px;
+}
+
+.form-row {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-row label {
+  font-weight: 600;
+  color: #6F4E37;
+  margin-bottom: 8px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-row input,
+.form-row textarea,
+.form-row select {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border: 1.5px solid #e2d2bf;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #fffdf8;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.form-row input:focus,
+.form-row textarea:focus,
+.form-row select:focus {
+  border-color: #C19A6B;
+  box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.25);
+  background-color: #fff;
+}
+
+/* === ICON TRONG INPUT === */
+.form-row i {
+  position: absolute;
+  left: 12px;
+  top: 38px;
+  color: #b89b7b;
+  font-size: 15px;
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 90px;
+  padding-left: 14px;
+}
+
+.form-row.two-cols {
+  display: flex;
+  gap: 18px;
+}
+
+/* === Upload === */
+.form-row input[type="file"] {
+  border: 2px dashed #d7c3a8;
+  background: #fdf9f4;
+  cursor: pointer;
+  padding-left: 14px;
+}
+
+.form-row input[type="file"]:hover {
+  border-color: #c19a6b;
+  background-color: #fffaf4;
+}
+
+/* === Nút hành động === */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 600;
+}
+
+.btn.secondary {
+  background: #f6f1e9;
+  color: #5A3E2B;
+  border: 1px solid #e0d5c3;
+  text-decoration: none;
+}
+
+.btn.secondary:hover {
+  background: #efe4d4;
+}
+
+.btn.deleteRow {
+  background: linear-gradient(135deg, #6F4E37, #5A3E2B);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(90, 62, 43, 0.3);
+}
+
+.btn.deleteRow:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #5A3E2B, #4a2f1f);
+}
+
+/* === Animation === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 28px;
+  }
+  .form-row.two-cols {
+    flex-direction: column;
+  }
+  .form-row i {
+    top: 35px;
+  }
+}
+

@@ -1,0 +1,156 @@
+.order-container {
+    max-width: 100%;
+    margin: auto;
+    background: #FEFAEF;
+    padding: 20px;
+    color: #6F4E37;
+    font-size: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.order-tabs {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    background: #FEFAEF;
+    gap: 8px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    color: #6F4E37;
+}
+
+
+.order-tab {
+    padding: 10px 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #6F4E37;
+    font-size: 14px;
+    /* background: white; */
+    transition: 0.2s;
+    flex: 1;
+    text-align: center;
+}
+
+.order-tab:hover {
+    color: #ECB176;
+}
+
+
+
+.order-tab.active {
+    color: #ECB176;
+}
+
+
+/* Order Card */
+.order-card {
+    background: #fff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.order-status {
+    color: darkorange;
+    font-weight: bold;
+    text-align: right;
+    font-size: 13px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.order-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.order-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    border: 1px solid #dddddd;
+    object-fit: cover;
+}
+
+
+
+.order-info h4 {
+    margin-left: 0;
+    margin-bottom: 6px;
+    font-size: 15px;
+    color: #333;
+}
+
+.order-price {
+    color: lightsalmon;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.order-tags {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    color: #ECB176;
+    margin-left: 0;
+}
+
+.order-tag {
+    background: linen;
+    color: lightsalmon;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 0;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #dddddd;
+    padding-top: 8px;
+}
+
+.order-date {
+    color: #6F4E37;
+    font-size: 14px;
+    padding-left: 0;
+    margin-left: 10px;
+}
+
+.order-view-btn {
+    background: #A79277;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.order-view-btn:hover {
+    background: #74512D;
+    color: white;
+}
+
+.order-view-btn-huy {
+    background: darkorange;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+
+    margin-right: 5px;
+}
+
+.order-view-btn-huy:hover {
+    background: #74512D;
+    color: white;
+}
