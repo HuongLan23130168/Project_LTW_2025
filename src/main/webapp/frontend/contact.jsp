@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -5,15 +7,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liên hệ - Noble Loft Theory</title>
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+<%--    <link rel="stylesheet" href="css/contact.css">--%>
+<%--    <link rel="stylesheet" href="css/header.css">--%>
+<%--    <link rel="stylesheet" href="css/footer.css">--%>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/frontend/css/contact.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/frontend/css/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/frontend/css/footer.css">
 
 </head>
 
 <body>
+
+
+
     <style>
         /* === BREADCRUMB === */
         .breadcrumb {
@@ -66,10 +74,27 @@
         <span class="current">Liên hệ </span>
     </div>
 
+
+
+
+
     <main class="contact-main">
+
+        <% if ("true".equals(request.getParameter("success"))) { %>
+        <div id="toast-success" class="toast-success show">
+            <i class="fa-solid fa-circle-check"></i>
+            Gửi liên hệ thành công!
+        </div>
+        <% } %>
+
+
         <h1>Liên hệ với chúng tôi</h1>
         <p>Hãy để lại lời nhắn hoặc liên hệ trực tiếp nếu bạn có bất kỳ thắc mắc nào.
             Chúng tôi rất hân hạnh được hỗ trợ bạn!</p>
+
+
+
+
 
         <div class="contact-container">
             <!-- KHUNG NHỎ CHO THÔNG TIN LIÊN HỆ -->
@@ -84,10 +109,16 @@
                 </div>
             </div>
 
-            <!-- FORM GỬI LIÊN HỆ -->
-            <form class="contact-form">
 
-                <h2>Gửi lời nhắn cho chúng tôi</h2>
+
+            <!-- FORM GỬI LIÊN HỆ -->
+            <form class="contact-form"
+                  action="${pageContext.request.contextPath}/contact"
+                  method="post">
+
+
+
+            <h2>Gửi lời nhắn cho chúng tôi</h2>
                 <label for="name">Họ và tên</label>
                 <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn" required>
 
@@ -169,6 +200,33 @@
             <p>Copyright © 2025 NLT Noble Loft Theory. Powered by NLT</p>
         </div>
     </footer>
+
+
+    <script>
+
+
+        const toast = document.getElementById("toast-success");
+
+        if (toast) {
+            // Ẩn sau 5s
+            setTimeout(() => {
+                toast.classList.remove("show");
+
+                // xoá hẳn khỏi DOM sau animation
+                setTimeout(() => toast.remove(), 400);
+            }, 2000);
+        }
+
+        if (window.location.search.includes("success=true")) {
+            setTimeout(() => {
+                const url = new URL(window.location);
+                url.searchParams.delete("success");
+                window.history.replaceState({}, document.title, url.pathname);
+            }, 100); // xoá ngay sau khi load
+        }
+    </script>
+
+
 </body>
 
 </html>
