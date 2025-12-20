@@ -152,4 +152,48 @@ body {
     .contact-main h1 {
         font-size: 42px;
     }
+
+    /* ==== TOAST SUCCESS ==== */
+    .toast-success {
+        position: fixed;
+        top: 0;
+        left: 24px;
+        /*background: #ffffff;*/
+        /*color: #2e7d32;*/
+        /*padding: 16px 22px;*/
+        /*border: 1.5px solid #2ecc71;*/
+        /*border-radius: 10px;*/
+        /*font-weight: 600;*/
+        /*display: flex;*/
+        /*align-items: center;*/
+        /*gap: 12px;*/
+        /*box-shadow: 0 10px 25px rgba(0,0,0,0.12);*/
+
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transform: translateY(-10px);
+        z-index: 9999;
+    }
+
+    .toast-success i{
+        background: #ffffff;
+        color: #2e7d32;
+        right:10px;
+        padding: 16px 22px;
+        border: 1.5px solid #2ecc71;
+        border-radius: 10px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .toast-success.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 }
