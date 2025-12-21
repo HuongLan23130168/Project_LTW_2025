@@ -1,4 +1,3 @@
-
 /* === BREADCRUMB === */
 .breadcrumb {
     margin: 2px 40px 20px;
@@ -35,7 +34,7 @@
     background: #fff;
     border-radius: 16px;
     padding: 30px;
-    width: 600px;
+    /* width: 600px; */
     max-width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     margin: 40px auto;
@@ -44,151 +43,446 @@
 }
 
 .main-content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* background: linear-gradient(120deg, #f6ede3, #fdfaf7); */
-  z-index: -1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* background: linear-gradient(120deg, #f6ede3, #fdfaf7); */
+    z-index: -1;
 }
 
 .main-content h2 {
-  color: #5A3E2B;
-  text-align: center;
-  margin-bottom: 32px;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  border-bottom: 2px solid #ecdcc6;
-  padding-bottom: 10px;
+    color: #5A3E2B;
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #ecdcc6;
+    padding-bottom: 10px;
 }
 
 .form-row {
-  margin-bottom: 22px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+    margin-bottom: 22px;
+    display: flex;
+    /* flex-direction: column; */
+    position: relative;
 }
 
+
+
 .form-row label {
-  font-weight: 600;
-  color: #6F4E37;
-  margin-bottom: 8px;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+    font-weight: 600;
+    color: #6F4E37;
+    margin-bottom: 8px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 20px;
 }
 
 .form-row input,
-.form-row textarea,
 .form-row select {
-  width: 100%;
-  padding: 12px 14px 12px 40px;
-  border: 1.5px solid #e2d2bf;
-  border-radius: 10px;
-  font-size: 15px;
-  background-color: #fffdf8;
-  outline: none;
-  transition: all 0.25s ease;
+    padding: 12px 14px 12px 20px;
+    border: 1.5px solid #e2d2bf;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #fffdf8;
+    outline: none;
+    transition: all 0.25s ease;
 }
+.form-row textarea {
+        padding: 12px 14px 12px 20px;
+        border: 1.5px solid #e2d2bf;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #fffdf8;
+        outline: none;
+        transition: all 0.25s ease;
+}
+.description-row {
+    flex-direction: column;
+}
+
+.description-row textarea {
+    min-height: 160px;   /* hoặc 180–220px tùy bạn */
+    width: 100%;
+}
+
 
 .form-row input:focus,
 .form-row textarea:focus,
 .form-row select:focus {
-  border-color: #C19A6B;
-  box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.25);
-  background-color: #fff;
+    border-color: #C19A6B;
+    box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.25);
+    background-color: #fff;
 }
 
 /* === ICON TRONG INPUT === */
 .form-row i {
-  position: absolute;
-  left: 12px;
-  top: 38px;
-  color: #b89b7b;
-  font-size: 15px;
+    position: absolute;
+   
+    right: 0px;
+    top: 38px;
+    color: #b89b7b;
+    font-size: 15px;
 }
 
 .form-row textarea {
-  resize: vertical;
-  min-height: 90px;
-  padding-left: 14px;
+    resize: vertical;
+    min-height: 90px;
+    padding-left: 14px;
 }
 
 .form-row.two-cols {
-  display: flex;
-  gap: 18px;
+    display: flex;
+    gap: 18px;
 }
+.form-row.two-cols > div {
+    flex: 1;
+}
+
+
 
 /* === Upload === */
 .form-row input[type="file"] {
-  border: 2px dashed #d7c3a8;
-  background: #fdf9f4;
-  cursor: pointer;
-  padding-left: 14px;
+    border: 2px dashed #d7c3a8;
+    background: #fdf9f4;
+    cursor: pointer;
+    padding-left: 14px;
 }
 
 .form-row input[type="file"]:hover {
-  border-color: #c19a6b;
-  background-color: #fffaf4;
+    border-color: #c19a6b;
+    background-color: #fffaf4;
 }
 
 /* === Nút hành động === */
 .actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
 }
 
 .btn {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-weight: 600;
 }
 
 .btn.secondary {
-  background: #f6f1e9;
-  color: #5A3E2B;
-  border: 1px solid #e0d5c3;
-  text-decoration: none;
+    background: #f6f1e9;
+    color: #5A3E2B;
+    border: 1px solid #e0d5c3;
+    text-decoration: none;
 }
 
 .btn.secondary:hover {
-  background: #efe4d4;
+    background: #efe4d4;
 }
 
 .btn.deleteRow {
-  background: linear-gradient(135deg, #6F4E37, #5A3E2B);
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(90, 62, 43, 0.3);
+    background: linear-gradient(135deg, #6F4E37, #5A3E2B);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(90, 62, 43, 0.3);
 }
 
 .btn.deleteRow:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #5A3E2B, #4a2f1f);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #5A3E2B, #4a2f1f);
 }
 
 /* === Animation === */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* === Responsive === */
 @media (max-width: 600px) {
-  .main-content {
-    padding: 28px;
-  }
-  .form-row.two-cols {
-    flex-direction: column;
-  }
-  .form-row i {
-    top: 35px;
-  }
+    .main-content {
+        padding: 28px;
+    }
+
+    .form-row.two-cols {
+        flex-direction: column;
+    }
+
+    .form-row i {
+        top: 35px;
+    }
 }
+.section-box {
+    border: 1.5px solid #e5d9cc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 28px;
+    background: #faf7f2;
+}
+
+.section-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #5A3E2B;
+    margin-bottom: 15px;
+    letter-spacing: 0.8px;
+}
+/* Màu Sắc */
+.add-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.add-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1.5px solid #d5c5b8;
+    border-radius: 10px;
+}
+
+.add-btn, .remove-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.add-btn {
+    background: #4a2f1f;
+    color: white;
+}
+
+.remove-btn {
+    background: #f94343;
+    color: white;
+}
+/* Kích thước */
+.size-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.size-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1.5px solid #d5c5b8;
+    border-radius: 10px;
+}
+
+.add-size, .remove-size {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.add-size {
+    background: #4a2f1f;
+    color: white;
+}
+
+.remove-size {
+    background: #f94343;
+    color: white;
+}
+/* Giá */
+.price-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.price-group input {
+    padding: 10px;
+    border: 1.5px solid #d5c5b8;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.add-price, .remove-price {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.add-price {
+    background: #4a2f1f;
+    color: white;
+}
+
+.remove-price {
+    background: #f94343;
+    color: white;
+}
+
+
+
+.date-row {
+    display: flex;
+    gap: 20px;
+}
+
+.submit-wrapper {
+    width: 100%;
+    text-align: right;
+}
+
+.submit-btn {
+    background: #d2a34c;
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background: #9a7737;
+}
+/* Danh Mục */
+
+
+.multi-select-btn {
+    background: #fffdf8;
+    padding: 12px 14px;
+    border: 1.5px solid #d5c5b8;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+}
+.multi-select-btn.active {
+    border-color: #C19A6B;
+    box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.25);
+}
+
+
+.multi-select {
+    position: relative;
+}
+
+.multi-select-dropdown {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 110%;
+    left: 0;
+    background: white;
+    padding: 10px 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    border: 1px solid #010101;
+    z-index: 50;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 4px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.option-item:hover {
+    background: #646363;
+    color: #fff;
+}
+
+.option-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+/* Ảnh */
+#preview-box {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+#preview-box img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1.5px solid #e2d2bf;
+    padding: 4px;
+    background: #fffdf8;
+}
+.preview-item {
+    position: relative;
+    width: 100%;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1.5px solid #e2d2bf;
+    padding: 4px;
+    background: #fffdf8;
+}
+
+.remove-img-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+#add-url-btn {
+    padding: 10px 16px;
+    background-color: #C19A6B;   /* màu nâu gold nhẹ */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s ease;
+    margin-left: 8px;
+}
+
+#add-url-btn:hover {
+    background-color: #a57f52;
+    box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.25);
+}
+
+#add-url-btn:active {
+    transform: scale(0.95);
+}
+
 
