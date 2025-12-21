@@ -2,147 +2,312 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noble Loft Theory - Add Products</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/addproducts.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noble Loft Theory - Add Products</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/addProducts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
 <body>
-  <!-- === SIDEBAR === -->
-  <div class="sidebar" id="sidebar">
-    <div class="logo">
-      <a href="dashboard.html">Noble Loft Theory</a>
-    </div>
-    <ul>
-      <li>
-        <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
-      </li>
-      <li class="active">
-        <a href="products.html"><i class="fas fa-box"></i> Sản phẩm</a>
-      </li>
-      <li>
-        <a href="orders.html"><i class="fas fa-cart-shopping"></i> Đơn hàng</a>
-      </li>
-      <li>
-        <a href="customers.html"><i class="fas fa-users"></i> Khách hàng</a>
-      </li>
-      <li>
-        <a href="notifi.html"><i class="fas fa-bell"></i> Thông báo</a>
-      </li>
-      <li>
-        <a href="account.html"><i class="fas fa-gear"></i> Tài khoản</a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- === HEADER === -->
-  <header class="header">
-    <div class="header-left">
-      <div class="search-container">
-        <i class="fa-solid fa-magnifying-glass" style="color: #74512d;"></i>
-        <input type="text" placeholder="Tìm kiếm" class="search-input" />
-      </div>
-    </div>
-
-    <div class="header-right">
-      <!-- Nút thông báo -->
-      <div class="notify-wrapper">
-        <a href="notifi.html" class="icon-button">
-          <i class="fa-solid fa-bell"></i>
-          <span id="notifyCount" class="notify-badge">3</span>
-        </a>
-      </div>
-
-      <!-- Hồ sơ người dùng -->
-      <div class="profile-dropdown">
-        <button class="icon-button user-btn">
-          <i class="fa-solid fa-user"></i>
-        </button>
-
-        <div class="dropdown-menu">
-          <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
-          <a href="index.html"><i class="fas fa-right-from-bracket"></i> Đăng xuất</a>
+    <!-- === SIDEBAR === -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <a href="dashboard.html">Noble Loft Theory</a>
         </div>
-      </div>
+        <ul>
+            <li>
+                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+            </li>
+            <li class="active">
+                <a href="products.html"><i class="fas fa-box"></i> Sản phẩm</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-cart-shopping"></i> Đơn hàng</a>
+            </li>
+            <li>
+                <a href="customers.html"><i class="fas fa-users"></i> Khách hàng</a>
+            </li>
+            <li>
+                <a href="notifi.html"><i class="fas fa-bell"></i> Thông báo</a>
+            </li>
+            <li>
+                <a href="account.html"><i class="fas fa-gear"></i> Tài khoản</a>
+            </li>
+        </ul>
     </div>
-  </header>
-  <!-- === ADD PRODUCTS === -->
-  <div class="main-content">
-    <!-- ===== BREADCRUMB / TIẾN TRÌNH ===== -->
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <div class="header-left">
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass" style="color: #74512d;"></i>
+                <input type="text" placeholder="Tìm kiếm" class="search-input" />
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Nút thông báo -->
+            <div class="notify-wrapper">
+                <a href="notifi.html" class="icon-button">
+                    <i class="fa-solid fa-bell"></i>
+                    <span id="notifyCount" class="notify-badge">3</span>
+                </a>
+            </div>
+
+            <!-- Hồ sơ người dùng -->
+            <div class="profile-dropdown">
+                <button class="icon-button user-btn">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
+                    <a href="index.html"><i class="fas fa-right-from-bracket"></i> Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- === ADD PRODUCTS === -->
+    <div class="main-content">
+        <!-- ===== BREADCRUMB / TIẾN TRÌNH ===== -->
         <div class="breadcrumb">
             <a href="products.html">Sản phẩm</a> &#47;
-            <span class="current">Thêm sản phẩm mới</span>
+             <span class="current" id="breadcrumbTitle">Thêm sản phẩm mới</span>
 
         </div>
-    <div class="addProducts">
-    <h2 style="color:#5A3E2B;margin-bottom:20px;">Thêm sản phẩm mới</h2>
-    <form action="products.html" method="get" enctype="multipart/form-data">
-      <div class="form-row">
-        <label for="name"><i class="fa-solid fa-tag"></i> Tên sản phẩm</label>
-        <input type="text" id="name" name="name" required placeholder="Nhập tên sản phẩm..." />
-      </div>
+        <div class="addProducts">
+            <h2 id="pageTitle" style="color:#5A3E2B;margin-bottom:20px;">
+                Thêm sản phẩm mới
+            </h2>
 
-      <div class="form-row two-cols">
-        <div>
-          <label for="category"><i class="fa-solid fa-layer-group"></i> Loại sản phẩm</label>
-          <input type="text" id="category" name="category" placeholder="VD: Bàn, Ghế..." />
-        </div>
-        <div>
-          <label for="size"><i class="fa-solid fa-ruler-combined"></i> Kích thước</label>
-          <input type="text" id="size" name="size" />
-        </div>
-      </div>
+                <form id="productForm">
 
-      <div class="form-row two-cols">
-        <div>
-          <label for="price">Giá (₫)</label>
-          <input type="number" id="price" name="price" required />
-        </div>
-        <div>
-          <label for="discount">Giá khuyến mãi (₫)</label>
-          <input type="number" id="discount" name="discount" />
-        </div>
-      </div>
 
-      <div class="form-row two-cols">
-        <div>
-          <label for="stock">Số lượng</label>
-          <input type="number" id="stock" name="stock" required />
+        <!-- ========== THÔNG TIN CHUNG ========== -->
+        <div class="section-box">
+            <h3>THÔNG TIN CHUNG</h3>
+            <div class="form-row two-cols">
+                <div>
+                    <label>Mã sản phẩm</label>
+                    <div class="form-row description-row">
+                        <input id="productId" type="text">
+                    </div>
+                </div>
+
+                <div>
+                    <label>Tên sản phẩm</label>
+                    <div class="form-row description-row">
+                        <input id="productName" type="text">
+                    </div>
+                </div>
+            </div>    
+            <div class="form-row two-cols">
+                <div class="multi-select">
+                    <label>Danh mục</label>
+                    <div class="multi-select-btn" id="msBtn">
+                        <span id="msText">Chọn danh mục</span>
+                       
+                    </div>
+
+                    <div class="multi-select-dropdown" id="msDropdown">
+                        <label class="option-item">
+                            <input type="checkbox" value="Phòng khách">
+                            <span>Phòng khách</span>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" value="Phòng bếp">
+                            <span>Phòng bếp</span>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" value="Phòng ngủ">
+                            <span>Phòng ngủ</span>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" value="Ban Công">
+                            <span>Ban Công</span>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" value="Phòng Làm Việc">
+                            <span>Phòng Làm Việc</span>
+                        </label>
+                        
+                    </div>
+                    
+                </div>
+
+
+                <div>
+                    <label>Loại</label>
+                    <select id="type" name="type">
+                        <option value="">Chọn loại</option>
+                        <option value="Cây">Cây</option>
+                        <option value="Hoa">Hoa</option>
+                        <option value="Đèn">Đèn</option>
+                        <option value="Tượng & Phụ kiện">Tượng & Phụ kiện</option>
+                        <option value="Đồng hồ">Đồng hồ</option>
+                        <option value="Tranh">Tranh</option>
+                        <option value="Gương">Gương</option>
+                        <option value="Nến & Tinh dầu">Nến & Tinh dầu</option>
+                        <option value="Bình & Lọ hoa">Bình & Lọ hoa</option>
+                        <option value="Chăn & Gối">Chăn & Gối</option>
+                        <option value="Kệ & Giá đỡ mini">Kệ & Giá đỡ mini</option>
+                        <option value="Bàn decor">Bàn decor</option>
+                        <option value="Ghế decor">Ghế decor</option>
+                    </select>
+                </div>
+                    
+            </div>
+
         </div>
-        <div>
-          <label for="tag">Tag</label>
-          <select id="tag" name="tag">
-            <option value="">Không có</option>
-            <option value="New">New</option>
-            <option value="Hot">Hot</option>
-            <option value="Sale">Sale</option>
-          </select>
+
+        <!-- ========== BIẾN THỂ ========== -->
+        <div class="section-box">
+            <h3>BIẾN THỂ</h3>
+
+            <div class="form-row two-cols">
+                <div>
+                    <label>Phong cách</label>
+                    <div class="form-row description-row">
+                        <input type="text" placeholder="Phong cách...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row two-cols">
+                <!--Chất Liệu-->
+                <div>
+                    <label>Chất Liệu</label>
+                    <div class="form-row description-row">
+                        <input type="text" placeholder="Chất Liệu...">
+                    </div>
+                </div>
+                <!--Màu Sắc-->
+                <div>
+                    <label>Màu sắc</label>
+                    <div id="color-wrapper">
+                        <div class="add-group color-item">
+                            <input type="text" placeholder="Nhập màu...">
+                            <button type="button" class="remove-btn">-</button>
+                            <button type="button" class="add-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row two-cols">
+                <!--Giá-->
+                <div>
+                    <label>Giá</label>
+                    <div id="price-wrapper">
+                        <div class="price-group">
+                            <input class="price-input" type="number">
+                            <button type="button" class="remove-price">-</button>
+                            <button type="button" class="add-price">+</button>
+                        </div>
+                    </div>
+                </div>
+                <!--Kích Thước-->
+                <div>
+                        <label>Kích thước</label>
+                        <div id="size-wrapper">
+                            <div class="size-group">
+                                <input type="text" placeholder="Nhập Kích Thước...">
+                                <button type="button" class="remove-size">-</button>
+                                <button type="button" class="add-size">+</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="form-row two-cols">
+                <!--Số Lượng-->
+                <div>
+                    <label>Số Lượng</label>
+                    <div class="add-group">
+                        <input id="quantity" type="number" placeholder="Số lượng...">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row description-row">
+                <div>
+                    <label>Ảnh</label>
+
+                    <!-- Upload file -->
+                    <div class="add-group">
+                        <input type="file" id="image-input" accept="image/*" multiple>
+                    </div>
+
+                    <!-- Nhập link ảnh -->
+                    <div class="add-group" style="margin-top:10px; display:flex; gap:10px;">
+                        <input type="text" id="image-url" placeholder="Dán link ảnh...">
+                        <button type="button" id="add-url-btn">Thêm</button>
+                    </div>
+
+                    <!-- Preview -->
+                    <div id="preview-box"></div>
+                </div>
+            </div>
+
         </div>
-      </div>
 
-      <div class="form-row">
-        <label for="description">Mô tả</label>
-        <textarea id="description" name="description" rows="3" placeholder="Mô tả ngắn gọn..."></textarea>
-      </div>
+        <!-- ========== GIẢM GIÁ ========== -->
+        <div class="section-box">
+            <h3>GIẢM GIÁ</h3>
+            <div class="form-row two-cols">
+                <div>
+                    <label>Tên</label>
+                    <div class="form-row description-row">
+                        <input type="text" placeholder="Tên chương trình giảm giá">
+                    </div>
+                </div>
+            </div>
 
-      <div class="form-row">
-        <label for="image">Ảnh sản phẩm</label>
-        <input type="file" id="image" name="image" accept="image/*" />
-      </div>
+            <div class="form-row two-cols">
+                <div>
+                    <label>Phần trăm</label>
+                    <input type="number" id="salePercent" placeholder="%">
 
-      <div class="actions">
-        <a href="products.html" class="btn secondary">Hủy</a>
-        <button type="submit" class="btn deleteRow">Lưu</button>
-      </div>
+                </div>
+
+                <div class="date-row">
+                    <div>
+                        <label>Ngày Bắt Đầu</label>
+                        <input type="date">
+                    </div>
+                    <div>
+                        <label>Ngày Kết Thúc</label>
+                        <input type="date">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row description-row">
+                <label>Mô tả</label>
+                <textarea rows="6"></textarea>
+            </div>
+        </div>
+
+        <!-- ====== NÚT XÁC NHẬN ====== -->
+        <div class="submit-wrapper">
+            <button type="submit" class="submit-btn">XÁC NHẬN</button>
+
+        </div>
+
     </form>
-    </div>
-  </div>
 
-  <script src="js/main.js"></script>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/addProducts.js"></script>
 </body>
 
 </html>
