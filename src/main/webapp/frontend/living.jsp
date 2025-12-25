@@ -1,81 +1,75 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phòng khách</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/living.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/frontend/css/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/frontend/css/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/frontend/css/living.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
-    <!-- === HEADER === -->
-    <header class="header">
-        <div class="header-top">
-            <div class="logo">
-                <img src="https://i.postimg.cc/5t4yq9qJ/logo-ltw.jpg" alt="Logo">
-                <span><a href="home.jsp">Noble Loft Theory</a></span>
-            </div>
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Tìm kiếm">
-            </div>
-            <div class="header-right">
-                <a href="tracking.jsp">Tra cứu đơn hàng</a>
-                <a href="gioithieu.jsp">Giới thiệu</a>
-                <a href="contact.jsp">Liên hệ</a>
-                <div class="icons">
-                    <a href="cart.jsp" class="circle"><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href="account.jsp" class="circle"><i class="fa-solid fa-user"></i></a>
-                </div>
-            </div>
+<!-- === HEADER === -->
+<header class="header">
+    <div class="header-top">
+        <div class="logo">
+            <img src="https://i.postimg.cc/5t4yq9qJ/logo-ltw.jpg" alt="Logo">
+            <span>
+                <a href="${pageContext.request.contextPath}/home.jsp">
+                    Noble Loft Theory
+                </a>
+            </span>
         </div>
 
-        <nav class="menu">
-            <a href="home.jsp" class="">Trang chủ</a>
-            <a href="living.jsp" class="active">Phòng khách</a>
-            <a href="kitchen.jsp" class="">Phòng bếp</a>
-            <a href="bedroom.jsp" class="">Phòng ngủ</a>
-            <a href="office.jsp" class="">Phòng làm việc</a>
-            <a href="balcony.jsp" class="">Ban Công</a>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Tìm kiếm">
+        </div>
 
-            <div class="dropdown">
-                <a href="decor.jsp">Decor <i class="fa-solid fa-chevron-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="decor.jsp">Cây</a>
-                    <a href="decor.jsp">Hoa</a>
-                    <a href="decor.jsp">Đèn</a>
-                    <a href="decor.jsp">Tượng & Phụ kiện</a>
-                    <a href="decor.jsp">Đồng hồ</a>
-                    <a href="decor.jsp">Tranh</a>
-                    <a href="decor.jsp">Gương</a>
-                    <a href="decor.jsp">Nến & Tinh dầu</a>
-                    <a href="decor.jsp">Bình & Lọ hoa</a>
-                    <a href="decor.jsp">Chăn & Gối</a>
-                    <a href="decor.jsp">Kệ & Giá đỡ mini</a>
-                    <a href="decor.jsp">Bàn decor</a>
-                    <a href="decor.jsp">Ghế decor</a>
-                </div>
+        <div class="header-right">
+            <a href="${pageContext.request.contextPath}/tracking.jsp">Tra cứu đơn hàng</a>
+            <a href="${pageContext.request.contextPath}/gioithieu.jsp">Giới thiệu</a>
+            <a href="${pageContext.request.contextPath}/contact.jsp">Liên hệ</a>
+            <div class="icons">
+                <a href="${pageContext.request.contextPath}/cart.jsp" class="circle">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+                <a href="${pageContext.request.contextPath}/account.jsp" class="circle">
+                    <i class="fa-solid fa-user"></i>
+                </a>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
 
+    <nav class="menu">
+        <a href="${pageContext.request.contextPath}/home.jsp">Trang chủ</a>
 
-    <!-- === BREADCRUMB (ĐƯỜNG DẪN TRANG) === -->
-    <nav class="breadcrumb">
-        <a href="home.jsp">Trang chủ</a> &#47;
-        <span class="current">Phòng khách</span>
+        <a href="${pageContext.request.contextPath}/list-product"
+           class="active">Phòng khách</a>
+
+        <a href="${pageContext.request.contextPath}/kitchen.jsp">Phòng bếp</a>
+        <a href="${pageContext.request.contextPath}/bedroom.jsp">Phòng ngủ</a>
+        <a href="${pageContext.request.contextPath}/office.jsp">Phòng làm việc</a>
+        <a href="${pageContext.request.contextPath}/balcony.jsp">Ban Công</a>
     </nav>
+</header>
 
+<!-- === BREADCRUMB === -->
+<nav class="breadcrumb">
+    <a href="${pageContext.request.contextPath}/home.jsp">Trang chủ</a> &#47;
+    <span class="current">Phòng khách</span>
+</nav>
 
-    <div class="container">
-
-        <!-- === BỘ LỌC TÌM KIẾM === -->
+<div class="container">
+    <!-- === SIDEBAR === -->
+    <form action="${pageContext.request.contextPath}/list-product" method="get">
         <aside class="sidebar" id="filter-sidebar">
             <h3>Bộ lọc tìm kiếm</h3>
 
@@ -154,340 +148,135 @@
                 </div>
             </div>
 
+            <button type="submit" class="filter-btn">Áp dụng</button>
         </aside>
+    </form>
 
-        <!-- === SẢN PHẨM === -->
-        <main>
-            <div class="sort">
-                <!-- === BỘ LỌC SP === -->
-                <div class="category-header">
-                    <h2 id="categoryName">Danh mục: Tất cả sản phẩm</h2>
+
+    <!-- === MAIN === -->
+    <main>
+        <div class="sort">
+            <div class="category-header">
+                <h2 id="categoryName">Danh mục: Tất cả sản phẩm</h2>
+            </div>
+            <div class="sortProducts">
+                <label for="sortProducts">Sắp xếp: </label>
+                <select id="sortProducts">
+                    <option value="default">Mặc định</option>
+                    <option value="price-asc">Giá tăng dần</option>
+                    <option value="price-desc">Giá giảm dần</option>
+                    <option value="stock-asc">Tồn kho ít → nhiều</option>
+                    <option value="stock-desc">Tồn kho nhiều → ít</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- === DANH SÁCH SẢN PHẨM === -->
+        <div class="product-list" id="productList">
+            <c:if test="${empty products}">
+                <p>Không có sản phẩm</p>
+            </c:if>
+
+            <c:forEach var="p" items="${products}">
+                <a href="${pageContext.request.contextPath}/frontend/products?id=${p.id}" class="product">
+                    <div class="img"
+                         style="background-image: url('${p.imageUrl}');">
+                    </div>
+                    <h4>${p.productName}</h4>
+                    <!-- TAGS -->
+                    <div class="tags">
+                        <span class="tag">${p.categoryName}</span>
+                        <span class="tag">${p.productTypeName}</span>
+                    </div>
+
+                    <div class="price-cart">
+                        <div class="price-box">
+                            <span class="price"><fmt:formatNumber value="${p.price}" type="number" groupingUsed="true"/>₫</span>
+                        </div>
+                    </div>
+                </a>
+            </c:forEach>
+        </div>
+        <!-- PHÂN TRANG -->
+        <div id="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+        </div>
+    </main>
+</div>
+
+<!-- === FOOTER === -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-columns">
+            <!-- Cột 1: Giới thiệu -->
+            <div class="footer-col">
+                <h3>Giới thiệu</h3>
+                <p>Chào mừng bạn đến với <strong>Noble Loft Theory</strong> — không gian dành cho những ai yêu thích
+                    cái đẹp và nghệ thuật trang trí nội thất.</p>
+                <p>Chúng tôi mang đến các sản phẩm decor trang trí nhà với phong cách hiện đại, tối giản nhưng vẫn
+                    giữ được sự tinh tế trong từng chi tiết.</p>
+
+            </div>
+
+            <!-- Cột 2: Liên kết -->
+            <div class="footer-col">
+                <h3>Liên kết</h3>
+                <ul>
+                    <li><a>Chính sách đổi trả hoàn hàng</a></li>
+                    <li><a>Chính sách bảo mật mật khẩu</a></li>
+                    <li><a>Hướng dẫn mua hàng, sản phẩm</a></li>
+                    <li><a>Chính sách kiểm hàng hóa vận chuyển</a></li>
+                    <li><a>Chính sách giao hàng tận nơi</a></li>
+                    <li><a>Hướng dẫn thanh toán đơn hàng</a></li>
+                </ul>
+
+            </div>
+
+            <!-- Cột 3: Thông tin liên hệ -->
+            <div class="footer-col">
+                <h3>Thông tin liên hệ</h3>
+                <p><i class="fa fa-map-marker"></i>Khu phố 33, P.Linh Xuân, TP.HCM</p>
+                <p><i class="fa fa-map-marker"></i> Đại học Nông Lâm TP.Hồ Chí Minh</p>
+                <p><i class="fa fa-phone"></i> Liên hệ: 03751841444 - 03381776315 </p>
+
+                <p><i class="fa fa-envelope"></i> <a
+                        href="mailto:NLT@noblelofttheory.com">NLT@noblelofttheory.com</a></p>
+            </div>
+
+
+            <!-- Cột 4: Fanpage -->
+            <div class="footer-col">
+                <h3>Fanpage</h3>
+                <div class="fanpage-box">
+                    <p>Liên hệ ngay trang chủ của shop Noble Loft Theory.</p>
+                    <p>Nếu bạn đang có thắc mắc gì ở sản phẩm.</p>
+                    <p>Fanpage, Youtube và Instagram.</p>
+
+
+                    <div class="social-box">
+                        <div class="social-icons">
+                            <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
+                            <a href="https://www.facebook.com/share/1HP5fZGNqb/?mibextid=wwXIfr">
+                                <i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/nltnoblelofttheory/">
+                                <i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/channel/UC931-4vCWPGos5fSNQ8Rh-g">
+                                <i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="sortProducts">
-                    <label for="sortProducts">Sắp xếp: </label>
-                    <select id="sortProducts">
-                        <option value="default">Mặc định</option>
-                        <option value="price-asc">Giá tăng dần</option>
-                        <option value="price-desc">Giá giảm dần</option>
-                        <option value="stock-asc">Tồn kho ít → nhiều</option>
-                        <option value="stock-desc">Tồn kho nhiều → ít</option>
-                    </select>
-                </div>
             </div>
-
-            <!-- === DANH SÁCH SẢN PHẨM === -->
-            <div class="product-list" id="productList">
-
-                <!-- ====== SẢN PHẨM 1 ====== -->
-                <a href="detail.jsp" class="product">
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m14zw7atgqred4');">
-                    </div>
-                    <h4>Cây Thiên trúc giả - Cây trang trí nhà cửa</h4>
-                    <div class="tags">
-                        <span>Cây</span>
-                        <span>Tối giản</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">1.500.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 2 ====== -->
-                <a href="detail.jsp" class="product">
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/b3b9a2b44ee657ddc47ed8b134f990b0.webp');">
-                    </div>
-                    <h4>Hoa Lan Hồ Điệp - Tặng Kèm Sỏi Trắng- Hoa Lụa Decor Cao Cấp</h4>
-                    <div class="tags">
-                        <span>Hoa</span>
-                        <span>Cao cấp</span>
-                        <span>Sang trọng</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">570.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 3 ====== -->
-                <a href="detail.jsp" class="product">
-                    <span class="discount">-25%</span>
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lo1skjyjpey555.webp');">
-                    </div>
-                    <h4>Đèn chùm pha lê 15 tay LED XANH chao đá đúc màu vàng, Đèn chùm phòng khách đẹp tặng bóng led
-                    </h4>
-                    <div class="tags">
-                        <span>Đèn</span>
-                        <span>Cổ điển</span>
-                        <span>Sang trọng</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">1.500.000₫</span>
-                            <span class="old-price">2.000.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 4 ====== -->
-                <a href="detail.jsp" class="product">
-                    <span class="discount">-10%</span>
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lxuxn7hg9nfd1f.webp');">
-                    </div>
-                    <h4> Tượng Tỳ Hưu Mini Phong Thủy Chiêu Tài Hút Lộc</h4>
-                    <div class="tags">
-                        <span>Tượng</span>
-                        <span>Cổ điển</span>
-                        <span>Sang trọng</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">450.000₫</span>
-                            <span class="old-price">500.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 5 ====== -->
-                <a href="detail.jsp" class="product">
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m98v689d8j1qc4.webp');">
-                    </div>
-                    <h4>Tranh Tráng Gương 3D Hoa Hướng Dương</h4>
-                    <div class="tags">
-                        <span>Tranh</span>
-                        <span>Sang trọng</span>
-                        <span>Thanh lịch</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">672.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 6 ====== -->
-                <a href="detail.jsp" class="product">
-                    <span class="discount">-25%</span>
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/sg-11134201-7rdww-m0byn0wu6vda84.webp');">
-                    </div>
-                    <h4>Đồng Hồ Tráng Gương Hươu Tài Lộc</h4>
-                    <div class="tags">
-                        <span>Trang trí</span>
-                        <span>Hiện đại</span>
-                        <span>Sang trọng</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">190.000₫</span>
-                            <span class="old-price">250.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 7 ====== -->
-                <a href="detail.jsp" class="product">
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/13bc145ec98b5026230cd796d5d48b28.webp');">
-                    </div>
-                    <h4>Sách Giả mô hình cao cấp hiện đại cổ điển trang trí decor</h4>
-                    <div class="tags">
-                        <span>Phụ kiện</span>
-                        <span>Cổ điển</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">148.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 8 ====== -->
-                <a href="detail.jsp" class="product">
-                    <span class="discount">-25%</span>
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/sg-11134201-22120-ji1b27brhukvac.webp');">
-                    </div>
-                    <h4>Tinh dầu thơm phòng hương trà CLASSIC BROWN</h4>
-                    <div class="tags">
-                        <span>Decor</span>
-                        <span>Nến thơm</span>
-                        <span>Tinh dầu</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">140.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 9 ====== -->
-                <a href="detail.jsp" class="product">
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mek6225m4q9x4c.webp');">
-                    </div>
-                    <h4>Nến thơm Soyam by Citta</h4>
-                    <div class="tags">
-                        <span>Decor</span>
-                        <span>Nến thơm</span>
-                        <span>Tinh dầu</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">185.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 10 ====== -->
-                <a href="detail.jsp" class="product">
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lniqqjsz3bzu6b.webp');">
-                    </div>
-                    <h4>Rèm NOREN, màn cửa 2 mảnh chân biên viền tua rua phong cách Nhật Bản</h4>
-                    <div class="tags">
-                        <span>Decor</span>
-                        <span>Rèm</span>
-                        <span>Canvas</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">118.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 11 ====== -->
-                <a href="detail.jsp" class="product">
-                    <span class="discount">-25%</span>
-                    <div class="img"
-                        style="background-image: url('https://product.hstatic.net/200000486527/product/img_4118_3465223127a34592a0671827a04680e8_master.jpg');">
-                    </div>
-                    <h4>Thảm trải sàn cao cấp Arcus phong cách Bắc Âu</h4>
-                    <div class="tags">
-                        <span>Decor</span>
-                        <span>Thảm</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">1.125.000₫</span>
-                            <span class="old-price">1.500.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ====== SẢN PHẨM 12 ====== -->
-                <a href="detail.jsp" class="product">
-                    <div class="img"
-                        style="background-image: url('https://down-vn.img.susercontent.com/file/sg-11134201-7rep6-m8rtmuruep5zf4.webp');">
-                    </div>
-                    <h4>Đồ chơi sang trọng dài tay ngôi sao dễ thương</h4>
-                    <div class="tags">
-                        <span>Gối</span>
-                    </div>
-                    <div class="price-cart">
-                        <div class="price-box">
-                            <span class="price">159.000₫</span>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-
-            <!-- PHÂN TRANG -->
-            <div id="pagination">
-                <button class="page-btn active">1</button>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
-            </div>
-        </main>
+        </div>
     </div>
 
-    <!-- NÚT LÊN ĐẦU TRANG -->
-    <button id="backToTop" title="Lên đầu trang">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
+    <div class="footer-bottom">
+        <p>Copyright © 2025 NLT Noble Loft Theory. Powered by NLT </p>
+    </div>
+    </div>
+</footer>
 
-    <!-- === FOOTER === -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-columns">
-                <!-- Cột 1: Giới thiệu -->
-                <div class="footer-col">
-                    <h3>Giới thiệu</h3>
-                    <p>Chào mừng bạn đến với <strong>Noble Loft Theory</strong> — không gian dành cho những ai yêu thích
-                        cái đẹp và nghệ thuật trang trí nội thất.</p>
-                    <p>Chúng tôi mang đến các sản phẩm decor trang trí nhà với phong cách hiện đại, tối giản nhưng vẫn
-                        giữ được sự tinh tế trong từng chi tiết.</p>
-
-                </div>
-
-                <!-- Cột 2: Liên kết -->
-                <div class="footer-col">
-                    <h3>Liên kết</h3>
-                    <ul>
-                        <li><a>Chính sách đổi trả hoàn hàng</a></li>
-                        <li><a>Chính sách bảo mật mật khẩu</a></li>
-                        <li><a>Hướng dẫn mua hàng, sản phẩm</a></li>
-                        <li><a>Chính sách kiểm hàng hóa vận chuyển</a></li>
-                        <li><a>Chính sách giao hàng tận nơi</a></li>
-                        <li><a>Hướng dẫn thanh toán đơn hàng</a></li>
-                    </ul>
-
-                </div>
-
-                <!-- Cột 3: Thông tin liên hệ -->
-                <div class="footer-col">
-                    <h3>Thông tin liên hệ</h3>
-                    <p><i class="fa fa-map-marker"></i>Khu phố 33, P.Linh Xuân, TP.HCM</p>
-                    <p><i class="fa fa-map-marker"></i> Đại học Nông Lâm TP.Hồ Chí Minh</p>
-                    <p><i class="fa fa-phone"></i> Liên hệ: 03751841444 - 03381776315 </p>
-
-                    <p><i class="fa fa-envelope"></i> <a
-                            href="mailto:NLT@noblelofttheory.com">NLT@noblelofttheory.com</a></p>
-                </div>
-
-
-                <!-- Cột 4: Fanpage -->
-                <div class="footer-col">
-                    <h3>Fanpage</h3>
-                    <div class="fanpage-box">
-                        <p>Liên hệ ngay trang chủ của shop Noble Loft Theory.</p>
-                        <p>Nếu bạn đang có thắc mắc gì ở sản phẩm.</p>
-                        <p>Fanpage, Youtube và Instagram.</p>
-
-
-                        <div class="social-box">
-                            <div class="social-icons">
-                                <!-- mấy cái # này là chưa có link liên kết nào có gắn v -->
-                                <a href="https://www.facebook.com/share/1HP5fZGNqb/?mibextid=wwXIfr">
-                                    <i class="fa-brands fa-facebook"></i></a>
-                                <a href="https://www.instagram.com/nltnoblelofttheory/">
-                                    <i class="fa-brands fa-instagram"></i></a>
-                                <a href="https://www.youtube.com/channel/UC931-4vCWPGos5fSNQ8Rh-g">
-                                    <i class="fa-brands fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>Copyright © 2025 NLT Noble Loft Theory. Powered by NLT </p>
-        </div>
-        </div>
-    </footer>
-
-    <script src="js/living.js"></script>
+<script src="${pageContext.request.contextPath}/frontend/js/living.js"></script>
 </body>
-
 </html>
