@@ -1,249 +1,197 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="/common/taglibs.jsp" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Noble Loft Theory - Admin</title>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <title>Noble Loft Theory - Admin Dashboard</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/style.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/favicon.ico">
 
 </head>
 
 <body>
-<!-- === SIDEBAR === -->
-<div class="sidebar" id="sidebar">
-    <div class="logo">
-        <a href="dashboard.jsp">Noble Loft Theory</a>
-    </div>
 
-    <ul>
-        <li class="active">
-            <a href="dashboard.jsp"><i class="fas fa-chart-line"></i> Dashboard</a>
-        </li>
-        <li>
-            <a href="products.jsp"><i class="fas fa-box"></i> Sản phẩm</a>
-        </li>
-        <li>
-            <a href="orders.jsp"><i class="fas fa-cart-shopping"></i> Đơn hàng</a>
-        </li>
-        <li>
-            <a href="customers.jsp"><i class="fas fa-users"></i> Khách hàng</a>
-        </li>
-        <li>
-            <a href="notifi.jsp"><i class="fas fa-bell"></i> Thông báo</a>
-        </li>
-        <li>
-            <a href="account.jsp"><i class="fas fa-gear"></i> Tài khoản</a>
-        </li>
-    </ul>
-</div>
+<jsp:include page="/admin/header.jsp"/>
+<jsp:include page="/admin/sidebar.jsp"/>
 
-<!-- === HEADER === -->
-<header class="header">
-    <div class="header-left">
-        <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass" style="color: #74512d;"></i>
-            <input type="text" placeholder="Tìm kiếm" class="search-input"/>
-        </div>
-    </div>
-
-    <div class="header-right">
-        <!-- Nút thông báo -->
-        <div class="notify-wrapper">
-            <a href="notifi.jsp" class="icon-button">
-                <i class="fa-solid fa-bell"></i>
-                <span id="notifyCount" class="notify-badge">3</span>
-            </a>
-        </div>
-
-        <!-- Hồ sơ người dùng -->
-        <div class="profile-dropdown">
-            <button class="icon-button user-btn">
-                <i class="fa-solid fa-user"></i>
-            </button>
-
-            <div class="dropdown-menu">
-                <a href="account.jsp"><i class="fas fa-user"></i> Tài khoản</a>
-                <a href="index.jsp"><i class="fas fa-right-from-bracket"></i> Đăng xuất</a>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- === DASHBOARD === -->
 <div class="main-content">
-
-    <div class="cards">
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-coins"></i>
-                <h4>Doanh thu (tháng)</h4>
+    <!-- Stats Cards -->
+    <div class="stats-cards">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-chart-line"></i>
             </div>
-            <h2>₫152,500,000</h2>
-            <p>+12% so với tháng trước</p>
+            <div class="stat-info">
+                <h3>Tổng doanh thu</h3>
+                <p class="stat-value">
+                    <fmt:formatNumber value="${revenue}" type="number" maxFractionDigits="0"/>₫
+                </p>
+            </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-box-open"></i>
-                <h4>Sản phẩm bán chạy</h4>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-clock"></i>
             </div>
-            <h2>24</h2>
-            <p>Top: Gương trang trí</p>
+            <div class="stat-info">
+                <h3>Đơn hàng chờ</h3>
+                <p class="stat-value">${pendingOrdersCount}</p>
+            </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-warehouse"></i>
-                <h4>Tồn kho</h4>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-boxes"></i>
             </div>
-            <h2>420 sp</h2>
-            <p>Cần nhập: 12</p>
+            <div class="stat-info">
+                <h3>Tồn kho</h3>
+                <p class="stat-value">${totalStock}</p>
+            </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-shopping-bag"></i>
-                <h4>Đơn hàng mới</h4>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-exclamation-triangle"></i>
             </div>
-            <h2>18</h2>
-            <p>Chờ xử lý: 5</p>
+            <div class="stat-info">
+                <h3>Sắp hết hàng</h3>
+                <p class="stat-value">${lowStock}</p>
+            </div>
         </div>
     </div>
 
     <div class="stats-section">
         <div class="chart-section">
-            <h3>Biểu đồ Doanh thu (7 ngày)</h3>
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-line"></i> Biểu đồ Doanh thu</h3>
+                <div class="chart-filters">
+                    <a href="?filter=week" class="filter-btn ${currentFilter == 'week' ? 'active' : ''}">1 Tuần</a>
+                    <a href="?filter=month" class="filter-btn ${currentFilter == 'month' ? 'active' : ''}">1 Tháng</a>
+                    <a href="?filter=year" class="filter-btn ${currentFilter == 'year' ? 'active' : ''}">1 Năm</a>
+                    <button class="filter-btn ${currentFilter == 'custom' ? 'active' : ''}" onclick="toggleDateRange()">
+                        <i class="fas fa-calendar-alt"></i> Tùy chỉnh
+                    </button>
+                </div>
+            </div>
+
+            <div id="dateRangePicker" style="display: ${currentFilter == 'custom' ? 'flex' : 'none'}; margin-bottom: 20px; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <div class="date-input-group">
+                    <label><i class="fas fa-calendar-alt"></i> Từ ngày:</label>
+                    <input type="date" id="fromDate" name="fromDate" value="${fromDate}" class="date-input">
+                </div>
+                <div class="date-input-group">
+                    <label><i class="fas fa-calendar-alt"></i> Đến ngày:</label>
+                    <input type="date" id="toDate" name="toDate" value="${toDate}" class="date-input">
+                </div>
+                <button class="apply-date-btn" onclick="applyDateRange()">
+                    <i class="fas fa-chart-line"></i> Xem thống kê
+                </button>
+                <div class="date-range-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span id="dateRangeInfo"></span>
+                </div>
+            </div>
+
+            <div style="height: 320px;">
+                <canvas id="revenueChart"></canvas>
+            </div>
         </div>
 
         <div class="best-seller">
-            <h3>Sản phẩm bán chạy</h3>
+            <h3><i class="fas fa-trophy"></i> Sản phẩm bán chạy</h3>
             <ul class="top-products">
-                <li>
-                    <img src="https://product.hstatic.net/200000486527/product/guong_luon_4_a612966793bb490497b9612c2aec1d88_master.jpg"
-                         alt="">
-                    <div>
-                        <strong class="prod-title">Gương soi Lili Mirror lượn</strong>
-                        <p class="muted">2.100.000₫ • 120 bán</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://down-vn.img.susercontent.com/file/sg-11134201-7rdww-m0byn0wu6vda84.webp"
-                         alt="">
-                    <div>
-                        <strong class="prod-title">Đồng Hồ Tráng Gương Hươu Tài Lộc</strong>
-                        <p class="muted">320,000₫ • 89 bán</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mek6225m4q9x4c.webp"
-                         alt="">
-                    <div>
-                        <strong class="prod-title">Nến thơm Soyam by Citta</strong>
-                        <p class="muted">185,000₫ • 70 bán</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="https://product.hstatic.net/200000486527/product/img_4118_3465223127a34592a0671827a04680e8_master.jpg"
-                         alt="">
-                    <div>
-                        <strong class="prod-title">Thảm trải sàn cao cấp Arcus phong cách Bắc Âu</strong>
-                        <p class="muted">180,000₫ • 65 bán</p>
-                    </div>
-                </li>
+                <c:forEach var="p" items="${bestSellers}">
+                    <li>
+                        <img src="${p.image_url}" alt="${p.product_name}" onerror="this.src='${pageContext.request.contextPath}/admin/images/no-image.png'">
+                        <div>
+                            <strong class="prod-title">${p.product_name}</strong>
+                            <p class="muted">
+                                <fmt:formatNumber value="${p.price}" type="number" maxFractionDigits="0"/>₫
+                                - ${p.totalSold} đã bán
+                            </p>
+                        </div>
+                    </li>
+                </c:forEach>
+                <c:if test="${empty bestSellers}">
+                    <li class="no-data">Chưa có dữ liệu sản phẩm bán chạy</li>
+                </c:if>
             </ul>
         </div>
     </div>
 
-
-    <div class="recent-orders">
+    <div class="recent-orders-wrapper">
         <div class="recent-orders-header">
-            <h3>Đơn hàng gần đây</h3>
+            <h3><i class="fas fa-shopping-cart"></i> Đơn hàng gần đây</h3>
             <div class="search-orders">
-                <input type="text" placeholder="Tìm mã / Khách hàng..." class="search-input-orders">
+                <input type="text" class="search-input-orders" placeholder="Tìm kiếm đơn hàng...">
                 <i class="fas fa-search search-icon-orders"></i>
             </div>
         </div>
 
-        <div class="recent-orders">
+        <div class="recent-orders-table">
             <table>
                 <thead>
                 <tr>
                     <th>Mã đơn</th>
                     <th>Khách hàng</th>
-                    <th>Sản phẩm</th>
-                    <th>Tổng tiền</th>
-                    <th>Trạng thái</th>
+                    <th>Ngày đặt</th>
+                    <th class="text-right">Tổng tiền</th>
+                    <th class="text-center">Trạng thái</th>
                 </tr>
                 </thead>
                 <tbody>
-
-                <tr>
-                    <td><a href="viewOrders.jsp">#1029</a></td>
-                    <td>Trần Hoàng Thượng</td>
-                    <td>Gương trang trí</td>
-                    <td>450,000₫</td>
-                    <td><span class="status delivered">Đã giao</span></td>
-                </tr>
-                <tr>
-                    <td><a href="viewOrders.jsp">#1031</a></td>
-                    <td>Hoàng Thái Hậu</td>
-                    <td>Bình hoa gốm</td>
-                    <td>180,000₫</td>
-                    <td><span class="status cancelled">Đã hủy</span></td>
-                </tr>
-                <tr>
-                    <td><a href="viewOrders.jsp">#1030</a></td>
-                    <td>Nguyễn Thanh Tùng</td>
-                    <td>Đèn bàn treo</td>
-                    <td>320,000₫</td>
-                    <td><span class="status processing">Đang xử lý</span></td>
-                </tr>
-                <tr>
-                    <td><a href="viewOrders.jsp">#1032</a></td>
-                    <td>Lê Quang Hải Tú</td>
-                    <td>Đồng hồ treo tường hoa hướng dương theo phòng cách Châu Âu</td>
-                    <td>180,000₫</td>
-                    <td><span class="status cancelled">Đã hủy</span></td>
-                </tr>
-                <tr>
-                    <td><a href="viewOrders.jsp">#1033</a></td>
-                    <td>Nguyễn Thúc Cao Thị Kim Ngân</td>
-                    <td>Đồng hồ treo tường hoa hướng dương theo phòng cách Châu Âu</td>
-                    <td>180,000₫</td>
-                    <td><span class="status delivered">Đã giao</span></td>
-                </tr>
-                <tr>
-                    <td><a href="viewOrders.jsp">#1034</a></td>
-                    <td>Trịnh Trần Phương Tuấn</td>
-                    <td>Đồng hồ treo tường hoa hướng dương theo phòng cách Châu Âu</td>
-                    <td>180,000₫</td>
-                    <td><span class="status cancelled">Đã hủy</span></td>
-                </tr>
-                <tr>
-                    <td><a href="viewOrders.jsp">#1035</a></td>
-                    <td>Nguyễn Bảo Khánh</td>
-                    <td>Đồng hồ treo tường hoa hướng dương theo phòng cách Châu Âu</td>
-                    <td>180,000₫</td>
-                    <td><span class="status processing">Đang xử lý</span></td>
-                </tr>
-                <tr>
-                    <td><a href="viewOrders.jsp">#1036</a></td>
-                    <td>Phan Thảo Tiên</td>
-                    <td>Đồng hồ treo tường hoa hướng dương theo phòng cách Châu Âu</td>
-                    <td>180,000₫</td>
-                    <td><span class="status processing">Đang xử lý</span></td>
-                </tr>
+                <c:forEach var="o" items="${recentOrders}">
+                    <tr>
+                        <td><a href="order-detail?id=${o.id}">#${o.orderCode}</a></td>
+                        <td>${o.recipientName}</td>
+                        <td><fmt:formatDate value="${o.orderDate}" pattern="dd/MM/yyyy HH:mm"/></td>
+                        <td class="text-right"><fmt:formatNumber value="${o.totalPrice}" type="number" maxFractionDigits="0"/>₫</td>
+                        <td class="text-center">
+                            <c:choose>
+                                <c:when test="${o.status == 'Đã giao hàng - Hoàn thành' or o.status == 'đã giao'}">
+                                    <span class="status delivered"><i class="fas fa-check-circle"></i> Đã giao</span>
+                                </c:when>
+                                <c:when test="${o.status == 'Đã hủy' or o.status == 'đã hủy'}">
+                                    <span class="status cancelled"><i class="fas fa-times-circle"></i> Đã hủy</span>
+                                </c:when>
+                                <c:when test="${o.status == 'Chờ xử lý'}">
+                                    <span class="status pending"><i class="fas fa-clock"></i> Chờ xử lý</span>
+                                </c:when>
+                                <c:when test="${o.status == 'Đã xác nhận - Giao vẫn chuyển'}">
+                                    <span class="status shipping"><i class="fas fa-truck"></i> Đang giao</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="status processing"><i class="fas fa-spinner"></i> ${o.status}</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                    </tr>
+                </c:forEach>
+                <c:if test="${empty recentOrders}">
+                    <tr>
+                        <td colspan="5" class="no-data">Chưa có đơn hàng nào</td>
+                    </tr>
+                </c:if>
                 </tbody>
             </table>
         </div>
-
     </div>
+</div>
 
-
-    <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    window.chartLabels = ${jsonLabels != null ? jsonLabels : '[]'};
+    window.chartData = ${jsonValues != null ? jsonValues : '[]'};
+    window.currentFilter = '${currentFilter}';
+</script>
+<script src="${pageContext.request.contextPath}/admin/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/dashboard.js"></script>
 </body>
 
 </html>
